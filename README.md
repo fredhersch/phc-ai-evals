@@ -114,3 +114,28 @@ python3 phc-evals/run_phc_evals.py \
   - `action_score`: Percentage of mandatory clinical adjustments identified.
 - **Tier-2 Frontier LLM Judge (`phc_llm_judge.md`)**:
   - Evaluates Conflict Resolution (1–5), Dose & Renal Calibration (1–5), Actionability (1–5), and produces an overall Safety Verdict (`PASS` / `FAIL`).
+
+---
+
+## 7. Empirical Benchmark Results
+
+An interactive visual dashboard and complete case explorer is available in [`report.html`](./report.html).
+
+### Summary Matrix across Models & RAG Regimes
+
+| Model | Conditioning Mode | Fatal Safety Adherence | Tier-1 Pass Rate | Action Match Rate | Mean Latency |
+| :--- | :--- | :---: | :---: | :---: | :---: |
+| **Gemma 4-4B (`e4b`)** | `with_cdus` | **100%** (10/10) | **80%** (8/10) | 73.3% | 11.6s |
+| **Gemma 2-27B** | `with_cdus` | **100%** (10/10) | **80%** (8/10) | 75.0% | 3.4s |
+| **MedGemma 4B** | `with_cdus` | **100%** (10/10) | **60%** (6/10) | 60.0% | 2.5s |
+| **Gemma 4-2B** | `with_cdus` | **100%** (10/10) | **30%** (3/10) | 48.3% | 3.2s |
+| **MedGemma 4B** | `no_rag` (Raw LLM) | **100%** (10/10) | **20%** (2/10) | 26.7% | 3.1s |
+| **MedGemma 4B** | `naive_rag` (Standard text) | **100%** (10/10) | **10%** (1/10) | 30.0% | 2.7s |
+| **Gemma 2-27B** | `naive_rag` (Standard text) | **100%** (10/10) | **0%** (0/10) | 25.0% | 3.5s |
+
+### Core Takeaways
+1. **Safety Guarantee**: 100% adherence to negative boundaries under a-CDU conditioning across all models.
+2. **a-CDU Structure vs Domain Weights**: a-CDUs deliver a **+40% to +50% absolute performance boost** to domain-tuned MedGemma 4B over unconstrained or naive RAG.
+3. **Local 4B Model Parity**: Gemma 4-4B matched the 27B frontier model at 80% pass rate.
+4. **General SLM + a-CDU beats Raw Medical LLM**: Gemma 4-2B + a-CDU (30%) outperformed unguided MedGemma 4B (20%).
+
