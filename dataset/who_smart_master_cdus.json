@@ -1,0 +1,211 @@
+[
+  {
+    "id": "CDU-WHO-SMART-ANC-01",
+    "topic": "Obstetric Triage & Emergency Danger Signs",
+    "domain": "maternal_primary_care",
+    "source_guideline": "WHO SMART Guidelines ANC / ANCDT01 (Danger Signs Triage)",
+    "priority_tier": 1,
+    "entry_criteria": "Pregnant woman presenting with severe headache, convulsions, vaginal bleeding, visual disturbances, or loss of consciousness",
+    "danger_signs": [
+      "Convulsing",
+      "Severe headache with visual disturbance",
+      "Heavy vaginal bleeding",
+      "Unconscious or lethargic"
+    ],
+    "mandated_actions": [
+      "Immediate emergency stabilization (maintain airway, left lateral tilt, IV access)",
+      "Evaluate for immediate Magnesium Sulfate if eclamptic or pre-eclamptic convulsions",
+      "Immediate emergency transfer to Comprehensive Emergency Obstetric Care (CEmONC) facility"
+    ],
+    "negative_boundaries": [
+      "\ud83d\uded1 NEVER delay emergency transfer for non-urgent routine antenatal profiling.",
+      "\ud83d\uded1 DO NOT administer oral sedatives (Diazepam) prior to airway protection and MgSO4 evaluation."
+    ],
+    "version": "1.0.0",
+    "certified": true
+  },
+  {
+    "id": "CDU-WHO-SMART-ANC-04",
+    "topic": "Severe Hypertension & Pre-Eclampsia Acute Protocol",
+    "domain": "maternal_primary_care",
+    "source_guideline": "WHO SMART Guidelines ANC / ANCDT04 & ANCDT17 (Severe Pre-Eclampsia)",
+    "priority_tier": 1,
+    "entry_criteria": "Pregnant female >= 20 weeks gestation with SBP >= 160 mmHg or DBP >= 110 mmHg, or BP >= 140/90 with 2+ proteinuria or headache",
+    "danger_signs": [
+      "Systolic BP >= 160 mmHg or Diastolic BP >= 110 mmHg",
+      "Proteinuria >= 2+ on dipstick",
+      "Epigastric pain or persistent visual scotomata"
+    ],
+    "mandated_actions": [
+      "Administer Magnesium Sulfate loading dose (4g IV over 15 min + 10g IM)",
+      "Initiate Oral Labetalol 200mg BD (or Methyldopa 250mg TDS / Nifedipine 10mg)",
+      "Urgent emergency transfer to CEmONC facility"
+    ],
+    "negative_boundaries": [
+      "\ud83d\uded1 STRICTLY PROHIBIT ACE-Inhibitors (Enalapril) and ARBs (Losartan) -> Severe fetotoxicity and fatal fetal renal dysgenesis.",
+      "\ud83d\uded1 NEVER administer Atenolol in pregnancy."
+    ],
+    "version": "1.0.0",
+    "certified": true
+  },
+  {
+    "id": "CDU-WHO-SMART-ANC-25",
+    "topic": "Maternal Anaemia & Elemental Iron Titration",
+    "domain": "maternal_primary_care",
+    "source_guideline": "WHO SMART Guidelines ANC / ANCDT25 (Anaemia Counselling & Management)",
+    "priority_tier": 2,
+    "entry_criteria": "Pregnant woman with Hb < 110 g/L (1st/3rd trimester) or Hb < 105 g/L (2nd trimester) or severe clinical pallor",
+    "danger_signs": [
+      "Severe anaemia with Hb < 70 g/L",
+      "Signs of cardiac failure or severe dyspnea"
+    ],
+    "mandated_actions": [
+      "Double elemental Iron therapy to 120mg daily + Folic Acid 400mcg daily",
+      "Co-treat underlying parasitic infection (deworming after 1st trimester; malaria test)",
+      "Recheck Hb in 4 weeks"
+    ],
+    "negative_boundaries": [
+      "\ud83d\uded1 DO NOT take oral iron concurrently with tea, coffee, or calcium (separate by 2 hours).",
+      "\ud83d\uded1 If Hb < 70 g/L, DO NOT manage at Level 1 dispensary -> Urgent hospital referral for parenteral iron or transfusion."
+    ],
+    "version": "1.0.0",
+    "certified": true
+  },
+  {
+    "id": "CDU-WHO-SMART-ANC-27",
+    "topic": "Pre-Eclampsia Prevention via Low-Dose Aspirin",
+    "domain": "maternal_primary_care",
+    "source_guideline": "WHO SMART Guidelines ANC / ANCDT27 (Pre-Eclampsia Risk Stratification)",
+    "priority_tier": 2,
+    "entry_criteria": "Pregnant woman >= 12 weeks gestation with high pre-eclampsia risk (prior pre-eclampsia, chronic HTN, diabetes, or twins)",
+    "danger_signs": [
+      "New hypertension >= 140/90 after 20 weeks gestation"
+    ],
+    "mandated_actions": [
+      "Initiate Low-Dose Aspirin (75-150mg daily) starting at 12-20 weeks gestation until delivery",
+      "Co-prescribe Calcium carbonate 1.5-2.0g daily in low dietary calcium populations"
+    ],
+    "negative_boundaries": [
+      "\ud83d\uded1 DO NOT initiate Low-Dose Aspirin prior to 12 weeks gestation.",
+      "\ud83d\uded1 DO NOT prescribe full-dose Aspirin (>300mg) or systemic NSAIDs in pregnancy (premature ductus arteriosus closure)."
+    ],
+    "version": "1.0.0",
+    "certified": true
+  },
+  {
+    "id": "CDU-WHO-SMART-ANC-38",
+    "topic": "Malaria Chemoprevention (IPTp-SP) vs Co-Trimoxazole Collision",
+    "domain": "maternal_primary_care",
+    "source_guideline": "WHO SMART Guidelines ANC / ANCDT38 (Malaria Prophylaxis)",
+    "priority_tier": 1,
+    "entry_criteria": "Pregnant woman in malaria-endemic setting attending antenatal care from 2nd trimester (>=13 weeks)",
+    "danger_signs": [
+      "Fever, rigors, positive malaria rapid test"
+    ],
+    "mandated_actions": [
+      "Administer Sulfadoxine-Pyrimethamine (IPTp-SP: 3 tablets stat) under DOT at each monthly visit starting in 2nd trimester",
+      "Screen concurrent medications at every antenatal contact"
+    ],
+    "negative_boundaries": [
+      "\ud83d\uded1 ABSOLUTE CONTRAINDICATION: DO NOT give IPTp-SP if mother takes daily Co-trimoxazole for HIV -> Severe antifolate toxicity and Stevens-Johnson syndrome.",
+      "\ud83d\uded1 DO NOT give IPTp-SP in first trimester (<13 weeks)."
+    ],
+    "version": "1.0.0",
+    "certified": true
+  },
+  {
+    "id": "CDU-WHO-SMART-IMMZ-POLIO-01",
+    "topic": "Poliovirus: Live bOPV vs Inactivated IPV Contraindications",
+    "domain": "child_immunization",
+    "source_guideline": "WHO SMART Immunizations / IMMZD5DTPolioContraindicationsLogic",
+    "priority_tier": 1,
+    "entry_criteria": "Infant or child presenting for routine poliovirus vaccination (bOPV or IPV)",
+    "danger_signs": [
+      "Severe immunocompromised status (symptomatic HIV, primary immunodeficiency)",
+      "Anaphylaxis history to neomycin, streptomycin, or polymyxin B"
+    ],
+    "mandated_actions": [
+      "Screen immune status prior to oral polio (bOPV) administration",
+      "Substitute oral live bOPV with Inactivated Polio Vaccine (IPV) if severely immunocompromised",
+      "Record vaccine formulation administered in child health card"
+    ],
+    "negative_boundaries": [
+      "\ud83d\uded1 STRICT CONTRAINDICATION: DO NOT give live bOPV to severely immunocompromised infants -> High risk of VAPP.",
+      "\ud83d\uded1 DO NOT vaccinate with IPV if history of anaphylaxis to streptomycin, neomycin, or polymyxin B."
+    ],
+    "version": "1.0.0",
+    "certified": true
+  },
+  {
+    "id": "CDU-WHO-SMART-IMMZ-ROTA-01",
+    "topic": "Rotavirus: Intussusception & Immunodeficiency Boundaries",
+    "domain": "child_immunization",
+    "source_guideline": "WHO SMART Immunizations / IMMZD5DTRotavirusContraindicationsLogic",
+    "priority_tier": 1,
+    "entry_criteria": "Infant presenting for routine Rotavirus vaccine schedule (6 and 10 weeks)",
+    "danger_signs": [
+      "Prior history of intussusception or bowel obstruction",
+      "Severe Combined Immunodeficiency (SCID) or symptomatic immunodeficiency",
+      "Acute severe vomiting, diarrhea, or acute febrile illness"
+    ],
+    "mandated_actions": [
+      "Screen infant for past intussusception or bowel abnormalities",
+      "Confirm immune competence prior to oral live rotavirus vaccine administration",
+      "Temporarily defer rotavirus administration during acute gastroenteritis"
+    ],
+    "negative_boundaries": [
+      "\ud83d\uded1 ABSOLUTE CONTRAINDICATION: DO NOT give Rotavirus vaccine if infant has prior history of intussusception.",
+      "\ud83d\uded1 ABSOLUTE CONTRAINDICATION: DO NOT give Rotavirus vaccine in infants with SCID or severe immunodeficiency."
+    ],
+    "version": "1.0.0",
+    "certified": true
+  },
+  {
+    "id": "CDU-WHO-SMART-IMMZ-BCG-01",
+    "topic": "BCG: Immunodeficiency & Maternal HIV Exposure Safety",
+    "domain": "child_immunization",
+    "source_guideline": "WHO SMART Immunizations / IMMZD5DTBCGContraindicationsLogic",
+    "priority_tier": 1,
+    "entry_criteria": "Newborn or infant eligible for BCG tuberculosis vaccination",
+    "danger_signs": [
+      "Confirmed symptomatic HIV or severe congenital immunodeficiency",
+      "Systemic immunosuppressive therapy in infant or late pregnancy",
+      "Active systemic illness, generalized lymphadenopathy, or failure to thrive"
+    ],
+    "mandated_actions": [
+      "Screen maternal HIV status and infant clinical HIV staging prior to BCG",
+      "Give BCG at birth to asymptomatic HIV-exposed infants with early virological testing",
+      "Withhold BCG in infants with symptomatic HIV until confirmed immune reconstitution on ART"
+    ],
+    "negative_boundaries": [
+      "\ud83d\uded1 ABSOLUTE CONTRAINDICATION: DO NOT give BCG if infant has symptomatic HIV or immunodeficiency -> Risk of fatal disseminated BCGitis.",
+      "\ud83d\uded1 DO NOT vaccinate with BCG during pregnancy or in infants under 1 year on immunosuppressants."
+    ],
+    "version": "1.0.0",
+    "certified": true
+  },
+  {
+    "id": "CDU-WHO-SMART-IMMZ-MEASLES-01",
+    "topic": "Measles Live Vaccine: Severe Immunosuppression Safety",
+    "domain": "child_immunization",
+    "source_guideline": "WHO SMART Immunizations / IMMZD5DTMeaslesContraindicationsLogic",
+    "priority_tier": 1,
+    "entry_criteria": "Child eligible for routine Measles/MR vaccine (9 and 15-18 months)",
+    "danger_signs": [
+      "Severe immunosuppression (advanced HIV/AIDS Stage 3-4, leukaemia, lymphoma)",
+      "History of severe anaphylactic reaction to neomycin or gelatin",
+      "Pregnancy"
+    ],
+    "mandated_actions": [
+      "Screen child for severe immunosuppressive disease or chemotherapy",
+      "Administer measles vaccine to HIV-infected children who are NOT severely immunosuppressed",
+      "Administer 0.5 mL subcutaneously once clearance confirmed"
+    ],
+    "negative_boundaries": [
+      "\ud83d\uded1 ABSOLUTE CONTRAINDICATION: DO NOT give live Measles vaccine to severely immunosuppressed individuals (Stage 4 HIV, low CD4%).",
+      "\ud83d\uded1 CONTRAINDICATION: DO NOT vaccinate pregnant women or individuals with severe anaphylaxis to neomycin or gelatin."
+    ],
+    "version": "1.0.0",
+    "certified": true
+  }
+]

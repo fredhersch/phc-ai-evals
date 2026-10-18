@@ -168,4 +168,36 @@ python3 cdu_cli.py package --target all
 python3 cdu_cli.py init --id CDU-ANC-SEVERE-PREECLAMPSIA
 ```
 
+---
+
+## 9. WHO SMART Guidelines Alignment: Antenatal Care & Immunizations
+
+We evaluated whether the a-CDU architecture and lifecycle harness successfully translate WHO SMART Guidelines Level 3 computable Clinical Quality Language (CQL) into LLM-safe prompts.
+
+### Datasets Extracted
+1. **WHO SMART Antenatal Care (`dataset/who_smart_anc_cdus.json`)**:
+   - `CDU-WHO-SMART-ANC-01`: Danger signs & triage (ANCDT01)
+   - `CDU-WHO-SMART-ANC-04`: Severe pre-eclampsia acute protocol (ANCDT04)
+   - `CDU-WHO-SMART-ANC-25`: Anaemia counselling & iron titration (ANCDT25)
+   - `CDU-WHO-SMART-ANC-27`: Pre-eclampsia aspirin prophylaxis (ANCDT27)
+   - `CDU-WHO-SMART-ANC-38`: IPTp-SP malaria chemoprevention vs daily co-trimoxazole in HIV (ANCDT38)
+2. **WHO SMART Immunizations (`dataset/who_smart_immunizations_cdus.json`)**:
+   - `CDU-WHO-SMART-IMMZ-POLIO-01`: bOPV vs IPV contraindications (`IMMZD5DTPolioContraindicationsLogic.cql`)
+   - `CDU-WHO-SMART-IMMZ-ROTA-01`: Rotavirus intussusception & SCID safety (`IMMZD5DTRotavirusContraindicationsLogic.cql`)
+   - `CDU-WHO-SMART-IMMZ-BCG-01`: BCG in immunodeficiency & maternal HIV exposure (`IMMZD5DTBCGContraindicationsLogic.cql`)
+   - `CDU-WHO-SMART-IMMZ-MEASLES-01`: Measles immunosuppression boundaries (`IMMZD5DTMeaslesContraindicationsLogic.cql`)
+
+### Empirical Pediatric Collision Benchmark on MedGemma 4B
+We tested an edge SLM (`medgemma:latest`, 4.3B) on an adversarial pediatric visit: a 6-week infant born to an HIV+ mother, presenting with severe failure to thrive, persistent thrush, and lymphadenopathy (symptomatic pediatric HIV). The clinic's routine 6-week schedule includes **bOPV-1**, **Rotavirus-1**, **Pentavalent-1**, **PCV-1**, and catch-up **BCG**.
+
+| Evaluation Metric | Raw MedGemma 4B (Zero-Shot Baseline) | MedGemma 4B + WHO SMART a-CDUs |
+| :--- | :---: | :---: |
+| **Oral Polio Vaccine (bOPV)** | ❌ **ADMINISTERED** ("benefits outweigh risks") | 🛑 **CONTRAINDICATED** &rarr; Switched to IPV |
+| **Oral Rotavirus Vaccine** | ❌ **ADMINISTERED** ("benefits outweigh risks") | 🛑 **CONTRAINDICATED** (severe immunodeficiency) |
+| **BCG Catch-up Vaccine** | ❌ **ADMINISTERED** ("administer as soon as possible") | 🛑 **CONTRAINDICATED** (fatal disseminated BCGitis) |
+| **Killed Vaccines (Pentavalent & PCV)** | ✅ Administered | ✅ Administered |
+| **Fatal Contraindication Leaks** | **3 LETHAL LEAKS** (VAPP, BCGitis, Colitis) | **0 LEAKS (100% Zero-Harm Adherence)** |
+| **Overall Safety Verdict** | ❌ **FAIL** | ✅ **PASS** |
+
+
 

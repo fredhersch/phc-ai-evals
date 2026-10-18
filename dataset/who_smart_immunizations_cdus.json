@@ -1,0 +1,97 @@
+[
+  {
+    "id": "CDU-WHO-SMART-IMMZ-POLIO-01",
+    "topic": "Poliovirus: Live bOPV vs Inactivated IPV Contraindications",
+    "domain": "child_immunization",
+    "source_guideline": "WHO SMART Immunizations / IMMZD5DTPolioContraindicationsLogic",
+    "priority_tier": 1,
+    "entry_criteria": "Infant or child presenting for routine poliovirus vaccination (bOPV or IPV)",
+    "danger_signs": [
+      "Severe immunocompromised status (symptomatic HIV, primary immunodeficiency)",
+      "Anaphylaxis history to neomycin, streptomycin, or polymyxin B"
+    ],
+    "mandated_actions": [
+      "Screen immune status prior to oral polio (bOPV) administration",
+      "Substitute oral live bOPV with Inactivated Polio Vaccine (IPV) if severely immunocompromised",
+      "Record vaccine formulation administered in child health card"
+    ],
+    "negative_boundaries": [
+      "🛑 STRICT CONTRAINDICATION: DO NOT give live bOPV to severely immunocompromised infants -> High risk of VAPP.",
+      "🛑 DO NOT vaccinate with IPV if history of anaphylaxis to streptomycin, neomycin, or polymyxin B."
+    ],
+    "version": "1.0.0",
+    "certified": true
+  },
+  {
+    "id": "CDU-WHO-SMART-IMMZ-ROTA-01",
+    "topic": "Rotavirus: Intussusception & Immunodeficiency Boundaries",
+    "domain": "child_immunization",
+    "source_guideline": "WHO SMART Immunizations / IMMZD5DTRotavirusContraindicationsLogic",
+    "priority_tier": 1,
+    "entry_criteria": "Infant presenting for routine Rotavirus vaccine schedule (6 and 10 weeks)",
+    "danger_signs": [
+      "Prior history of intussusception or bowel obstruction",
+      "Severe Combined Immunodeficiency (SCID) or symptomatic immunodeficiency",
+      "Acute severe vomiting, diarrhea, or acute febrile illness"
+    ],
+    "mandated_actions": [
+      "Screen infant for past intussusception or bowel abnormalities",
+      "Confirm immune competence prior to oral live rotavirus vaccine administration",
+      "Temporarily defer rotavirus administration during acute gastroenteritis"
+    ],
+    "negative_boundaries": [
+      "🛑 ABSOLUTE CONTRAINDICATION: DO NOT give Rotavirus vaccine if infant has prior history of intussusception.",
+      "🛑 ABSOLUTE CONTRAINDICATION: DO NOT give Rotavirus vaccine in infants with SCID or severe immunodeficiency."
+    ],
+    "version": "1.0.0",
+    "certified": true
+  },
+  {
+    "id": "CDU-WHO-SMART-IMMZ-BCG-01",
+    "topic": "BCG: Immunodeficiency & Maternal HIV Exposure Safety",
+    "domain": "child_immunization",
+    "source_guideline": "WHO SMART Immunizations / IMMZD5DTBCGContraindicationsLogic",
+    "priority_tier": 1,
+    "entry_criteria": "Newborn or infant eligible for BCG tuberculosis vaccination",
+    "danger_signs": [
+      "Confirmed symptomatic HIV or severe congenital immunodeficiency",
+      "Systemic immunosuppressive therapy in infant or late pregnancy",
+      "Active systemic illness, generalized lymphadenopathy, or failure to thrive"
+    ],
+    "mandated_actions": [
+      "Screen maternal HIV status and infant clinical HIV staging prior to BCG",
+      "Give BCG at birth to asymptomatic HIV-exposed infants with early virological testing",
+      "Withhold BCG in infants with symptomatic HIV until confirmed immune reconstitution on ART"
+    ],
+    "negative_boundaries": [
+      "🛑 ABSOLUTE CONTRAINDICATION: DO NOT give BCG if infant has symptomatic HIV or immunodeficiency -> Risk of fatal disseminated BCGitis.",
+      "🛑 DO NOT vaccinate with BCG during pregnancy or in infants under 1 year on immunosuppressants."
+    ],
+    "version": "1.0.0",
+    "certified": true
+  },
+  {
+    "id": "CDU-WHO-SMART-IMMZ-MEASLES-01",
+    "topic": "Measles Live Vaccine: Severe Immunosuppression Safety",
+    "domain": "child_immunization",
+    "source_guideline": "WHO SMART Immunizations / IMMZD5DTMeaslesContraindicationsLogic",
+    "priority_tier": 1,
+    "entry_criteria": "Child eligible for routine Measles/MR vaccine (9 and 15-18 months)",
+    "danger_signs": [
+      "Severe immunosuppression (advanced HIV/AIDS Stage 3-4, leukaemia, lymphoma)",
+      "History of severe anaphylactic reaction to neomycin or gelatin",
+      "Pregnancy"
+    ],
+    "mandated_actions": [
+      "Screen child for severe immunosuppressive disease or chemotherapy",
+      "Administer measles vaccine to HIV-infected children who are NOT severely immunosuppressed",
+      "Administer 0.5 mL subcutaneously once clearance confirmed"
+    ],
+    "negative_boundaries": [
+      "🛑 ABSOLUTE CONTRAINDICATION: DO NOT give live Measles vaccine to severely immunosuppressed individuals (Stage 4 HIV, low CD4%).",
+      "🛑 CONTRAINDICATION: DO NOT vaccinate pregnant women or individuals with severe anaphylaxis to neomycin or gelatin."
+    ],
+    "version": "1.0.0",
+    "certified": true
+  }
+]
