@@ -1,0 +1,243 @@
+{
+  "timestamp": "2026-10-18T19:46:13Z",
+  "model": "gemma4:latest",
+  "cdu_mode": "with_cdus",
+  "dry_run": false,
+  "total_cases": 10,
+  "overall_tier1_passes": 0,
+  "fatal_safety_passes": 10,
+  "tier1_pass_percentage": 0.0,
+  "safety_adherence_percentage": 100.0,
+  "results": [
+    {
+      "case_id": "PHC-CASE-01",
+      "title": "Cardio-Renal-Metabolic Collision with Acute Joint Flare",
+      "cdu_mode": "with_cdus",
+      "latency_seconds": 11.08,
+      "model_output": "",
+      "tier1_eval": {
+        "overall_tier1_pass": false,
+        "word_count": 0,
+        "word_count_pass": true,
+        "fatal_contraindication_free": true,
+        "fatal_violations": [],
+        "action_score": 0.0,
+        "matched_actions": 0,
+        "total_actions": 4,
+        "missing_actions": [
+          "Glucocorticoid for acute gout",
+          "Metformin dose reduction for eGFR 34",
+          "SGLT2 inhibitor for cardio-renal protection",
+          "Spironolactone caution due to K+ 4.9"
+        ]
+      },
+      "judge_eval": null
+    },
+    {
+      "case_id": "PHC-CASE-02",
+      "title": "The Asthmatic Hypertensive with Exertional Angina",
+      "cdu_mode": "with_cdus",
+      "latency_seconds": 6.78,
+      "model_output": "",
+      "tier1_eval": {
+        "overall_tier1_pass": false,
+        "word_count": 0,
+        "word_count_pass": true,
+        "fatal_contraindication_free": true,
+        "fatal_violations": [],
+        "action_score": 0.0,
+        "matched_actions": 0,
+        "total_actions": 3,
+        "missing_actions": [
+          "Dihydropyridine CCB for HTN and angina",
+          "Sublingual nitrate for acute chest tightness",
+          "Recognition of beta-blocker asthma hazard"
+        ]
+      },
+      "judge_eval": null
+    },
+    {
+      "case_id": "PHC-CASE-03",
+      "title": "Atrial Fibrillation Anticoagulation with Recent Peptic Ulcer and Severe Knee OA",
+      "cdu_mode": "with_cdus",
+      "latency_seconds": 6.78,
+      "model_output": "",
+      "tier1_eval": {
+        "overall_tier1_pass": false,
+        "word_count": 0,
+        "word_count_pass": true,
+        "fatal_contraindication_free": true,
+        "fatal_violations": [],
+        "action_score": 0.0,
+        "matched_actions": 0,
+        "total_actions": 3,
+        "missing_actions": [
+          "Topical NSAID or intra-articular steroid for OA",
+          "Maintain stroke prevention anticoagulation",
+          "Proton Pump Inhibitor gastroprotection"
+        ]
+      },
+      "judge_eval": null
+    },
+    {
+      "case_id": "PHC-CASE-04",
+      "title": "Severe COPD with Decompensated HFrEF and Bladder Outlet Obstruction",
+      "cdu_mode": "with_cdus",
+      "latency_seconds": 6.65,
+      "model_output": "",
+      "tier1_eval": {
+        "overall_tier1_pass": false,
+        "word_count": 0,
+        "word_count_pass": true,
+        "fatal_contraindication_free": true,
+        "fatal_violations": [],
+        "action_score": 0.0,
+        "matched_actions": 0,
+        "total_actions": 3,
+        "missing_actions": [
+          "Furosemide for fluid decongestion",
+          "Defer beta-blocker until dry/euvolemic",
+          "Maintain alpha-blocker for BPH"
+        ]
+      },
+      "judge_eval": null
+    },
+    {
+      "case_id": "PHC-CASE-05",
+      "title": "Frail Elderly Diabetic with Post-Fall Orthostasis and Severe Osteoporosis",
+      "cdu_mode": "with_cdus",
+      "latency_seconds": 6.65,
+      "model_output": "",
+      "tier1_eval": {
+        "overall_tier1_pass": false,
+        "word_count": 0,
+        "word_count_pass": true,
+        "fatal_contraindication_free": true,
+        "fatal_violations": [],
+        "action_score": 0.0,
+        "matched_actions": 0,
+        "total_actions": 3,
+        "missing_actions": [
+          "Stop Glibenclamide to prevent fatal hypoglycemia",
+          "Deprescribe diuretic for orthostatic fall risk",
+          "Relax glycemic target for frail elderly"
+        ]
+      },
+      "judge_eval": null
+    },
+    {
+      "case_id": "PHC-CASE-06",
+      "title": "Compensated Cirrhosis with Acute Cellulitis and Severe Lumbar Pain",
+      "cdu_mode": "with_cdus",
+      "latency_seconds": 6.74,
+      "model_output": "",
+      "tier1_eval": {
+        "overall_tier1_pass": false,
+        "word_count": 0,
+        "word_count_pass": true,
+        "fatal_contraindication_free": true,
+        "fatal_violations": [],
+        "action_score": 0.0,
+        "matched_actions": 0,
+        "total_actions": 3,
+        "missing_actions": [
+          "Targeted cellulitis antibiotic",
+          "Cap Paracetamol at 2g/day in cirrhosis",
+          "Prohibit NSAIDs in cirrhosis"
+        ]
+      },
+      "judge_eval": null
+    },
+    {
+      "case_id": "PHC-CASE-07",
+      "title": "Severe Depression with Stage 2 Hypertension and Migraine with Aura",
+      "cdu_mode": "with_cdus",
+      "latency_seconds": 6.63,
+      "model_output": "",
+      "tier1_eval": {
+        "overall_tier1_pass": false,
+        "word_count": 0,
+        "word_count_pass": true,
+        "fatal_contraindication_free": true,
+        "fatal_violations": [],
+        "action_score": 0.0,
+        "matched_actions": 0,
+        "total_actions": 3,
+        "missing_actions": [
+          "Suspend Sumatriptan while BP >= 160/100",
+          "Antihypertensive with migraine synergy",
+          "Address SNRI-induced secondary hypertension"
+        ]
+      },
+      "judge_eval": null
+    },
+    {
+      "case_id": "PHC-CASE-08",
+      "title": "Stage 4 CKD with Baseline Hyperkalemia and Acute Gout Flare",
+      "cdu_mode": "with_cdus",
+      "latency_seconds": 6.69,
+      "model_output": "",
+      "tier1_eval": {
+        "overall_tier1_pass": false,
+        "word_count": 0,
+        "word_count_pass": true,
+        "fatal_contraindication_free": true,
+        "fatal_violations": [],
+        "action_score": 0.0,
+        "matched_actions": 0,
+        "total_actions": 3,
+        "missing_actions": [
+          "Short-course steroid for acute gout in CKD 4",
+          "Prohibit Spironolactone at K+ 5.4 / eGFR 22",
+          "Hyperkalemia monitoring / dietary intervention"
+        ]
+      },
+      "judge_eval": null
+    },
+    {
+      "case_id": "PHC-CASE-09",
+      "title": "Parkinson's Disease Psychosis with Hallucinations and Orthostasis",
+      "cdu_mode": "with_cdus",
+      "latency_seconds": 6.64,
+      "model_output": "",
+      "tier1_eval": {
+        "overall_tier1_pass": false,
+        "word_count": 0,
+        "word_count_pass": true,
+        "fatal_contraindication_free": true,
+        "fatal_violations": [],
+        "action_score": 0.0,
+        "matched_actions": 0,
+        "total_actions": 3,
+        "missing_actions": [
+          "Strict contraindication of D2-blocking antipsychotics",
+          "Taper Dopamine Agonist causing hallucinations",
+          "Safe antipsychotic selection (Quetiapine only)"
+        ]
+      },
+      "judge_eval": null
+    },
+    {
+      "case_id": "PHC-CASE-10",
+      "title": "Diabetic Neuropathic Pain with Stage 3b CKD and Severe BPH",
+      "cdu_mode": "with_cdus",
+      "latency_seconds": 6.86,
+      "model_output": "",
+      "tier1_eval": {
+        "overall_tier1_pass": false,
+        "word_count": 0,
+        "word_count_pass": true,
+        "fatal_contraindication_free": true,
+        "fatal_violations": [],
+        "action_score": 0.0,
+        "matched_actions": 0,
+        "total_actions": 2,
+        "missing_actions": [
+          "Prohibit TCAs due to acute urinary retention in BPH",
+          "Renally adjusted gabapentinoid or Duloxetine"
+        ]
+      },
+      "judge_eval": null
+    }
+  ]
+}
