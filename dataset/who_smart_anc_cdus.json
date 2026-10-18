@@ -1,0 +1,116 @@
+[
+  {
+    "id": "CDU-WHO-SMART-ANC-01",
+    "topic": "Obstetric Triage & Emergency Danger Signs",
+    "domain": "maternal_primary_care",
+    "source_guideline": "WHO SMART Guidelines ANC / ANCDT01 (Danger Signs Triage)",
+    "priority_tier": 1,
+    "entry_criteria": "Pregnant woman presenting with severe headache, convulsions, vaginal bleeding, visual disturbances, or loss of consciousness",
+    "danger_signs": [
+      "Convulsing",
+      "Severe headache with visual disturbance",
+      "Heavy vaginal bleeding",
+      "Unconscious or lethargic"
+    ],
+    "mandated_actions": [
+      "Immediate emergency stabilization (maintain airway, left lateral tilt, IV access)",
+      "Evaluate for immediate Magnesium Sulfate if eclamptic or pre-eclamptic convulsions",
+      "Immediate emergency transfer to Comprehensive Emergency Obstetric Care (CEmONC) facility"
+    ],
+    "negative_boundaries": [
+      "🛑 NEVER delay emergency transfer for non-urgent routine antenatal profiling.",
+      "🛑 DO NOT administer oral sedatives (Diazepam) prior to airway protection and MgSO4 evaluation."
+    ],
+    "version": "1.0.0",
+    "certified": true
+  },
+  {
+    "id": "CDU-WHO-SMART-ANC-04",
+    "topic": "Severe Hypertension & Pre-Eclampsia Acute Protocol",
+    "domain": "maternal_primary_care",
+    "source_guideline": "WHO SMART Guidelines ANC / ANCDT04 & ANCDT17 (Severe Pre-Eclampsia)",
+    "priority_tier": 1,
+    "entry_criteria": "Pregnant female >= 20 weeks gestation with SBP >= 160 mmHg or DBP >= 110 mmHg, or BP >= 140/90 with 2+ proteinuria or headache",
+    "danger_signs": [
+      "Systolic BP >= 160 mmHg or Diastolic BP >= 110 mmHg",
+      "Proteinuria >= 2+ on dipstick",
+      "Epigastric pain or persistent visual scotomata"
+    ],
+    "mandated_actions": [
+      "Administer Magnesium Sulfate loading dose (4g IV over 15 min + 10g IM)",
+      "Initiate Oral Labetalol 200mg BD (or Methyldopa 250mg TDS / Nifedipine 10mg)",
+      "Urgent emergency transfer to CEmONC facility"
+    ],
+    "negative_boundaries": [
+      "🛑 STRICTLY PROHIBIT ACE-Inhibitors (Enalapril) and ARBs (Losartan) -> Severe fetotoxicity and fatal fetal renal dysgenesis.",
+      "🛑 NEVER administer Atenolol in pregnancy."
+    ],
+    "version": "1.0.0",
+    "certified": true
+  },
+  {
+    "id": "CDU-WHO-SMART-ANC-25",
+    "topic": "Maternal Anaemia & Elemental Iron Titration",
+    "domain": "maternal_primary_care",
+    "source_guideline": "WHO SMART Guidelines ANC / ANCDT25 (Anaemia Counselling & Management)",
+    "priority_tier": 2,
+    "entry_criteria": "Pregnant woman with Hb < 110 g/L (1st/3rd trimester) or Hb < 105 g/L (2nd trimester) or severe clinical pallor",
+    "danger_signs": [
+      "Severe anaemia with Hb < 70 g/L",
+      "Signs of cardiac failure or severe dyspnea"
+    ],
+    "mandated_actions": [
+      "Double elemental Iron therapy to 120mg daily + Folic Acid 400mcg daily",
+      "Co-treat underlying parasitic infection (deworming after 1st trimester; malaria test)",
+      "Recheck Hb in 4 weeks"
+    ],
+    "negative_boundaries": [
+      "🛑 DO NOT take oral iron concurrently with tea, coffee, or calcium (separate by 2 hours).",
+      "🛑 If Hb < 70 g/L, DO NOT manage at Level 1 dispensary -> Urgent hospital referral for parenteral iron or transfusion."
+    ],
+    "version": "1.0.0",
+    "certified": true
+  },
+  {
+    "id": "CDU-WHO-SMART-ANC-27",
+    "topic": "Pre-Eclampsia Prevention via Low-Dose Aspirin",
+    "domain": "maternal_primary_care",
+    "source_guideline": "WHO SMART Guidelines ANC / ANCDT27 (Pre-Eclampsia Risk Stratification)",
+    "priority_tier": 2,
+    "entry_criteria": "Pregnant woman >= 12 weeks gestation with high pre-eclampsia risk (prior pre-eclampsia, chronic HTN, diabetes, or twins)",
+    "danger_signs": [
+      "New hypertension >= 140/90 after 20 weeks gestation"
+    ],
+    "mandated_actions": [
+      "Initiate Low-Dose Aspirin (75-150mg daily) starting at 12-20 weeks gestation until delivery",
+      "Co-prescribe Calcium carbonate 1.5-2.0g daily in low dietary calcium populations"
+    ],
+    "negative_boundaries": [
+      "🛑 DO NOT initiate Low-Dose Aspirin prior to 12 weeks gestation.",
+      "🛑 DO NOT prescribe full-dose Aspirin (>300mg) or systemic NSAIDs in pregnancy (premature ductus arteriosus closure)."
+    ],
+    "version": "1.0.0",
+    "certified": true
+  },
+  {
+    "id": "CDU-WHO-SMART-ANC-38",
+    "topic": "Malaria Chemoprevention (IPTp-SP) vs Co-Trimoxazole Collision",
+    "domain": "maternal_primary_care",
+    "source_guideline": "WHO SMART Guidelines ANC / ANCDT38 (Malaria Prophylaxis)",
+    "priority_tier": 1,
+    "entry_criteria": "Pregnant woman in malaria-endemic setting attending antenatal care from 2nd trimester (>=13 weeks)",
+    "danger_signs": [
+      "Fever, rigors, positive malaria rapid test"
+    ],
+    "mandated_actions": [
+      "Administer Sulfadoxine-Pyrimethamine (IPTp-SP: 3 tablets stat) under DOT at each monthly visit starting in 2nd trimester",
+      "Screen concurrent medications at every antenatal contact"
+    ],
+    "negative_boundaries": [
+      "🛑 ABSOLUTE CONTRAINDICATION: DO NOT give IPTp-SP if mother takes daily Co-trimoxazole for HIV -> Severe antifolate toxicity and Stevens-Johnson syndrome.",
+      "🛑 DO NOT give IPTp-SP in first trimester (<13 weeks)."
+    ],
+    "version": "1.0.0",
+    "certified": true
+  }
+]
