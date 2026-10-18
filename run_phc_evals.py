@@ -24,6 +24,15 @@ DATASET_FILE = SCRIPT_DIR / "dataset" / "phc_multimorbidity_cases.json"
 PROMPT_TEMPLATE = SCRIPT_DIR / "prompts" / "phc_multimorbidity_prompt.md"
 JUDGE_TEMPLATE = SCRIPT_DIR / "judge_prompts" / "phc_llm_judge.md"
 
+# Auto-load .env if present
+_env_file = SCRIPT_DIR / ".env"
+if _env_file.exists():
+    for _line in _env_file.read_text(encoding="utf-8").splitlines():
+        _line = _line.strip()
+        if _line and not _line.startswith("#") and "=" in _line:
+            _k, _v = _line.split("=", 1)
+            os.environ.setdefault(_k.strip(), _v.strip())
+
 
 def load_dataset() -> List[Dict[str, Any]]:
     if not DATASET_FILE.exists():
@@ -63,7 +72,9 @@ def call_cloud_api(prompt: str, model: str, api_base: str, api_key: str, timeout
     url = f"{api_base.rstrip('/')}/chat/completions"
     headers = {
         "Content-Type": "application/json",
-        "Authorization": f"Bearer {api_key}"
+        "Authorization": f"Bearer {api_key}",
+        "HTTP-Referer": "https://github.com/fredhersch/phc-ai-evals",
+        "User-Agent": "PHC-AI-Evals/1.0"
     }
     payload = {
         "model": model,

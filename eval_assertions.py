@@ -22,7 +22,7 @@ def check_word_count(text: str, max_words: int = 180) -> Tuple[bool, int]:
     return count <= max_words, count
 
 
-def is_negated(match_start: int, match_end: int, text: str, window_chars: int = 140) -> bool:
+def is_negated(match_start: int, match_end: int, text: str, window_chars: int = 240) -> bool:
     """Checks if a matched contraindication term is preceded or followed by a negation or alternative qualifier."""
     start_lookback = max(0, match_start - window_chars)
     preceding_text = text[start_lookback:match_start].lower()
@@ -30,10 +30,10 @@ def is_negated(match_start: int, match_end: int, text: str, window_chars: int = 
         if re.search(r'\b' + re.escape(neg) + r'\b', preceding_text):
             return True
             
-    # Check forward lookahead for phrases like "NSAID alternative" or "NSAID substitute"
-    end_lookahead = min(len(text), match_end + 30)
+    # Check forward lookahead for phrases like "NSAID alternative", "Olanzapine). These are contraindicated", etc.
+    end_lookahead = min(len(text), match_end + 60)
     following_text = text[match_end:end_lookahead].lower()
-    for suff in ["alternative", "substitute", "free", "avoidance", "prohibition"]:
+    for suff in ["alternative", "substitute", "free", "avoidance", "prohibition", "contraindicated", "contraindication"]:
         if re.search(r'\b' + re.escape(suff) + r'\b', following_text):
             return True
             
