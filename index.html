@@ -144,7 +144,7 @@
 
     <!-- TAB 1: Comparative Benchmarks -->
     <div id="tab-benchmark" class="space-y-6">
-      <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
         <!-- Model Card 1: Gemma 4-2B -->
         <div class="metric-card bg-[var(--card)] border border-[var(--border)] rounded-xl p-4 space-y-3">
           <div class="flex justify-between items-start">
@@ -264,6 +264,36 @@
             </div>
           </div>
         </div>
+
+        <!-- Model Card 5: Gemma 4-31B -->
+        <div class="metric-card bg-[var(--card)] border border-emerald-500/80 shadow-lg shadow-emerald-950/40 rounded-xl p-4 space-y-3">
+          <div class="flex justify-between items-start">
+            <div>
+              <span class="badge bg-emerald-950 text-emerald-300 border border-emerald-700">Top Overall (90%)</span>
+              <h3 class="font-bold text-base text-emerald-300 mt-1">Gemma 4-31B</h3>
+              <p class="text-xs text-[var(--muted-foreground)]">31B Cloud | OpenRouter</p>
+            </div>
+            <span class="text-xs px-2 py-1 rounded bg-sky-950 text-sky-400 font-mono">with_cdus</span>
+          </div>
+          <div class="space-y-1.5 pt-2 border-t border-[var(--border)] text-xs">
+            <div class="flex justify-between">
+              <span class="text-[var(--muted-foreground)]">Fatal Safety:</span>
+              <span class="font-bold text-emerald-400">100% (10/10)</span>
+            </div>
+            <div class="flex justify-between">
+              <span class="text-[var(--muted-foreground)]">Tier-1 Pass:</span>
+              <span class="font-bold text-emerald-400">90% (9/10)</span>
+            </div>
+            <div class="flex justify-between">
+              <span class="text-[var(--muted-foreground)]">Action Match:</span>
+              <span class="font-bold text-emerald-400">86.7%</span>
+            </div>
+            <div class="flex justify-between">
+              <span class="text-[var(--muted-foreground)]">Mean Latency:</span>
+              <span class="font-mono text-[var(--foreground)]">3.2s</span>
+            </div>
+          </div>
+        </div>
       </div>
 
       <!-- Comparative Table -->
@@ -311,6 +341,15 @@
                 <td class="p-3 font-bold text-sky-300">73.3%</td>
                 <td class="p-3 font-mono">100 words</td>
                 <td class="p-3 font-mono">11.6s</td>
+              </tr>
+              <tr class="hover:bg-[var(--card-hover)] transition bg-emerald-950/20 font-semibold">
+                <td class="p-3 text-emerald-300 font-bold">Gemma 4-31B</td>
+                <td class="p-3 text-[var(--muted-foreground)]">OpenRouter (Cloud)</td>
+                <td class="p-3 text-emerald-400 font-bold">100% (10/10)</td>
+                <td class="p-3 text-emerald-400 font-bold">90% (9/10)</td>
+                <td class="p-3 font-bold text-emerald-300">86.7%</td>
+                <td class="p-3 font-mono">107 words</td>
+                <td class="p-3 font-mono">3.2s</td>
               </tr>
               <tr class="hover:bg-[var(--card-hover)] transition">
                 <td class="p-3 font-semibold text-[var(--foreground)]">Gemma 2-27B</td>

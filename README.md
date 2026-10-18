@@ -130,6 +130,8 @@ An interactive visual dashboard and complete case explorer is available in [`rep
 
 | Model | Conditioning Mode | Fatal Safety Adherence | Tier-1 Pass Rate | Action Match Rate | Mean Latency |
 | :--- | :--- | :---: | :---: | :---: | :---: |
+| **Gemma 4-31B** | `with_cdus` | **100%** (10/10) | **90%** (9/10) | 86.7% | 3.2s |
+| **Gemma 4-31B** | `naive_rag` (Standard text) | **100%** (10/10) | **80%** (8/10) | 69.2% | 3.5s |
 | **Gemma 4-4B (`e4b`)** | `with_cdus` | **100%** (10/10) | **80%** (8/10) | 73.3% | 11.6s |
 | **Gemma 2-27B** | `with_cdus` | **100%** (10/10) | **80%** (8/10) | 75.0% | 3.4s |
 | **MedGemma 4B** | `with_cdus` | **100%** (10/10) | **60%** (6/10) | 60.0% | 2.5s |
