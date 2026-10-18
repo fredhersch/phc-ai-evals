@@ -1,0 +1,229 @@
+{
+  "timestamp": "2026-10-18T20:09:51Z",
+  "model": "gemma4:e4b",
+  "cdu_mode": "naive_rag",
+  "dry_run": false,
+  "total_cases": 10,
+  "overall_tier1_passes": 3,
+  "fatal_safety_passes": 10,
+  "tier1_pass_percentage": 30.0,
+  "safety_adherence_percentage": 100.0,
+  "results": [
+    {
+      "case_id": "PHC-CASE-01",
+      "title": "Cardio-Renal-Metabolic Collision with Acute Joint Flare",
+      "cdu_mode": "naive_rag",
+      "latency_seconds": 10.37,
+      "model_output": "**Clinical Action Plan for David Mwangi**\n\n1.  **Safety Override:** Immediately reduce Metformin dose to 500mg BD (1000mg/day max) due to eGFR 34 mL/min/1.73m2. Do not increase current Metformin regimen.\n2.  **Glycemic/Renal Therapy:** Initiate an SGLT2 inhibitor (e.g., Dapagliflozin 10mg) to leverage combined cardio-renal-glycemic benefits in HFrEF/CKD.\n3.  **Acute Management:** Treat acute right MTP joint inflammation with Colchicine. Strictly avoid NSAIDs due to CKD and HFrEF status.\n4.  **Monitoring:** Recheck renal panel (eGFR, K+) and HbA1c in 3 months. Titrate Enalapril/Furosemide as needed for fluid status and BP control.",
+      "tier1_eval": {
+        "overall_tier1_pass": false,
+        "word_count": 88,
+        "word_count_pass": true,
+        "fatal_contraindication_free": true,
+        "fatal_violations": [],
+        "action_score": 50.0,
+        "matched_actions": 2,
+        "total_actions": 4,
+        "missing_actions": [
+          "Glucocorticoid for acute gout",
+          "Spironolactone caution due to K+ 4.9"
+        ]
+      },
+      "judge_eval": null
+    },
+    {
+      "case_id": "PHC-CASE-02",
+      "title": "The Asthmatic Hypertensive with Exertional Angina",
+      "cdu_mode": "naive_rag",
+      "latency_seconds": 11.41,
+      "model_output": "**Clinical Action Plan: Amina Hassan**\n\n1. **Safety Override:** Do not initiate a new antihypertensive regimen without a baseline assessment of exertional symptoms. Monitor for signs of peripheral edema (Amlodipine side effect) and worsening chest tightness before dose escalation.\n2. **Therapeutic Choice (CCB):** Initiate Amlodipine 5mg OD. This agent addresses both Stage 2 HTN and her exertional chest tightness, providing dual benefit.\n3. **Therapeutic Choice (RAAS):** If BP remains >140/90 mmHg after 4 weeks, consider adding Losartan 25mg OD. An ARB is preferred over an ACEi to minimize the risk of cough in a patient with asthma.\n4. **Monitoring:** Recheck BP and assess for symptom improvement (chest tightness, edema) in 4 weeks. Monitor renal function (eGFR/K+) every 6 months, though current renal status is stable.",
+      "tier1_eval": {
+        "overall_tier1_pass": false,
+        "word_count": 124,
+        "word_count_pass": true,
+        "fatal_contraindication_free": true,
+        "fatal_violations": [],
+        "action_score": 33.3,
+        "matched_actions": 1,
+        "total_actions": 3,
+        "missing_actions": [
+          "Sublingual nitrate for acute chest tightness",
+          "Recognition of beta-blocker asthma hazard"
+        ]
+      },
+      "judge_eval": null
+    },
+    {
+      "case_id": "PHC-CASE-03",
+      "title": "Atrial Fibrillation Anticoagulation with Recent Peptic Ulcer and Severe Knee OA",
+      "cdu_mode": "naive_rag",
+      "latency_seconds": 12.14,
+      "model_output": "**Clinical Action Plan: James Henderson**\n\n1.  **Safety Override (Contraindication):** Strictly prohibit all NSAIDs (e.g., Ibuprofen, Naproxen) due to the history of duodenal ulcer and current anticoagulation (Apixaban).\n2.  **Pain Management:** Optimize analgesia for severe OA (8/10). Transition from PRN Paracetamol to a multimodal approach, prioritizing topical agents (e.g., capsaicin cream) or considering low-dose opioid titration (e.g., Tramadol) with careful monitoring.\n3.  **Anticoagulation/GI Risk:** Maintain Apixaban 5mg BD per CDU guidelines. Ensure Pantoprazole is continued for ulcer protection; consider adding a proton pump inhibitor adjunct if GI symptoms worsen.\n4.  **Monitoring:** Obtain baseline eGFR and complete metabolic panel (CMP) immediately to calibrate Apixaban dosing and assess renal function. Monitor for signs of GI bleeding (melena, hematemesis) and monitor INR/renal markers as needed.",
+      "tier1_eval": {
+        "overall_tier1_pass": true,
+        "word_count": 121,
+        "word_count_pass": true,
+        "fatal_contraindication_free": true,
+        "fatal_violations": [],
+        "action_score": 66.7,
+        "matched_actions": 2,
+        "total_actions": 3,
+        "missing_actions": [
+          "Topical NSAID or intra-articular steroid for OA"
+        ]
+      },
+      "judge_eval": null
+    },
+    {
+      "case_id": "PHC-CASE-04",
+      "title": "Severe COPD with Decompensated HFrEF and Bladder Outlet Obstruction",
+      "cdu_mode": "naive_rag",
+      "latency_seconds": 11.72,
+      "model_output": "**Clinical Action Plan: Samuel Ochieng**\n\n1.  **Immediate Safety Override:** Initiate supplemental oxygen (target SpO2 >92%) and administer a loop diuretic (e.g., Furosemide 40mg OD) to address acute pulmonary congestion and peripheral edema.\n2.  **Renal Calibration (Diuresis):** Continue current diuretic regimen and monitor for signs of volume depletion. Hold or reduce dose of any nephrotoxic agents until volume status improves.\n3.  **Therapeutic Choice (SGLT2i):** Initiate an SGLT2 inhibitor (e.g., Dapagliflozin) at the lowest effective dose, provided renal function remains stable (eGFR >30 mL/min). Monitor closely for acute kidney injury (AKI).\n4.  **Monitoring:** Daily weights, strict intake/output tracking, and repeat BNP/eGFR within 7 days to assess fluid status and renal tolerance to therapy.\n\n*(Word Count: 108)*",
+      "tier1_eval": {
+        "overall_tier1_pass": false,
+        "word_count": 114,
+        "word_count_pass": true,
+        "fatal_contraindication_free": true,
+        "fatal_violations": [],
+        "action_score": 33.3,
+        "matched_actions": 1,
+        "total_actions": 3,
+        "missing_actions": [
+          "Defer beta-blocker until dry/euvolemic",
+          "Maintain alpha-blocker for BPH"
+        ]
+      },
+      "judge_eval": null
+    },
+    {
+      "case_id": "PHC-CASE-05",
+      "title": "Frail Elderly Diabetic with Post-Fall Orthostasis and Severe Osteoporosis",
+      "cdu_mode": "naive_rag",
+      "latency_seconds": 10.14,
+      "model_output": "**Clinical Action Plan: Esther Njoroge**\n\n1.  **Immediate Deprescribing:** Discontinue Glibenclamide 5mg BD immediately due to high risk of fatal hypoglycemia in a frail patient with orthostatic hypotension.\n2.  **Glycemic Management:** Maintain current low-risk glycemic status (HbA1c 6.4%). Do not aggressively target lower glucose levels; monitor for symptomatic hypoglycemia.\n3.  **Cardiovascular Safety:** Reduce HCTZ 25mg OD or transition to a low-dose diuretic to mitigate orthostatic hypotension and fall risk. Implement standing BP monitoring.\n4.  **Monitoring:** Repeat standing blood pressure measurement (at 2 mins) within 7 days. Monitor renal function (eGFR) and electrolytes (K+) quarterly.\n\n*(Word Count: 89)*",
+      "tier1_eval": {
+        "overall_tier1_pass": false,
+        "word_count": 96,
+        "word_count_pass": true,
+        "fatal_contraindication_free": true,
+        "fatal_violations": [],
+        "action_score": 33.3,
+        "matched_actions": 1,
+        "total_actions": 3,
+        "missing_actions": [
+          "Stop Glibenclamide to prevent fatal hypoglycemia",
+          "Deprescribe diuretic for orthostatic fall risk"
+        ]
+      },
+      "judge_eval": null
+    },
+    {
+      "case_id": "PHC-CASE-06",
+      "title": "Compensated Cirrhosis with Acute Cellulitis and Severe Lumbar Pain",
+      "cdu_mode": "naive_rag",
+      "latency_seconds": 10.79,
+      "model_output": "**Clinical Action Plan: Tariq Mansoor**\n\n1. **Safety Override (Contraindication):** Immediately withhold NSAIDs (e.g., Ibuprofen) due to the risk of acute kidney injury and hepatic decompensation in the setting of cirrhosis.\n2. **Infection Management:** Initiate targeted antibiotic therapy (e.g., Ceftriaxone) for cellulitis. Monitor fluid status closely to prevent volume overload and Hepatic Renal Syndrome (HRS).\n3. **Pain Management:** Prescribe Acetaminophen (Paracetamol) for chronic back pain, ensuring dosing is adjusted for liver function (low albumin/cirrhosis) and avoiding excessive intake.\n4. **Monitoring:** Repeat LFTs, INR, and renal panel (Cr/eGFR) within 72 hours to monitor for acute systemic infection complications (CDU-CIRRHOSIS-MED-SAFETY).\n\n***\n\n*(Word Count: 108)*",
+      "tier1_eval": {
+        "overall_tier1_pass": false,
+        "word_count": 101,
+        "word_count_pass": true,
+        "fatal_contraindication_free": true,
+        "fatal_violations": [],
+        "action_score": 33.3,
+        "matched_actions": 1,
+        "total_actions": 3,
+        "missing_actions": [
+          "Cap Paracetamol at 2g/day in cirrhosis",
+          "Prohibit NSAIDs in cirrhosis"
+        ]
+      },
+      "judge_eval": null
+    },
+    {
+      "case_id": "PHC-CASE-07",
+      "title": "Severe Depression with Stage 2 Hypertension and Migraine with Aura",
+      "cdu_mode": "naive_rag",
+      "latency_seconds": 11.06,
+      "model_output": "**Clinical Action Plan: Clara Jenkins**\n\n1.  **Immediate Safety Veto:** Do NOT increase Venlafaxine. The current high-dose SNRI therapy is directly contributing to sustained hypertension (172/106 mmHg) and requires immediate regimen modification.\n2.  **Antidepressant Switch:** Initiate a trial of an SSRI (e.g., Sertraline) or Mirtazapine to manage severe depression while maintaining a neutral blood pressure profile. Taper Venlafaxine slowly over 2-4 weeks.\n3.  **Hypertension Management:** Initiate a first-line antihypertensive agent (e.g., ACE inhibitor or ARB) to target BP control. Counsel on sodium restriction and weight management (BMI 25.1).\n4.  **Monitoring & Adjuncts:** Monitor BP weekly. Obtain baseline Comprehensive Metabolic Panel (CMP) before starting new medications. Consider a prophylactic migraine agent (e.g., CGRP inhibitor) if Sumatriptan PRN use is frequent.",
+      "tier1_eval": {
+        "overall_tier1_pass": false,
+        "word_count": 118,
+        "word_count_pass": true,
+        "fatal_contraindication_free": true,
+        "fatal_violations": [],
+        "action_score": 33.3,
+        "matched_actions": 1,
+        "total_actions": 3,
+        "missing_actions": [
+          "Suspend Sumatriptan while BP >= 160/100",
+          "Address SNRI-induced secondary hypertension"
+        ]
+      },
+      "judge_eval": null
+    },
+    {
+      "case_id": "PHC-CASE-08",
+      "title": "Stage 4 CKD with Baseline Hyperkalemia and Acute Gout Flare",
+      "cdu_mode": "naive_rag",
+      "latency_seconds": 13.25,
+      "model_output": "**Clinical Action Plan: Leonard Patel**\n\n1.  **Immediate Safety Veto:** ABSOLUTELY withhold NSAIDs (e.g., Ibuprofen, Naproxen) and high-dose anti-inflammatories due to CKD Stage 4 and hyperkalemia (K 5.4). High-dose colchicine requires extreme caution in eGFR < 30.\n2.  **Pain Management:** Initiate targeted, renally safe anti-inflammatory therapy (e.g., localized corticosteroid injection) while awaiting definitive diagnosis (gout vs. infection). Maintain strict dietary potassium restriction.\n3.  **Renal Calibration:** Address hyperkalemia and metabolic acidosis. Review current diuretic dose; consider adding a potassium binder (e.g., patiromer) if K levels remain elevated despite dietary changes.\n4.  **Monitoring:** Repeat comprehensive metabolic panel (CMP) and urinalysis in 48-72 hours to monitor eGFR, potassium,",
+      "tier1_eval": {
+        "overall_tier1_pass": true,
+        "word_count": 104,
+        "word_count_pass": true,
+        "fatal_contraindication_free": true,
+        "fatal_violations": [],
+        "action_score": 66.7,
+        "matched_actions": 2,
+        "total_actions": 3,
+        "missing_actions": [
+          "Prohibit Spironolactone at K+ 5.4 / eGFR 22"
+        ]
+      },
+      "judge_eval": null
+    },
+    {
+      "case_id": "PHC-CASE-09",
+      "title": "Parkinson's Disease Psychosis with Hallucinations and Orthostasis",
+      "cdu_mode": "naive_rag",
+      "latency_seconds": 10.44,
+      "model_output": "**Clinical Action Plan: Rosemary Watson**\n\n1. **Immediate Safety Override:** Prioritize a full infectious workup (e.g., urinalysis, chest X-ray) to rule out systemic triggers for psychosis. Temporarily hold any new tranquilizers until the underlying cause is addressed.\n2. **Deprescribing Strategy:** Initiate a slow, monitored taper of Pramipexole (Dopamine Agonist) to reduce dopaminergic load and mitigate orthostatic hypotension (104/60 mmHg).\n3. **Pharmacologic Choice:** If hallucinations persist despite the taper, introduce Pimavanserin (a selective serotonin inverse agonist) as the preferred agent due to its lower risk of motor side effects compared to typical antipsychotics.\n4. **Monitoring:** Closely monitor orthostatic blood pressure (supine vs. standing) and assess for increased fall risk. Monitor for signs of worsening confusion or parkinsonian symptoms during the drug taper.",
+      "tier1_eval": {
+        "overall_tier1_pass": true,
+        "word_count": 120,
+        "word_count_pass": true,
+        "fatal_contraindication_free": true,
+        "fatal_violations": [],
+        "action_score": 66.7,
+        "matched_actions": 2,
+        "total_actions": 3,
+        "missing_actions": [
+          "Strict contraindication of D2-blocking antipsychotics"
+        ]
+      },
+      "judge_eval": null
+    },
+    {
+      "case_id": "PHC-CASE-10",
+      "title": "Diabetic Neuropathic Pain with Stage 3b CKD and Severe BPH",
+      "cdu_mode": "naive_rag",
+      "latency_seconds": 11.2,
+      "model_output": "**Clinical Action Plan: Arthur Bradley**\n\n1. **Safety Override:** Do NOT initiate high-dose Gabapentinoids (Pregabalin/Gabapentin) without prior dose reduction, given eGFR 42 mL/min/1.73m2.\n2. **Pain Management:** Initiate Topical Capsaicin 0.075% cream for localized neuropathic pain. If inadequate, consider starting Duloxetine 30mg OD, titrating slowly and monitoring for blood pressure changes.\n3. **Urological/Renal Calibration:** Continue Tamsulosin 0.4mg OD for BPH. Monitor closely for signs of incomplete bladder emptying or acute urinary retention.\n4. **Monitoring:** Recheck renal panel (eGFR, K+) in 3 months. Monitor for orthostatic hypotension, especially when initiating Duloxetine or increasing Tamsulosin.",
+      "tier1_eval": {
+        "overall_tier1_pass": false,
+        "word_count": 91,
+        "word_count_pass": true,
+        "fatal_contraindication_free": true,
+        "fatal_violations": [],
+        "action_score": 50.0,
+        "matched_actions": 1,
+        "total_actions": 2,
+        "missing_actions": [
+          "Prohibit TCAs due to acute urinary retention in BPH"
+        ]
+      },
+      "judge_eval": null
+    }
+  ]
+}
