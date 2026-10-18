@@ -131,6 +131,9 @@
       <button onclick="switchTab('benchmark')" id="tab-btn-benchmark" class="px-4 py-2.5 font-medium border-b-2 border-[var(--primary)] text-[var(--primary)] transition whitespace-nowrap">
         Comparative Benchmarks
       </button>
+      <button onclick="switchTab('architecture')" id="tab-btn-architecture" class="px-4 py-2.5 font-medium border-b-2 border-transparent text-[var(--muted-foreground)] hover:text-[var(--foreground)] transition whitespace-nowrap">
+        a-CDU Architecture & Global Health (WHO & Kenya eCHIS)
+      </button>
       <button onclick="switchTab('headtohead')" id="tab-btn-headtohead" class="px-4 py-2.5 font-medium border-b-2 border-transparent text-[var(--muted-foreground)] hover:text-[var(--foreground)] transition whitespace-nowrap">
         Head-to-Head: Gemma vs MedGemma
       </button>
@@ -362,6 +365,189 @@
               </tr>
             </tbody>
           </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB: Architecture & Global Health Standards -->
+    <div id="tab-architecture" class="space-y-6 hidden">
+      <!-- Section 1: Mathematical Anatomy of an a-CDU -->
+      <div class="bg-[var(--card)] border border-[var(--border)] rounded-xl p-5 space-y-4">
+        <div class="flex items-center gap-2 text-[var(--primary)]">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
+          <h3 class="font-bold text-base text-[var(--foreground)]">
+            Anatomy of an Atomic Clinical Decision Unit (a-CDU)
+          </h3>
+        </div>
+        <p class="text-xs md:text-sm text-[var(--muted-foreground)] leading-relaxed">
+          Standard RAG injects arbitrary chunks of 500–1000 tokens of prose, causing context dilution and allowing negative contraindications to be overlooked. An <strong>Atomic Clinical Decision Unit (a-CDU)</strong> deconstructs clinical guidelines into a formal 5-tuple:
+        </p>
+
+        <div class="bg-[var(--background)] p-4 rounded-xl border border-[var(--border)] font-mono text-xs text-sky-300">
+          c = &lang; &Iota;, &Cscr;, &Ascr;, &Nscr;, &Pscr; &rang;
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-5 gap-3 text-xs">
+          <div class="p-3 bg-[var(--background)] rounded-lg border border-[var(--border)]">
+            <span class="font-bold text-[var(--primary)] block uppercase text-[11px]">&Iota; &bull; Provenance</span>
+            <p class="text-[var(--muted-foreground)] mt-1">Unique guideline anchor & authority (e.g., <code class="text-sky-300">WHO-SMART-ANC-04</code>, <code class="text-sky-300">KDIGO-2024-CKD-3.2</code>).</p>
+          </div>
+          <div class="p-3 bg-[var(--background)] rounded-lg border border-[var(--border)]">
+            <span class="font-bold text-[var(--primary)] block uppercase text-[11px]">&Cscr; &bull; Trigger Condition</span>
+            <p class="text-[var(--muted-foreground)] mt-1">Structured clinical criteria (e.g., <code class="text-amber-300">eGFR &lt; 45 &and; T2D</code>, or <code class="text-amber-300">Pregnancy &and; BP &ge; 160/100</code>).</p>
+          </div>
+          <div class="p-3 bg-[var(--background)] rounded-lg border border-[var(--border)]">
+            <span class="font-bold text-emerald-400 block uppercase text-[11px]">&Ascr; &bull; Mandatory Actions</span>
+            <p class="text-[var(--muted-foreground)] mt-1">Specific dosing directives and first-line drug classes (e.g., <code class="text-emerald-300">Labetalol 200mg BD</code>, <code class="text-emerald-300">Empagliflozin 10mg OD</code>).</p>
+          </div>
+          <div class="p-3 bg-[var(--background)] rounded-lg border border-rose-900/50">
+            <span class="font-bold text-rose-400 block uppercase text-[11px]">&Nscr; &bull; Negative Boundary</span>
+            <p class="text-[var(--muted-foreground)] mt-1">Strictly prohibited drugs or targets (e.g., <code class="text-rose-300">NSAIDs, Enalapril in Pregnancy</code>).</p>
+          </div>
+          <div class="p-3 bg-[var(--background)] rounded-lg border border-[var(--border)]">
+            <span class="font-bold text-indigo-400 block uppercase text-[11px]">&Pscr; &bull; Priority Tier</span>
+            <p class="text-[var(--muted-foreground)] mt-1">Deterministic resolution: <br/>Tier 1: Survival/Toxicity<br/>Tier 2: Organ Sparing<br/>Tier 3: Symptom Relief</p>
+          </div>
+        </div>
+
+        <!-- The Negative Boundary Union Equation -->
+        <div class="p-4 bg-[var(--background)] rounded-lg border border-[var(--border)] space-y-2">
+          <div class="flex items-center justify-between flex-wrap gap-2">
+            <span class="font-bold text-xs uppercase tracking-wider text-rose-400 flex items-center gap-1.5">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
+              The Composite Negative Boundary Union Principle
+            </span>
+            <span class="badge bg-rose-950 text-rose-300 font-mono text-[11px]">Deterministic Safety Invariance</span>
+          </div>
+          <p class="text-xs text-[var(--muted-foreground)] leading-relaxed">
+            When a multimorbid patient activates \(k\) distinct guidelines, the system computes the <strong>Negative Boundary Union</strong>:
+          </p>
+          <div class="text-center py-2 font-mono text-sm text-rose-300 bg-[var(--card)] rounded border border-rose-900/40">
+            &Nscr;<sub>composite</sub> = &bigcup;<sub>i=1..k</sub> &Nscr;<sub>i</sub>
+          </div>
+          <p class="text-xs text-[var(--muted-foreground)] leading-relaxed">
+            If <em>any</em> single active condition prohibits a therapy (e.g. CKD prohibiting NSAIDs for gout; pregnancy prohibiting ACE inhibitors for hypertension), that therapy is permanently banned in the prompt's <code class="text-rose-400 font-mono">CRITICAL SAFETY OVERRIDES</code> section, overriding any disease guideline that would otherwise recommend it.
+          </p>
+        </div>
+      </div>
+
+      <!-- Section 2: WHO SMART Guidelines Alignment -->
+      <div class="bg-[var(--card)] border border-[var(--border)] rounded-xl p-5 space-y-4">
+        <div class="flex items-center justify-between flex-wrap gap-2">
+          <div class="flex items-center gap-2 text-sky-400">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+            <h3 class="font-bold text-base text-[var(--foreground)]">Bridging WHO SMART Guidelines to Generative Edge AI</h3>
+          </div>
+          <span class="badge bg-sky-950 text-sky-300 border border-sky-800">Standards-Based (FHIR &bull; CQL &bull; DAK)</span>
+        </div>
+        <p class="text-xs md:text-sm text-[var(--muted-foreground)] leading-relaxed">
+          The World Health Organization (WHO) introduced the <strong>SMART Guidelines</strong> architecture to systematically transform narrative guidelines into computable, digital health software artifacts across four levels of maturity:
+        </p>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 text-xs">
+          <div class="p-3 bg-[var(--background)] rounded-lg border border-[var(--border)]">
+            <div class="font-bold text-slate-400 uppercase text-[11px]">Level 1: Narrative</div>
+            <div class="text-[var(--foreground)] font-semibold mt-1">Clinical Practice Guidelines</div>
+            <p class="text-[var(--muted-foreground)] mt-1">200–500 page PDF reports (e.g., WHO Antenatal Care, WHO Hypertension). Unstructured, ambiguous for algorithms, prone to hallucinations in naive RAG.</p>
+          </div>
+          <div class="p-3 bg-[var(--background)] rounded-lg border border-[var(--border)]">
+            <div class="font-bold text-amber-400 uppercase text-[11px]">Level 2: Operational</div>
+            <div class="text-[var(--foreground)] font-semibold mt-1">Digital Adaptation Kits (DAKs)</div>
+            <p class="text-[var(--muted-foreground)] mt-1">Human-readable decision trees, spreadsheets, business processes, and standardized clinical data dictionaries.</p>
+          </div>
+          <div class="p-3 bg-[var(--background)] rounded-lg border border-[var(--border)]">
+            <div class="font-bold text-indigo-400 uppercase text-[11px]">Level 3: Machine-Readable</div>
+            <div class="text-[var(--foreground)] font-semibold mt-1">Computable Artifacts (FHIR / CQL)</div>
+            <p class="text-[var(--muted-foreground)] mt-1">Executable HL7 FHIR StructureDefinitions, PlanDefinitions, ActivityDefinitions, and Clinical Quality Language (CQL) logic.</p>
+          </div>
+          <div class="p-3 bg-[var(--background)] rounded-lg border border-emerald-500/50 bg-emerald-950/10">
+            <div class="font-bold text-emerald-400 uppercase text-[11px]">Level 3.5: Generative a-CDU</div>
+            <div class="text-[var(--foreground)] font-semibold mt-1">Atomic Clinical Decision Units</div>
+            <p class="text-[var(--muted-foreground)] mt-1">Compiles L3 FHIR PlanDefinitions & CQL negative logic into concise (&le;180 tok) LLM-native prompts combining deterministic safety clamping with natural clinical synthesis.</p>
+          </div>
+        </div>
+
+        <!-- WHO SMART Guideline to a-CDU Code Mapping -->
+        <div class="bg-[var(--background)] rounded-lg p-4 border border-[var(--border)] space-y-2">
+          <span class="text-xs font-semibold text-[var(--muted-foreground)] block uppercase tracking-wide">
+            Concrete Artifact Example: WHO SMART Guideline L3 CQL mapped to a-CDU JSON
+          </span>
+          <pre class="bg-slate-950 p-3 rounded-lg overflow-x-auto text-[11px] font-mono text-emerald-300 leading-snug border border-slate-800">
+{
+  "cdu_id": "WHO-SMART-ANC-PE-04",
+  "guideline_provenance": "WHO Antenatal Care Recommendations 2020 / DAK ANC B6",
+  "priority_tier": 1,
+  "token_budget": 142,
+  "condition_trigger": {
+    "fhir_query": "Condition?code=severe-preeclampsia&gestational_age>=20w",
+    "clinical_text": "Pregnant female >=20w gestation with SBP >=160 or DBP >=110 with proteinuria"
+  },
+  "mandatory_actions": [
+    "Administer IV/IM Magnesium Sulfate (4g IV loading dose over 15 min, followed by maintenance)",
+    "Initiate Oral Labetalol 200mg (or Methyldopa 250mg TDS) to reduce BP below 150/100 mmHg",
+    "Urgent referral to comprehensive emergency obstetric care (CEmONC) facility"
+  ],
+  "negative_boundary_prohibitions": [
+    "ACE-inhibitors (Enalapril, Captopril) -> Fatal fetal renal dysgenesis / oligohydramnios",
+    "Angiotensin Receptor Blockers (Losartan, Valsartan) -> Teratogenic fetopathy",
+    "Atenolol -> Fetal growth restriction"
+  ]
+}</pre>
+        </div>
+      </div>
+
+      <!-- Section 3: Kenya MoH eCHIS Real-World Implementation -->
+      <div class="bg-[var(--card)] border border-[var(--border)] rounded-xl p-5 space-y-4">
+        <div class="flex items-center justify-between flex-wrap gap-2">
+          <div class="flex items-center gap-2 text-emerald-400">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+            <h3 class="font-bold text-base text-[var(--foreground)]">
+              Frontline Edge Deployment: Kenya Ministry of Health eCHIS
+            </h3>
+          </div>
+          <span class="badge bg-emerald-950 text-emerald-300 border border-emerald-800">Production Clinical Architecture</span>
+        </div>
+
+        <p class="text-xs md:text-sm text-[var(--muted-foreground)] leading-relaxed">
+          The Kenya Ministry of Health (MoH) has rolled out the <strong>electronic Community Health Information System (eCHIS)</strong> across all 47 counties, equipping ~100,000 Community Health Promoters (CHPs) and primary healthcare nurses at Level 2 Dispensaries and Level 3 Health Centres with Android tablets.
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
+          <div class="p-4 bg-[var(--background)] rounded-lg border border-[var(--border)] space-y-2">
+            <span class="font-bold text-amber-400 uppercase text-[11px] block">1. The Frontline Edge Reality</span>
+            <p class="text-[var(--muted-foreground)] leading-relaxed">
+              In remote sub-counties (e.g. Turkana, Marsabit, Kilifi), cellular networks are non-existent or intermittent. Cloud LLM APIs (OpenAI, Gemini) cannot be invoked at the point of care. Inference must run <strong>100% offline</strong> on low-cost Android hardware (&le;$150) using quantized Small Language Models (Gemma 4-2B / MedGemma 4B via llama.cpp or Android FHIR SDK).
+            </p>
+          </div>
+
+          <div class="p-4 bg-[var(--background)] rounded-lg border border-[var(--border)] space-y-2">
+            <span class="font-bold text-rose-400 uppercase text-[11px] block">2. High-Stakes Collision Scenario</span>
+            <p class="text-[var(--muted-foreground)] leading-relaxed">
+              A 29-year-old mother at 32 weeks gestation presents with BP 164/104, 2+ proteinuria, HIV+ on Dolutegravir-based ART, and known mild intermittent asthma. 
+              <br/><br/>
+              <strong class="text-rose-300">The Danger:</strong> A general LLM or naive RAG recommends Enalapril (indicated for general hypertension) or Propranolol (for rate control), triggering <strong>fatal fetal renal agenesis</strong> and <strong>acute maternal bronchospasm</strong>.
+            </p>
+          </div>
+
+          <div class="p-4 bg-[var(--background)] rounded-lg border border-emerald-500/40 space-y-2 bg-emerald-950/10">
+            <span class="font-bold text-emerald-400 uppercase text-[11px] block">3. The a-CDU Execution Flow</span>
+            <p class="text-[var(--muted-foreground)] leading-relaxed">
+              1. <strong>Encounter Intake</strong>: eCHIS captures vitals locally in SQLite.<br/>
+              2. <strong>Micro-Retrieval</strong>: Local vector index loads two Kenya MoH / WHO SMART a-CDUs (&le;300 tokens total).<br/>
+              3. <strong>Negative Union</strong>: <code class="text-rose-300">NO Enalapril, NO ARBs, NO Propranolol</code> clamped to top.<br/>
+              4. <strong>Offline SLM Output (1.8s)</strong>: Administer Magnesium Sulfate; initiate oral Labetalol 200mg; urgent ambulance referral.
+            </p>
+          </div>
+        </div>
+
+        <!-- Real Kenya MoH Prompt Injection Preview -->
+        <div class="p-3 bg-slate-950 rounded-lg border border-slate-800 text-xs font-mono space-y-1">
+          <span class="text-slate-400 uppercase text-[11px] block">Simulated Edge SLM Generation on eCHIS Android Tablet (Offline 1.8s):</span>
+          <div class="text-sky-300 pt-1">
+            &gt; <strong>SAFETY OVERRIDE:</strong> ABSOLUTELY NO Enalapril or ARBs (teratogenic fetal death). NO non-selective beta-blockers (asthma).<br/>
+            &gt; <strong>URGENT ACTION:</strong> Administer Magnesium Sulfate loading dose (4g IV over 20 min + 10g IM). Initiate Oral Labetalol 200mg stat.<br/>
+            &gt; <strong>REFERRAL:</strong> Dispatch urgent referral to County Referral Hospital for emergency delivery planning.
+          </div>
         </div>
       </div>
     </div>
@@ -714,7 +900,7 @@
     ];
 
     function switchTab(tabId) {
-      const tabs = ['benchmark', 'headtohead', 'cases', 'limitations'];
+      const tabs = ['benchmark', 'architecture', 'headtohead', 'cases', 'limitations'];
       tabs.forEach(t => {
         const el = document.getElementById(`tab-${t}`);
         const btn = document.getElementById(`tab-btn-${t}`);
