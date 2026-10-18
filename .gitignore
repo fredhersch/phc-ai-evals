@@ -1,0 +1,23 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Results and logs (keep sample/dryrun, ignore ad-hoc benchmark outputs)
+results/phc_eval_*_20*.json
+*.log
+
+# Environments
+.env
+.env.local
+venv/
+.venv/
+env/
+
+# OS metadata
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Thumbs.db

@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "phc-evals"
+version = "0.1.0"
+description = "Evaluation benchmark for Primary Health Care Multi-Morbidity Decision Support using Atomic Clinical Decision Units (a-CDUs)"
+authors = [
+    { name = "Open Health Stack Community", email = "info@openhealthstack.org" }
+]
+readme = "README.md"
+license = { text = "Apache-2.0" }
+requires-python = ">=3.9"
+dependencies = [
+    "urllib3>=1.26.0"
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "black>=23.0.0",
+    "flake8>=6.0.0"
+]
+
+[project.scripts]
+phc-evals = "run_phc_evals:main"

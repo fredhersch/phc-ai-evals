@@ -1,0 +1,5 @@
+# Core dependencies
+urllib3>=1.26.0
+
+# Optional test and analysis dependencies
+pytest>=7.0.0

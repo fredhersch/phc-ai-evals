@@ -1,0 +1,23 @@
+name: PHC Evals CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test-assertions:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Run Dry-Run Benchmark Suite (with a-CDUs)
+        run: |
+          python3 run_phc_evals.py --dry-run --cdu-mode with_cdus
+      - name: Run Dry-Run Baseline Suite (naive RAG)
+        run: |
+          python3 run_phc_evals.py --dry-run --cdu-mode naive_rag

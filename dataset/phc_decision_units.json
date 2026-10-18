@@ -1,0 +1,284 @@
+[
+  {
+    "id": "CDU-T2D-METFORMIN-RENAL",
+    "topic": "Metformin Titration & Safety in Renal Impairment",
+    "domain": "primary_care_multimorbidity",
+    "source_guideline": "KDIGO 2024 / ADA Standards of Care 2024 (Section 11)",
+    "verbatim_excerpt": "Metformin is safe when eGFR is >=45. When eGFR is 30-44 mL/min, maximum recommended dose is 1000 mg daily (500 mg twice daily). Metformin is contraindicated if eGFR is <30 mL/min due to risk of lactic acidosis.",
+    "entry_criteria": "Type 2 Diabetes Mellitus with eGFR < 60 mL/min/1.73m2",
+    "danger_signs": ["Nausea, vomiting, lethargy, severe metabolic acidosis", "Rapid fall in eGFR below 30"],
+    "mandated_actions": [
+      "Cap Metformin at 1000mg/day (500mg BD) if eGFR 30-44 mL/min",
+      "Monitor eGFR every 3-6 months",
+      "Add SGLT2 inhibitor for dual cardio-renal and glycemic benefit if eGFR >=20"
+    ],
+    "negative_boundaries": [
+      "🛑 NEVER prescribe full-dose Metformin (>1000mg/day) when eGFR is <45 mL/min.",
+      "🛑 Stop Metformin completely if eGFR falls <30 mL/min or during acute dehydrating illness."
+    ],
+    "prompt_injection_chunk": "[CDU-T2D-METFORMIN-RENAL]\nCONDITION: Type 2 Diabetes in CKD.\nGUIDELINE ACTIONS: Metformin max dose 1000mg/day (500mg BD) if eGFR 30-44 mL/min. Add SGLT2i (Dapagliflozin/Empagliflozin 10mg) for combined cardio-renal-glycemic benefit.\nNEGATIVE BOUNDARIES: 🛑 NEVER prescribe full-dose Metformin (>1000mg/day) at eGFR <45. Stop Metformin if eGFR <30.",
+    "certified": true
+  },
+  {
+    "id": "CDU-HF-SGLT2I-MRA",
+    "topic": "HFrEF Guideline Directed Medical Therapy (GDMT) Initiation",
+    "domain": "primary_care_multimorbidity",
+    "source_guideline": "ESC 2023 Guidelines for Heart Failure / AHA-ACC-HFSA 2022",
+    "verbatim_excerpt": "SGLT2 inhibitors are recommended for all patients with HFrEF to reduce heart failure hospitalization and cardiovascular death. Mineralocorticoid receptor antagonists (Spironolactone/Eplerenone) are recommended for all symptomatic HFrEF, provided potassium is <5.0 and eGFR >30.",
+    "entry_criteria": "HFrEF (LVEF <= 40%) with NYHA Class II-IV symptoms",
+    "danger_signs": ["Elevated serum potassium >= 5.0 mmol/L", "Worsening renal function", "Symptomatic hypotension"],
+    "mandated_actions": [
+      "Initiate SGLT2 inhibitor (Dapagliflozin 10mg or Empagliflozin 10mg OD)",
+      "Evaluate MRA initiation (Spironolactone 12.5-25mg OD) only after verifying baseline K+ < 5.0"
+    ],
+    "negative_boundaries": [
+      "🛑 DO NOT initiate Spironolactone if baseline K+ >= 5.0 mmol/L or eGFR <30 mL/min.",
+      "🛑 Baseline K+ 4.9 requires immediate recheck within 1-2 weeks before MRA initiation."
+    ],
+    "prompt_injection_chunk": "[CDU-HF-SGLT2I-MRA]\nCONDITION: HFrEF with suboptimal disease control.\nGUIDELINE ACTIONS: SGLT2i indicated to reduce cardiovascular death and heart failure hospitalization. Mineralocorticoid Receptor Antagonist (Spironolactone) indicated for NYHA II-IV.\nNEGATIVE BOUNDARIES: 🛑 DO NOT initiate Spironolactone if baseline K+ >= 5.0 mmol/L or eGFR <30. Baseline K+ 4.9 requires immediate recheck before MRA.",
+    "certified": true
+  },
+  {
+    "id": "CDU-CKD-POTASSIUM-SAFETY",
+    "topic": "Hyperkalemia Surveillance & Renoprotection in CKD",
+    "domain": "primary_care_multimorbidity",
+    "source_guideline": "KDIGO 2024 Clinical Practice Guideline for CKD",
+    "verbatim_excerpt": "Serum potassium should be monitored regularly in patients receiving renin-angiotensin system inhibitors or mineralocorticoid receptor antagonists. Dual RAAS blockade is contraindicated.",
+    "entry_criteria": "CKD Stage 3 or higher receiving RAAS inhibitor therapy",
+    "danger_signs": ["Serum potassium > 5.2 mmol/L", "Bradycardia, peaked T-waves on ECG"],
+    "mandated_actions": [
+      "Monitor serum potassium and creatinine within 1-2 weeks of initiating or titrating RAASi/MRA",
+      "Educate patient on dietary potassium sources"
+    ],
+    "negative_boundaries": [
+      "🛑 DO NOT combine dual RAAS blockade (ACEi + ARB) due to acute kidney injury and hyperkalemia hazard.",
+      "🛑 Avoid potassium supplements or potassium-based salt substitutes."
+    ],
+    "prompt_injection_chunk": "[CDU-CKD-POTASSIUM-SAFETY]\nCONDITION: Stage 3b CKD monitoring.\nGUIDELINE ACTIONS: Monitor serum potassium and creatinine within 1-2 weeks of RAASi / MRA titration.\nNEGATIVE BOUNDARIES: 🛑 DO NOT combine dual RAAS blockade (ACEi + ARB). Avoid potassium supplements.",
+    "certified": true
+  },
+  {
+    "id": "CDU-GOUT-ACUTE-FLARE",
+    "topic": "Acute Gout Management in High-Risk Multi-Morbidity",
+    "domain": "primary_care_multimorbidity",
+    "source_guideline": "ACR 2020 Guideline for the Management of Gout / NICE NG219",
+    "verbatim_excerpt": "Oral glucocorticoids are first-line for acute gout in patients with renal impairment or heart failure. Systemic NSAIDs should be avoided in severe CKD and heart failure. Do not alter maintenance allopurinol during an acute flare.",
+    "entry_criteria": "Acute gout flare in patient with underlying CKD or cardiovascular disease",
+    "danger_signs": ["Severe pain, joint warmth, refusal to bear weight", "Risk of NSAID-induced acute renal failure"],
+    "mandated_actions": [
+      "Prescribe short-course oral Prednisolone (20-30mg daily for 3-5 days) or intra-articular steroid",
+      "Maintain existing maintenance Allopurinol without alteration during the acute flare"
+    ],
+    "negative_boundaries": [
+      "🛑 STRICTLY CONTRAINDICATE oral/systemic NSAIDs (Ibuprofen, Naproxen, Diclofenac, Indomethacin, Celecoxib) due to severe risk of acute-on-chronic renal failure and heart failure decompensation.",
+      "🛑 Avoid full-dose Colchicine (severe neuro/myopathy risk in eGFR <35)."
+    ],
+    "prompt_injection_chunk": "[CDU-GOUT-ACUTE-FLARE]\nCONDITION: Acute gout attack in high-risk multi-morbidity.\nGUIDELINE ACTIONS: Low-to-moderate dose short-course oral Prednisolone (20-30mg daily for 5 days) or intra-articular steroid. Continue baseline Allopurinol; do not stop or increase dose during acute flare.\nNEGATIVE BOUNDARIES: 🛑 STRICTLY CONTRAINDICATE oral/systemic NSAIDs (Ibuprofen, Naproxen, Diclofenac, Indomethacin, Celecoxib) due to severe risk of acute-on-chronic renal failure and heart failure decompensation. 🛑 Avoid full-dose Colchicine (severe neuro/myopathy risk in eGFR <35).",
+    "certified": true
+  },
+  {
+    "id": "CDU-ASTHMA-DRUG-SAFETY",
+    "topic": "Bronchospasm Risk & Beta-Blocker Prohibitions in Asthma",
+    "domain": "primary_care_multimorbidity",
+    "source_guideline": "GINA 2024 Global Strategy for Asthma Management and Prevention",
+    "verbatim_excerpt": "Non-selective beta-blockers (oral or ophthalmic) are contraindicated in asthma as they can cause severe, life-threatening bronchospasm. Cardioselective beta-blockers should be used with extreme caution only when no alternative exists.",
+    "entry_criteria": "Active asthma or history of reactive airway disease requiring cardiac therapy",
+    "danger_signs": ["Wheezing, chest tightness, drop in peak expiratory flow", "Acute severe bronchospasm"],
+    "mandated_actions": [
+      "Maintain inhaled corticosteroid controller therapy",
+      "Select non-beta-blocker alternatives (e.g. Calcium Channel Blockers, Nitrates) for angina and hypertension"
+    ],
+    "negative_boundaries": [
+      "🛑 STRICTLY PROHIBIT non-selective beta-blockers (Propranolol, Carvedilol, Labetalol, Timolol eye drops). Non-selective beta-blockade precipitates severe bronchospasm and fatal status asthmaticus.",
+      "🛑 Avoid non-cardioselective beta-blockade even if cardioselective alternatives exist unless no other anti-anginal is viable."
+    ],
+    "prompt_injection_chunk": "[CDU-ASTHMA-DRUG-SAFETY]\nCONDITION: Reactive Airway Disease / Asthma.\nGUIDELINE ACTIONS: Maintain inhaled corticosteroid controller.\nNEGATIVE BOUNDARIES: 🛑 STRICTLY PROHIBIT non-selective beta-blockers (Propranolol, Carvedilol, Labetalol, Timolol eye drops). Non-selective beta-blockade precipitates severe bronchospasm and fatal status asthmaticus. Avoid non-cardioselective beta-blockade even if cardioselective alternatives exist unless no other anti-anginal is viable.",
+    "certified": true
+  },
+  {
+    "id": "CDU-ANGINA-FIRSTLINE",
+    "topic": "Stable Ischemic Heart Disease / Angina in Asthma",
+    "domain": "primary_care_multimorbidity",
+    "source_guideline": "NICE CG126 / AHA-ACC Chronic Coronary Disease 2023",
+    "verbatim_excerpt": "When beta-blockers are contraindicated in patients with asthma, calcium channel blockers (dihydropyridine or non-dihydropyridine) are recommended as first-line anti-anginal therapy.",
+    "entry_criteria": "Stable exertional angina with beta-blocker contraindication",
+    "danger_signs": ["Chest pain at rest", "Exertional syncope", "ECG ischemic changes"],
+    "mandated_actions": [
+      "Initiate Dihydropyridine CCB (Amlodipine 5-10mg OD)",
+      "Prescribe Sublingual Nitroglycerin PRN for acute attacks",
+      "Arrange outpatient cardiac referral/investigation"
+    ],
+    "negative_boundaries": [
+      "🛑 NEVER initiate non-selective beta-blocker in patient with active asthma."
+    ],
+    "prompt_injection_chunk": "[CDU-ANGINA-FIRSTLINE]\nCONDITION: Stable Ischemic Heart Disease / Angina in Asthma.\nGUIDELINE ACTIONS: Dihydropyridine CCB (Amlodipine 5-10mg) + Sublingual Nitroglycerin PRN for acute attacks. If heart rate control needed, use non-dihydropyridine CCB (Verapamil/Diltiazem if EF preserved) OR highly cardioselective beta-1 blocker (Bisoprolol at lowest starting dose 1.25-2.5mg with close peak flow monitoring).\nNEGATIVE BOUNDARIES: 🛑 NEVER initiate non-selective beta-blocker.",
+    "certified": true
+  },
+  {
+    "id": "CDU-PUD-BLEEDING-SAFETY",
+    "topic": "Secondary Upper GI Bleed Prevention in Anticoagulation",
+    "domain": "primary_care_multimorbidity",
+    "source_guideline": "ACG-CAG 2022 Management of Anticoagulants in GI Bleeding",
+    "verbatim_excerpt": "Patients requiring oral anticoagulation after a healed peptic ulcer bleed must receive co-prescribed daily proton pump inhibitor therapy. Concomitant systemic NSAIDs are contraindicated as they increase bleeding risk by over 400%.",
+    "entry_criteria": "Oral anticoagulation with documented history of peptic ulcer hemorrhage",
+    "danger_signs": ["Melena, hematemesis, orthostatic drop in blood pressure", "Unexplained fall in hemoglobin"],
+    "mandated_actions": [
+      "Maintain continuous Proton Pump Inhibitor (Pantoprazole 40mg OD)",
+      "Strictly avoid systemic NSAID co-prescription"
+    ],
+    "negative_boundaries": [
+      "🛑 STRICTLY CONTRAINDICATE oral non-selective NSAIDs (Ibuprofen, Naproxen, Diclofenac) and high-dose Aspirin. Concurrent NSAID + DOAC increases fatal upper GI rebleeding hazard by 4- to 6-fold.",
+      "🛑 DO NOT stop life-saving anticoagulation for minor musculoskeletal pain."
+    ],
+    "prompt_injection_chunk": "[CDU-PUD-BLEEDING-SAFETY]\nCONDITION: Recent peptic ulcer bleed with anticoagulation.\nGUIDELINE ACTIONS: Continue daily maintenance Proton Pump Inhibitor (Pantoprazole/Omeprazole 20-40mg) co-prescription to reduce recurrent upper GI hemorrhage.\nNEGATIVE BOUNDARIES: 🛑 STRICTLY CONTRAINDICATE oral non-selective NSAIDs (Ibuprofen, Naproxen, Diclofenac) and high-dose Aspirin. Concurrent NSAID + DOAC increases fatal upper GI rebleeding hazard by 4- to 6-fold.",
+    "certified": true
+  },
+  {
+    "id": "CDU-OA-ANALGESIA",
+    "topic": "Safe Osteoarthritis Analgesia in High Bleeding Risk",
+    "domain": "primary_care_multimorbidity",
+    "source_guideline": "OARSI Guidelines 2023 / NICE NG226",
+    "verbatim_excerpt": "Topical NSAIDs are strongly recommended for knee osteoarthritis and have substantially lower systemic gastrointestinal and renal adverse effects than oral NSAIDs. Intra-articular corticosteroids provide effective short-term relief without bleeding risk.",
+    "entry_criteria": "Knee osteoarthritis in patients with gastrointestinal bleeding risk",
+    "danger_signs": ["Severe functional impairment", "Bleeding signs"],
+    "mandated_actions": [
+      "Prescribe Topical Diclofenac 1% gel (localized application)",
+      "Recommend regular scheduled Paracetamol up to 3g/day",
+      "Offer intra-articular corticosteroid knee injection for severe flares"
+    ],
+    "negative_boundaries": [
+      "🛑 NEVER prescribe systemic oral NSAIDs or COX-2 inhibitors to patients on oral anticoagulation with recent peptic ulcer."
+    ],
+    "prompt_injection_chunk": "[CDU-OA-ANALGESIA]\nCONDITION: Severe Osteoarthritis in high bleeding risk patient.\nGUIDELINE ACTIONS: First-line: Topical NSAID (Diclofenac gel 1% - minimal systemic absorption), regular scheduled Paracetamol up to 3g/day, intra-articular corticosteroid injection for acute joint flare, physical therapy / unloader braces. Weak opioids (Tramadol low-dose) short-term only if refractory.\nNEGATIVE BOUNDARIES: 🛑 NEVER prescribe systemic oral NSAIDs or COX-2 inhibitors.",
+    "certified": true
+  },
+  {
+    "id": "CDU-FRAIL-T2D-TARGETS",
+    "topic": "Deprescribing Sulfonylureas & Relaxing Glycemic Targets in Frail Elderly",
+    "domain": "primary_care_multimorbidity",
+    "source_guideline": "ADA Standards of Care 2024 (Older Adults) / STOPP-START Criteria v3",
+    "verbatim_excerpt": "In frail older adults with multiple chronic illnesses, extensive comorbidity, or history of falls, HbA1c target should be relaxed to 7.5%-8.5%. Long-acting sulfonylureas (Glibenclamide) should be avoided due to the high risk of severe and prolonged hypoglycemia.",
+    "entry_criteria": "Type 2 Diabetes in patient >= 75 years with frailty, dementia, or fall risk",
+    "danger_signs": ["Blood glucose < 4.0 mmol/L", "Confusion, falls, diaphoresis, lightheadedness"],
+    "mandated_actions": [
+      "Deprescribe long-acting sulfonylureas (Glibenclamide)",
+      "Target relaxed HbA1c of 7.5% - 8.0%",
+      "Substitute with safer agent (e.g. Linagliptin) or lifestyle if glucose acceptable"
+    ],
+    "negative_boundaries": [
+      "🛑 STRICTLY CONTRAINDICATE Glibenclamide in elderly patients (Beers Criteria / STOPP violation; prolonged renal excretion causes catastrophic prolonged hypoglycemia).",
+      "🛑 NEVER aim for tight glycemic control (HbA1c < 7.0%) in frail fall-prone elderly."
+    ],
+    "prompt_injection_chunk": "[CDU-FRAIL-T2D-TARGETS]\nCONDITION: Diabetes in frail elderly with fall risk.\nGUIDELINE ACTIONS: Deprescribe long-acting sulfonylureas. Relax HbA1c targets to 7.5% - 8.5% to eliminate fatal hypoglycemic episodes.\nNEGATIVE BOUNDARIES: 🛑 STRICTLY CONTRAINDICATE Glibenclamide in elderly patients (Beers Criteria / STOPP violation; prolonged renal excretion causes catastrophic prolonged hypoglycemia). 🛑 NEVER aim for tight glycemic control (HbA1c < 7.0%) in frail fall-prone elderly.",
+    "certified": true
+  },
+  {
+    "id": "CDU-CIRRHOSIS-MED-SAFETY",
+    "topic": "Pharmacotherapy Safety & NSAID Prohibitions in Cirrhosis",
+    "domain": "primary_care_multimorbidity",
+    "source_guideline": "EASL Clinical Practice Guidelines: Management of Decompensated Cirrhosis 2023",
+    "verbatim_excerpt": "NSAIDs are absolutely contraindicated in patients with cirrhosis as they inhibit renal prostaglandins, precipitating acute renal failure (hepatorenal syndrome) and gastrointestinal bleeding. Sedating opioids should be avoided as they trigger hepatic encephalopathy.",
+    "entry_criteria": "Compensated or decompensated liver cirrhosis",
+    "danger_signs": ["Oliguria, rise in creatinine, jaundice, asterixis, confusion"],
+    "mandated_actions": [
+      "Audit all prescribed and OTC medications for hepatotoxicity and renal risk",
+      "Monitor renal function during any acute illness or infection"
+    ],
+    "negative_boundaries": [
+      "🛑 ABSOLUTE CONTRAINDICATION to oral or parenteral NSAIDs (Ibuprofen, Naproxen, Diclofenac). NSAIDs trigger irreversible hepatorenal syndrome and lethal variceal bleeding.",
+      "🛑 AVOID sedating opioids (Morphine, Oxycodone, Codeine) which precipitate acute hepatic encephalopathy."
+    ],
+    "prompt_injection_chunk": "[CDU-CIRRHOSIS-MED-SAFETY]\nCONDITION: Chronic Liver Disease / Cirrhosis.\nGUIDELINE ACTIONS: Monitor renal function closely during acute systemic infection.\nNEGATIVE BOUNDARIES: 🛑 ABSOLUTE CONTRAINDICATION to oral or parenteral NSAIDs (Ibuprofen, Naproxen, Diclofenac). NSAIDs trigger irreversible hepatorenal syndrome and lethal variceal bleeding. 🛑 AVOID sedating opioids (Morphine, Oxycodone, Codeine) which precipitate acute hepatic encephalopathy.",
+    "certified": true
+  },
+  {
+    "id": "CDU-CIRRHOSIS-ANALGESIA",
+    "topic": "Paracetamol Dosing Ceiling in Cirrhosis",
+    "domain": "primary_care_multimorbidity",
+    "source_guideline": "AASLD Practice Guidance 2022 / British Journal of Anaesthesia 2022",
+    "verbatim_excerpt": "Paracetamol is the safest first-line analgesic in cirrhosis, provided dose is strictly restricted to a maximum of 2.0g per 24 hours.",
+    "entry_criteria": "Acute or chronic pain in patient with liver cirrhosis",
+    "danger_signs": ["Exceeding 2g/day paracetamol", "New onset jaundice"],
+    "mandated_actions": [
+      "Cap Paracetamol at a strict maximum of 2.0g per 24 hours (500mg QDS or 1000mg BD)"
+    ],
+    "negative_boundaries": [
+      "🛑 NEVER exceed Paracetamol 2.0g/day in cirrhosis.",
+      "🛑 NEVER give NSAIDs."
+    ],
+    "prompt_injection_chunk": "[CDU-CIRRHOSIS-ANALGESIA]\nCONDITION: Musculoskeletal pain in Cirrhosis.\nGUIDELINE ACTIONS: Paracetamol is the safest first-line analgesic in cirrhosis, provided dose is strictly restricted to a maximum of 2.0g per 24 hours (e.g. 500mg QDS or 1g BD). Topical therapies, gentle physical therapy.\nNEGATIVE BOUNDARIES: 🛑 NEVER exceed Paracetamol 2.0g/day in cirrhosis. NEVER give NSAIDs.",
+    "certified": true
+  },
+  {
+    "id": "CDU-TRIPTAN-VASCULAR-SAFETY",
+    "topic": "Triptan Vascular Contraindications in Severe Hypertension",
+    "domain": "primary_care_multimorbidity",
+    "source_guideline": "AHS Guidelines for Acute Migraine 2024 / BNF Triptan Precautions",
+    "verbatim_excerpt": "Triptans are 5-HT1B/1D receptor agonists that induce cerebral and coronary vasoconstriction. They are strictly contraindicated in uncontrolled moderate-to-severe hypertension (systolic BP >=160 mmHg or diastolic BP >=100 mmHg) due to increased risk of ischemic stroke and acute coronary syndromes.",
+    "entry_criteria": "Migraine headache in patient with blood pressure >= 160/100 mmHg",
+    "danger_signs": ["Focal neurological deficits", "Chest pain during or after triptan intake"],
+    "mandated_actions": [
+      "Withhold Triptans until blood pressure is lowered < 140/90 mmHg",
+      "Provide non-vasoconstrictive abortive therapy (Paracetamol, Metoclopramide) for acute migraine"
+    ],
+    "negative_boundaries": [
+      "🛑 ABSOLUTE CONTRAINDICATION to Triptans (Sumatriptan, Zolmitriptan) in uncontrolled Stage 2 hypertension (BP >=160/100). Triptans cause coronary and cerebral vasoconstriction, carrying high risk of ischemic stroke and myocardial infarction."
+    ],
+    "prompt_injection_chunk": "[CDU-TRIPTAN-VASCULAR-SAFETY]\nCONDITION: 5-HT1B/1D Agonists (Triptans) in severe uncontrolled hypertension.\nGUIDELINE ACTIONS: Acute migraine treatment during uncontrolled hypertension must use alternative non-vasoconstrictive abortives (Paracetamol, Metoclopramide) until BP is normalized.\nNEGATIVE BOUNDARIES: 🛑 ABSOLUTE CONTRAINDICATION to Triptans (Sumatriptan, Zolmitriptan) in uncontrolled Stage 2 hypertension (BP >=160/100). Triptans cause coronary and cerebral vasoconstriction, carrying high risk of ischemic stroke and myocardial infarction.",
+    "certified": true
+  },
+  {
+    "id": "CDU-PD-ANTIPSYCHOTIC-CONTRAINDICATIONS",
+    "topic": "Fatal D2 Antagonist Prohibitions in Parkinson's Disease",
+    "domain": "primary_care_multimorbidity",
+    "source_guideline": "NICE NG71 (Parkinson's Disease) / Movement Disorder Society 2023",
+    "verbatim_excerpt": "Typical antipsychotics (e.g. haloperidol) and most atypical antipsychotics (e.g. risperidone, olanzapine) block dopamine D2 receptors and cause severe, irreversible worsening of parkinsonism. Only quetiapine, pimavanserin, or clozapine are safe.",
+    "entry_criteria": "Parkinson's Disease presenting with hallucinations, agitation, or delirium",
+    "danger_signs": ["Severe rigidity, inability to swallow, acute motor arrest"],
+    "mandated_actions": [
+      "Screen for underlying delirium causes (infections, metabolic)",
+      "If antipsychotic necessary, permit ONLY Quetiapine (12.5-25mg) or Clozapine / Pimavanserin"
+    ],
+    "negative_boundaries": [
+      "🛑 ABSOLUTE CONTRAINDICATION to First-Generation Antipsychotics (Haloperidol, Chlorpromazine) and D2-blocking Second-Generation Antipsychotics (Risperidone, Olanzapine, Aripiprazole). These agents block striatal dopamine D2 receptors, inducing catastrophic irreversible motor collapse, acute rigidity, and death.",
+      "🛑 ABSOLUTELY CONTRAINDICATE D2-blocking antiemetics (Metoclopramide, Prochlorperazine)."
+    ],
+    "prompt_injection_chunk": "[CDU-PD-ANTIPSYCHOTIC-CONTRAINDICATIONS]\nCONDITION: Antipsychotic safety in Parkinson's Disease.\nGUIDELINE ACTIONS: Avoid D2 receptor blockade.\nNEGATIVE BOUNDARIES: 🛑 ABSOLUTE CONTRAINDICATION to First-Generation Antipsychotics (Haloperidol, Chlorpromazine) and D2-blocking Second-Generation Antipsychotics (Risperidone, Olanzapine, Aripiprazole). These agents block striatal dopamine D2 receptors, inducing catastrophic irreversible motor collapse, acute rigidity, and death. 🛑 ABSOLUTELY CONTRAINDICATE D2-blocking antiemetics (Metoclopramide, Prochlorperazine).",
+    "certified": true
+  },
+  {
+    "id": "CDU-TCA-ANTICHOLINERGIC-PROHIBITION",
+    "topic": "Tricyclic Antidepressant Prohibitions in Severe BPH",
+    "domain": "primary_care_multimorbidity",
+    "source_guideline": "EAU Guidelines on Management of Non-neurogenic Male LUTS 2024 / Beers Criteria",
+    "verbatim_excerpt": "Anticholinergic medications and tricyclic antidepressants (amitriptyline, nortriptyline) should be avoided in men with severe benign prostatic hyperplasia and lower urinary tract symptoms due to the risk of precipitating acute complete urinary retention.",
+    "entry_criteria": "Neuropathic pain or depression in male patient with severe BPH (IPSS > 19)",
+    "danger_signs": ["Inability to void, severe lower abdominal distension and agony", "Acute urinary retention"],
+    "mandated_actions": [
+      "Select non-anticholinergic neuropathic agents (e.g. renally adjusted Pregabalin or Duloxetine)"
+    ],
+    "negative_boundaries": [
+      "🛑 STRICTLY CONTRAINDICATE Tricyclic Antidepressants (Amitriptyline, Nortriptyline, Imipramine) in patients with severe lower urinary tract symptoms or severe BPH. Potent anticholinergic blockade inhibits detrusor muscle contraction, precipitating acute complete urinary retention requiring emergency catheterization."
+    ],
+    "prompt_injection_chunk": "[CDU-TCA-ANTICHOLINERGIC-PROHIBITION]\nCONDITION: Tricyclic Antidepressants (Amitriptyline, Nortriptyline) in severe BPH.\nGUIDELINE ACTIONS: Use non-anticholinergic neuropathic agents.\nNEGATIVE BOUNDARIES: 🛑 STRICTLY CONTRAINDICATE Tricyclic Antidepressants (Amitriptyline, Nortriptyline, Imipramine) in patients with severe lower urinary tract symptoms or severe BPH. Potent anticholinergic blockade inhibits detrusor muscle contraction, precipitating acute complete urinary retention requiring emergency catheterization.",
+    "certified": true
+  },
+  {
+    "id": "CDU-GABAPENTINOID-RENAL-DOSING",
+    "topic": "Gabapentinoid Renally-Adjusted Dosing in CKD",
+    "domain": "primary_care_multimorbidity",
+    "source_guideline": "KDIGO 2024 / FDA Dosing Guidance for Pregabalin and Gabapentin",
+    "verbatim_excerpt": "Pregabalin and Gabapentin are cleared almost exclusively by renal excretion. In patients with eGFR 30-50 mL/min, maximum daily doses must be reduced by 50% to prevent neurotoxicity, profound somnolence, and falls.",
+    "entry_criteria": "Neuropathic pain requiring gabapentinoids in patient with eGFR < 60 mL/min",
+    "danger_signs": ["Myoclonus, severe ataxia, encephalopathy, sedation"],
+    "mandated_actions": [
+      "Reduce Pregabalin starting dose to 25-50mg BD (max maintenance 150mg/day) for eGFR 30-50 mL/min",
+      "Alternatively choose Duloxetine 30-60mg daily (safe down to eGFR 30 without renal dose reduction)"
+    ],
+    "negative_boundaries": [
+      "🛑 DO NOT prescribe unadjusted full-dose Pregabalin (300-600mg/day) in eGFR <50 (causes severe CNS neurotoxicity, myoclonus, ataxia, falls)."
+    ],
+    "prompt_injection_chunk": "[CDU-GABAPENTINOID-RENAL-DOSING]\nCONDITION: Gabapentinoid prescribing in CKD (eGFR 30-59 mL/min).\nGUIDELINE ACTIONS: Gabapentin and Pregabalin are 100% renally eliminated. When eGFR is 30-50 mL/min, maximum starting doses MUST be reduced: Pregabalin max starting dose 25-50mg BD (max maintenance 150mg/day instead of 300mg/day); Gabapentin max 300mg BD. Alternatively Duloxetine 30mg OD (titrated to 60mg; safe down to eGFR 30).\nNEGATIVE BOUNDARIES: 🛑 DO NOT prescribe unadjusted full-dose Pregabalin (300-600mg/day) in eGFR <50 (causes severe CNS neurotoxicity, myoclonus, ataxia, falls).",
+    "certified": true
+  }
+]
