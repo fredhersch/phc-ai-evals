@@ -1,5 +1,10 @@
 # Primary Health Care (PHC) Multi-Morbidity Evals: `phc-evals`
 
+[![Live Report](https://img.shields.io/badge/Interactive_Report-GitHub_Pages-blue?logo=github&style=flat-square)](https://fredhersch.github.io/phc-ai-evals/)
+[![License: Apache 2.0](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+
+> 🌐 **Interactive Dashboard & Report**: [fredhersch.github.io/phc-ai-evals](https://fredhersch.github.io/phc-ai-evals/)
+
 A standardized evaluation benchmark designed to test the **Atomic Clinical Decision Unit (a-CDU)** chunking and retrieval hypothesis for complex multi-morbidity in Primary Health Care (PHC) decision support.
 
 ---
