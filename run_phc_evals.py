@@ -120,6 +120,7 @@ def run_benchmark(
     model: str,
     api_base: str,
     cdu_mode: str,
+    provider: str = "auto",
     judge_model: str = "",
     judge_api_key: str = "",
     cloud_api_base: str = "",
@@ -131,13 +132,21 @@ def run_benchmark(
     template = PROMPT_TEMPLATE.read_text(encoding="utf-8")
     judge_template_text = JUDGE_TEMPLATE.read_text(encoding="utf-8") if judge_model else ""
     
+    # Determine provider
+    if provider == "auto":
+        use_cloud = bool("/" in model and cloud_api_key and cloud_api_base)
+    elif provider == "cloud":
+        use_cloud = True
+    else:  # ollama
+        use_cloud = False
+    
     results = []
     total_tier1_passes = 0
     total_safety_passes = 0
     
     print(f"\n==========================================================================")
     print(f"  PHC Multi-Morbidity Decision Support Benchmark (10 Cases)")
-    print(f"  Model Under Test : {model} (Mode: {cdu_mode})")
+    print(f"  Model Under Test : {model} (Mode: {cdu_mode}, Provider: {'cloud' if use_cloud else 'ollama'})")
     print(f"  Frontier Judge   : {judge_model or 'None (Tier-1 Assertions Only)'}")
     print(f"  Dry Run Active   : {dry_run}")
     print(f"==========================================================================\n")
@@ -172,7 +181,7 @@ def run_benchmark(
             gen_time = 0.05
         else:
             t0 = time.time()
-            if cloud_api_key and cloud_api_base:
+            if use_cloud:
                 model_output = call_cloud_api(prompt, model, cloud_api_base, cloud_api_key)
             else:
                 model_output = call_ollama(prompt, model, api_base)
@@ -247,6 +256,7 @@ def run_benchmark(
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="PHC Multi-Morbidity Decision Support Evals")
     parser.add_argument("--model", type=str, default="gemma2:2b-instruct-q4_K_M", help="Model name in Ollama")
+    parser.add_argument("--provider", type=str, choices=["auto", "ollama", "cloud"], default="auto", help="Provider for model: auto, ollama, or cloud")
     parser.add_argument("--api-base", type=str, default="http://localhost:11434", help="Ollama API base URL")
     parser.add_argument("--cdu-mode", type=str, choices=["with_cdus", "naive_rag", "no_rag"], default="with_cdus", help="RAG conditioning mode")
     parser.add_argument("--cloud-api-base", type=str, default=os.environ.get("CLOUD_API_BASE", ""), help="OpenAI-compatible cloud API base (e.g., https://openrouter.ai/api/v1)")
@@ -268,6 +278,7 @@ if __name__ == "__main__":
         model=args.model,
         api_base=args.api_base,
         cdu_mode=args.cdu_mode,
+        provider=args.provider,
         judge_model=args.judge_model,
         judge_api_key=args.judge_api_key,
         cloud_api_base=args.cloud_api_base,

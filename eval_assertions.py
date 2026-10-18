@@ -12,7 +12,8 @@ NEGATION_PREFIXES = [
     "contraindication", "contraindications", "withhold", "stop", "stopping", "discontinue",
     "strictly avoid", "strictly contraindicated", "strictly contraindicate", "prohibit",
     "prohibits", "prohibited", "prohibition", "refuse", "not recommended", "should not",
-    "must not", "free of", "caution against", "cease", "incompatible", "dangerous"
+    "must not", "free of", "caution against", "cease", "incompatible", "dangerous",
+    "no", "absolutely no", "none", "without", "zero"
 ]
 
 
