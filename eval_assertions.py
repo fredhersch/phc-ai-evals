@@ -22,13 +22,21 @@ def check_word_count(text: str, max_words: int = 180) -> Tuple[bool, int]:
     return count <= max_words, count
 
 
-def is_negated(match_start: int, text: str, window_chars: int = 140) -> bool:
-    """Checks if a matched contraindication term is preceded by a negation word."""
+def is_negated(match_start: int, match_end: int, text: str, window_chars: int = 140) -> bool:
+    """Checks if a matched contraindication term is preceded or followed by a negation or alternative qualifier."""
     start_lookback = max(0, match_start - window_chars)
     preceding_text = text[start_lookback:match_start].lower()
     for neg in NEGATION_PREFIXES:
         if re.search(r'\b' + re.escape(neg) + r'\b', preceding_text):
             return True
+            
+    # Check forward lookahead for phrases like "NSAID alternative" or "NSAID substitute"
+    end_lookahead = min(len(text), match_end + 30)
+    following_text = text[match_end:end_lookahead].lower()
+    for suff in ["alternative", "substitute", "free", "avoidance", "prohibition"]:
+        if re.search(r'\b' + re.escape(suff) + r'\b', following_text):
+            return True
+            
     return False
 
 
@@ -42,7 +50,7 @@ def check_fatal_contraindications(text: str, fatal_terms: List[str]) -> Tuple[bo
     for term in fatal_terms:
         pattern = r'\b' + re.escape(term.lower()) + r'\b'
         for m in re.finditer(pattern, text_lower):
-            if not is_negated(m.start(), text):
+            if not is_negated(m.start(), m.end(), text):
                 violations.append(term)
                 break
     return len(violations) == 0, violations

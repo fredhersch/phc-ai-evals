@@ -32,7 +32,7 @@ def load_dataset() -> List[Dict[str, Any]]:
         return json.load(f)
 
 
-def call_ollama(prompt: str, model: str, api_base: str, timeout: int = 120) -> str:
+def call_ollama(prompt: str, model: str, api_base: str, timeout: int = 180) -> str:
     url = f"{api_base.rstrip('/')}/api/generate"
     payload = {
         "model": model,
@@ -41,7 +41,7 @@ def call_ollama(prompt: str, model: str, api_base: str, timeout: int = 120) -> s
         "options": {
             "temperature": 0.1,
             "top_p": 0.9,
-            "num_predict": 300,
+            "num_predict": 1200,
         }
     }
     data = json.dumps(payload).encode("utf-8")
@@ -49,9 +49,36 @@ def call_ollama(prompt: str, model: str, api_base: str, timeout: int = 120) -> s
     try:
         with urllib.request.urlopen(req, timeout=timeout) as resp:
             res_data = json.loads(resp.read().decode("utf-8"))
-            return res_data.get("response", "").strip()
+            resp_text = res_data.get("response", "").strip()
+            # If response is empty but thinking exists, use thinking or log
+            if not resp_text and res_data.get("thinking"):
+                resp_text = res_data.get("thinking", "").strip()
+            return resp_text
     except Exception as e:
         return f"[ERROR calling Ollama {model}: {str(e)}]"
+
+
+def call_cloud_api(prompt: str, model: str, api_base: str, api_key: str, timeout: int = 120) -> str:
+    """Invokes any OpenAI-compatible cloud endpoint (Groq, OpenRouter, Together AI, vLLM)."""
+    url = f"{api_base.rstrip('/')}/chat/completions"
+    headers = {
+        "Content-Type": "application/json",
+        "Authorization": f"Bearer {api_key}"
+    }
+    payload = {
+        "model": model,
+        "messages": [{"role": "user", "content": prompt}],
+        "temperature": 0.1,
+        "max_tokens": 1000
+    }
+    data = json.dumps(payload).encode("utf-8")
+    req = urllib.request.Request(url, data=data, headers=headers)
+    try:
+        with urllib.request.urlopen(req, timeout=timeout) as resp:
+            res_data = json.loads(resp.read().decode("utf-8"))
+            return res_data["choices"][0]["message"]["content"].strip()
+    except Exception as e:
+        return f"[ERROR calling Cloud API {model}: {str(e)}]"
 
 
 def call_gemini_judge(prompt: str, api_key: str, model: str = "gemini-2.0-flash") -> Dict[str, Any]:
@@ -84,6 +111,8 @@ def run_benchmark(
     cdu_mode: str,
     judge_model: str = "",
     judge_api_key: str = "",
+    cloud_api_base: str = "",
+    cloud_api_key: str = "",
     dry_run: bool = False,
     output_path: str = ""
 ) -> Dict[str, Any]:
@@ -132,7 +161,10 @@ def run_benchmark(
             gen_time = 0.05
         else:
             t0 = time.time()
-            model_output = call_ollama(prompt, model, api_base)
+            if cloud_api_key and cloud_api_base:
+                model_output = call_cloud_api(prompt, model, cloud_api_base, cloud_api_key)
+            else:
+                model_output = call_ollama(prompt, model, api_base)
             gen_time = round(time.time() - t0, 2)
             
         # Tier-1 Assertions
@@ -206,6 +238,8 @@ if __name__ == "__main__":
     parser.add_argument("--model", type=str, default="gemma2:2b-instruct-q4_K_M", help="Model name in Ollama")
     parser.add_argument("--api-base", type=str, default="http://localhost:11434", help="Ollama API base URL")
     parser.add_argument("--cdu-mode", type=str, choices=["with_cdus", "naive_rag", "no_rag"], default="with_cdus", help="RAG conditioning mode")
+    parser.add_argument("--cloud-api-base", type=str, default=os.environ.get("CLOUD_API_BASE", ""), help="OpenAI-compatible cloud API base (e.g., https://openrouter.ai/api/v1)")
+    parser.add_argument("--cloud-api-key", type=str, default=os.environ.get("CLOUD_API_KEY", ""), help="API key for cloud endpoint")
     parser.add_argument("--judge-model", type=str, default="", help="Frontier Judge model (e.g. gemini-2.0-flash, gemini-1.5-pro)")
     parser.add_argument("--judge-api-key", type=str, default=os.environ.get("GEMINI_API_KEY", ""), help="Gemini API Key")
     parser.add_argument("--dry-run", action="store_true", help="Run in dry-run mode without external model calls")
@@ -225,6 +259,8 @@ if __name__ == "__main__":
         cdu_mode=args.cdu_mode,
         judge_model=args.judge_model,
         judge_api_key=args.judge_api_key,
+        cloud_api_base=args.cloud_api_base,
+        cloud_api_key=args.cloud_api_key,
         dry_run=args.dry_run,
         output_path=args.output
     )
