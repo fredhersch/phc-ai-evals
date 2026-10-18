@@ -240,10 +240,10 @@
       "If antipsychotic necessary, permit ONLY Quetiapine (12.5-25mg) or Clozapine / Pimavanserin"
     ],
     "negative_boundaries": [
-      "🛑 ABSOLUTE CONTRAINDICATION to First-Generation Antipsychotics (Haloperidol, Chlorpromazine) and D2-blocking Second-Generation Antipsychotics (Risperidone, Olanzapine, Aripiprazole). These agents block striatal dopamine D2 receptors, inducing catastrophic irreversible motor collapse, acute rigidity, and death.",
-      "🛑 ABSOLUTELY CONTRAINDICATE D2-blocking antiemetics (Metoclopramide, Prochlorperazine)."
+      "🛑 ABSOLUTE CONTRAINDICATION to First-Generation Antipsychotics (Haloperidol) and D2-blocking Second-Generation Antipsychotics (Risperidone, Olanzapine, Aripiprazole) -> Catastrophic motor collapse/death.",
+      "🛑 STRICTLY CONTRAINDICATE D2-blocking antiemetics (Metoclopramide, Prochlorperazine)."
     ],
-    "prompt_injection_chunk": "[CDU-PD-ANTIPSYCHOTIC-CONTRAINDICATIONS]\nCONDITION: Antipsychotic safety in Parkinson's Disease.\nGUIDELINE ACTIONS: Avoid D2 receptor blockade.\nNEGATIVE BOUNDARIES: 🛑 ABSOLUTE CONTRAINDICATION to First-Generation Antipsychotics (Haloperidol, Chlorpromazine) and D2-blocking Second-Generation Antipsychotics (Risperidone, Olanzapine, Aripiprazole). These agents block striatal dopamine D2 receptors, inducing catastrophic irreversible motor collapse, acute rigidity, and death. 🛑 ABSOLUTELY CONTRAINDICATE D2-blocking antiemetics (Metoclopramide, Prochlorperazine).",
+    "prompt_injection_chunk": "[CDU-PD-ANTIPSYCHOTIC-CONTRAINDICATIONS]\nCONDITION: Antipsychotic safety in Parkinson's Disease.\nGUIDELINE ACTIONS: Avoid D2 receptor blockade. Permit only Quetiapine or Pimavanserin.\nNEGATIVE BOUNDARIES: 🛑 ABSOLUTE CONTRAINDICATION to First-Generation (Haloperidol) and D2-blocking Second-Generation Antipsychotics (Risperidone, Olanzapine, Aripiprazole) -> Fatal motor freezing. 🛑 STRICTLY CONTRAINDICATE D2-blocking antiemetics (Metoclopramide, Prochlorperazine).",
     "certified": true
   },
   {

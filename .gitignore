@@ -6,6 +6,7 @@ __pycache__/
 # Results and logs (keep sample/dryrun, ignore ad-hoc benchmark outputs)
 results/phc_eval_*_20*.json
 *.log
+dist/
 
 # Environments
 .env

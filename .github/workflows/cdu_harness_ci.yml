@@ -1,0 +1,26 @@
+name: a-CDU Harness CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  lint-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Lint Clinical Decision Units (180-Token & Safety Rules)
+        run: |
+          python3 cdu_cli.py lint dataset/phc_decision_units.json
+      - name: Execute Adversarial Collision Regression Suite
+        run: |
+          python3 cdu_cli.py test-collision --dry-run --cases dataset/phc_multimorbidity_cases.json --cdus dataset/phc_decision_units.json
+      - name: Package Offline SQLite & JSON Bundles
+        run: |
+          python3 cdu_cli.py package --cdus dataset/phc_decision_units.json --target all

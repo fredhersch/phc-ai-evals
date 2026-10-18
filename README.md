@@ -146,3 +146,26 @@ An interactive visual dashboard and complete case explorer is available in [`rep
 3. **Local 4B Model Parity**: Gemma 4-4B matched the 27B frontier model at 80% pass rate.
 4. **General SLM + a-CDU beats Raw Medical LLM**: Gemma 4-2B + a-CDU (30%) outperformed unguided MedGemma 4B (20%).
 
+---
+
+## 8. The a-CDU Lifecycle Harness (`cdu_cli.py`)
+
+A standalone, zero-dependency compiler, static linter, and adversarial collision testbed for clinical decision units.
+
+### CLI Commands
+
+```bash
+# 1. Statically lint all CDUs for the <=180 token ceiling and self-contradictions
+python3 cdu_cli.py lint dataset/phc_decision_units.json
+
+# 2. Run adversarial multi-morbidity collision regression suite (instant in-memory)
+python3 cdu_cli.py test-collision --dry-run
+
+# 3. Compile verified CDUs into offline SQLite FTS5 database & JSON bundle (for Kenya eCHIS / Android)
+python3 cdu_cli.py package --target all
+
+# 4. Scaffold a new draft a-CDU template
+python3 cdu_cli.py init --id CDU-ANC-SEVERE-PREECLAMPSIA
+```
+
+
