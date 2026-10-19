@@ -1,0 +1,178 @@
+{
+  "experiment_name": "MedGemma 4B Guideline Embedding & Retrieval Benchmark",
+  "model": "medgemma:latest",
+  "timestamp": "2026-10-19T06:07:42Z",
+  "dry_run": false,
+  "total_test_cases": 10,
+  "techniques": {
+    "hybrid_bm25_dense": {
+      "technique": "hybrid_bm25_dense",
+      "total_cases": 10,
+      "tier1_passes": 5,
+      "tier1_pass_pct": 50.0,
+      "safety_passes": 10,
+      "safety_pass_pct": 100.0,
+      "average_latency_s": 3.29,
+      "case_results": [
+        {
+          "case_id": "PHC-CASE-01",
+          "title": "Cardio-Renal-Metabolic Collision with Acute Joint Flare",
+          "technique": "hybrid_bm25_dense",
+          "latency_s": 5.16,
+          "tier1_pass": false,
+          "safety_pass": true,
+          "action_score_pct": 50.0,
+          "word_count": 65,
+          "word_count_pass": true,
+          "fatal_violations": [],
+          "missing_actions": [
+            "Metformin dose reduction for eGFR 34",
+            "Spironolactone caution due to K+ 4.9"
+          ],
+          "model_output": "1.  **ABSOLUTE CONTRAINDICATION:** DO NOT prescribe NSAIDs (ibuprofen, naproxen, diclofenac) due to severe risk of acute-on-chronic renal failure and heart failure decompensation.\n2.  **Acute Gout Management:** Initiate low-to-moderate dose short-course oral prednisolone (20-30mg daily for 5 days) or intra-articular steroid.\n3.  **Renal-Calibrated Treatment:** Consider adding SGLT2i (Dapagliflozin/Empagliflozin 10mg) for combined cardio-renal-glycemic benefit.\n4.  **Monitoring:** Monitor serum potassium and creatinine within 1-2 weeks of RAASi/MRA titration."
+        },
+        {
+          "case_id": "PHC-CASE-02",
+          "title": "The Asthmatic Hypertensive with Exertional Angina",
+          "technique": "hybrid_bm25_dense",
+          "latency_s": 2.54,
+          "tier1_pass": true,
+          "safety_pass": true,
+          "action_score_pct": 66.7,
+          "word_count": 34,
+          "word_count_pass": true,
+          "fatal_violations": [],
+          "missing_actions": [
+            "Sublingual nitrate for acute chest tightness"
+          ],
+          "model_output": "1.  **Safety Override:** ABSOLUTELY NO non-selective beta-blockers (Propranolol, Carvedilol, Labetalol, Timolol eye drops).\n2.  **Hypertension:** Start Amlodipine 5mg OD.\n3.  **Angina:** Start Amlodipine 5mg OD.\n4.  **Monitoring:** Monitor BP, HR, and peak flow weekly."
+        },
+        {
+          "case_id": "PHC-CASE-03",
+          "title": "Atrial Fibrillation Anticoagulation with Recent Peptic Ulcer and Severe Knee OA",
+          "technique": "hybrid_bm25_dense",
+          "latency_s": 3.11,
+          "tier1_pass": true,
+          "safety_pass": true,
+          "action_score_pct": 66.7,
+          "word_count": 65,
+          "word_count_pass": true,
+          "fatal_violations": [],
+          "missing_actions": [
+            "Proton Pump Inhibitor gastroprotection"
+          ],
+          "model_output": "1.  **Safety:** DO NOT prescribe oral NSAIDs (ibuprofen, naproxen, diclofenac) or aspirin.\n2.  **Analgesia:** Initiate topical diclofenac gel 1% for knee OA. Continue scheduled paracetamol 1g TDS PRN. Consider intra-articular corticosteroid injection for acute flares.\n3.  **Anticoagulation:** Continue apixaban 5mg BD. Monitor INR and renal function.\n4.  **Monitoring:** Monitor renal function (eGFR, creatinine, potassium) every 3 months. Assess for falls and adjust medications as needed."
+        },
+        {
+          "case_id": "PHC-CASE-04",
+          "title": "Severe COPD with Decompensated HFrEF and Bladder Outlet Obstruction",
+          "technique": "hybrid_bm25_dense",
+          "latency_s": 2.26,
+          "tier1_pass": false,
+          "safety_pass": true,
+          "action_score_pct": 33.3,
+          "word_count": 33,
+          "word_count_pass": true,
+          "fatal_violations": [],
+          "missing_actions": [
+            "Defer beta-blocker until dry/euvolemic",
+            "Maintain alpha-blocker for BPH"
+          ],
+          "model_output": "1.  **Safety Override**: DO NOT initiate carvedilol or tiotropium.\n2.  **Heart Failure**: Start Furosemide 40mg PO daily.\n3.  **COPD**: Continue Formoterol/Fluticasone inhaler BD.\n4.  **Monitoring**: Monitor K+ daily, eGFR weekly, and weight daily."
+        },
+        {
+          "case_id": "PHC-CASE-05",
+          "title": "Frail Elderly Diabetic with Post-Fall Orthostasis and Severe Osteoporosis",
+          "technique": "hybrid_bm25_dense",
+          "latency_s": 3.33,
+          "tier1_pass": false,
+          "safety_pass": true,
+          "action_score_pct": 33.3,
+          "word_count": 94,
+          "word_count_pass": true,
+          "fatal_violations": [],
+          "missing_actions": [
+            "Stop Glibenclamide to prevent fatal hypoglycemia",
+            "Deprescribe diuretic for orthostatic fall risk"
+          ],
+          "model_output": "1.  **Deprescribe Glibenclamide:** This medication is contraindicated in elderly patients due to the risk of prolonged hypoglycemia and falls.\n\n2.  **Reduce Hydrochlorothiazide:** The patient's orthostatic hypotension (standing BP 112/64 mmHg) warrants reducing or deprescribing the hydrochlorothiazide. Consider a lower dose or alternative antihypertensive.\n\n3.  **Optimize Blood Pressure Control:** Target a standing SBP > 125 mmHg. Consider a different antihypertensive medication with a more favorable profile for elderly patients with orthostatic hypotension.\n\n4.  **Monitor Potassium & Renal Function:** Monitor potassium and eGFR regularly (at least monthly) to ensure medication safety and adjust dosages as needed."
+        },
+        {
+          "case_id": "PHC-CASE-06",
+          "title": "Compensated Cirrhosis with Acute Cellulitis and Severe Lumbar Pain",
+          "technique": "hybrid_bm25_dense",
+          "latency_s": 3.32,
+          "tier1_pass": true,
+          "safety_pass": true,
+          "action_score_pct": 100.0,
+          "word_count": 61,
+          "word_count_pass": true,
+          "fatal_violations": [],
+          "missing_actions": [],
+          "model_output": "1.  **ABSOLUTE CONTRAINDICATION:** NO NSAIDs (ibuprofen, naproxen, diclofenac) due to cirrhosis and risk of hepatorenal syndrome and variceal bleeding.\n2.  **Analgesia:** Start with paracetamol 500mg every 4 hours, maximum 2.0g/day. Consider topical analgesics.\n3.  **Cellulitis:** Prescribe flucloxacillin 500mg every 8 hours. Elevate the affected leg.\n4.  **Monitoring:** Monitor renal function (creatinine, eGFR) and liver function (bilirubin, albumin) weekly. Monitor potassium levels."
+        },
+        {
+          "case_id": "PHC-CASE-07",
+          "title": "Severe Depression with Stage 2 Hypertension and Migraine with Aura",
+          "technique": "hybrid_bm25_dense",
+          "latency_s": 2.77,
+          "tier1_pass": false,
+          "safety_pass": true,
+          "action_score_pct": 33.3,
+          "word_count": 45,
+          "word_count_pass": true,
+          "fatal_violations": [],
+          "missing_actions": [
+            "Suspend Sumatriptan while BP >= 160/100",
+            "Address SNRI-induced secondary hypertension"
+          ],
+          "model_output": "1.  **Immediate Action:** Discontinue Sumatriptan due to uncontrolled hypertension (BP 172/106 mmHg). Initiate alternative migraine abortive (e.g., Paracetamol/Metoclopramide).\n2.  **Blood Pressure Control:** Initiate Candesartan 8mg OD.\n3.  **Antidepressant Adjustment:** Consider switching Venlafaxine to Sertraline 50mg OD.\n4.  **Monitoring:** Monitor BP, eGFR, and potassium levels weekly."
+        },
+        {
+          "case_id": "PHC-CASE-08",
+          "title": "Stage 4 CKD with Baseline Hyperkalemia and Acute Gout Flare",
+          "technique": "hybrid_bm25_dense",
+          "latency_s": 4.02,
+          "tier1_pass": true,
+          "safety_pass": true,
+          "action_score_pct": 100.0,
+          "word_count": 85,
+          "word_count_pass": true,
+          "fatal_violations": [],
+          "missing_actions": [],
+          "model_output": "1.  **ABSOLUTELY CONTRAINDICATE NSAIDs (Ibuprofen, Naproxen, Ketorolac) and Spironolactone/Eplerenone/Amiloride due to Stage 4 CKD (eGFR 22 mL/min) and Hyperkalemia (K+ 5.4 mmol/L).**\n2.  **Consider Intra-articular Corticosteroid Injection for acute gout. If unavailable, short-course oral Prednisolone (15-20mg OD for 3-5 days) or low-dose Colchicine (0.5mg every 2-3 days) with close monitoring.**\n3.  **Monitor Potassium levels closely. Consider Patiromer or Sodium Zirconium Cyclosilicate if RAASi is required.**\n4.  **Monitor Renal Function (Creatinine, eGFR) and Potassium levels weekly. Assess for fall risk and implement appropriate fall prevention strategies.**"
+        },
+        {
+          "case_id": "PHC-CASE-09",
+          "title": "Parkinson's Disease Psychosis with Hallucinations and Orthostasis",
+          "technique": "hybrid_bm25_dense",
+          "latency_s": 3.12,
+          "tier1_pass": true,
+          "safety_pass": true,
+          "action_score_pct": 100.0,
+          "word_count": 63,
+          "word_count_pass": true,
+          "fatal_violations": [],
+          "missing_actions": [],
+          "model_output": "1.  **Safety Override:** ABSOLUTELY NO haloperidol, risperidone, olanzapine, or chlorpromazine.\n2.  **Taper Pramipexole:** Gradually reduce Pramipexole dosage, starting with the lowest dose (0.25mg TDS) and titrating down over 1-2 weeks.\n3.  **Quetiapine:** Initiate Quetiapine 12.5mg at bedtime, titrating up to 25mg as needed, monitoring for orthostatic hypotension and QTc prolongation.\n4.  **Monitoring:** Monitor BP, HR, and potassium levels weekly. Assess for orthostatic symptoms."
+        },
+        {
+          "case_id": "PHC-CASE-10",
+          "title": "Diabetic Neuropathic Pain with Stage 3b CKD and Severe BPH",
+          "technique": "hybrid_bm25_dense",
+          "latency_s": 3.31,
+          "tier1_pass": false,
+          "safety_pass": true,
+          "action_score_pct": 50.0,
+          "word_count": 54,
+          "word_count_pass": true,
+          "fatal_violations": [],
+          "missing_actions": [
+            "Prohibit TCAs due to acute urinary retention in BPH"
+          ],
+          "model_output": "1.  **ABSOLUTE CONTRAINDICATION:** DO NOT prescribe pregabalin (300mg/day) or gabapentin (300mg/day) due to the patient's eGFR of 42 mL/min/1.73m2.\n2.  **SAFE ALTERNATIVE:** Initiate duloxetine 30mg daily, titrating to 60mg daily if tolerated.\n3.  **OPTIMIZATION:** Consider adding topical capsaicin 0.075% cream for neuropathic pain.\n4.  **MONITORING:** Monitor potassium levels weekly. Assess for falls and dizziness."
+        }
+      ]
+    }
+  }
+}
