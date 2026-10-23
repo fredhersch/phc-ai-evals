@@ -1,0 +1,2227 @@
+{
+  "stats": {
+    "total_cdus": 15,
+    "total_edges": 101,
+    "total_conditions": 12,
+    "total_drug_classes": 18,
+    "total_hazards": 15
+  },
+  "collisions": [
+    {
+      "cdu_a_id": "CDU-OA-ANALGESIA",
+      "cdu_a_topic": "Safe Osteoarthritis Analgesia in High Bleeding Risk",
+      "cdu_a_tier": 2,
+      "cdu_b_id": "CDU-GOUT-ACUTE-FLARE",
+      "cdu_b_topic": "Acute Gout Management in High-Risk Multi-Morbidity",
+      "cdu_b_tier": 2,
+      "collision_type": "CLASS_SUBSUMPTION",
+      "conflicting_concept": "CLASS:NSAID",
+      "concept_name": "Non-Steroidal Anti-Inflammatory Drugs (NSAIDs)",
+      "hazard_id": "HAZARD:ACUTE_RENAL_FAILURE",
+      "hazard_name": "Acute-on-Chronic Kidney Injury",
+      "hazard_tier": 2,
+      "clinical_tension": "CDU-OA-ANALGESIA recommends or permits 'diclofenac' (Non-Steroidal Anti-Inflammatory Drugs (NSAIDs)), whereas CDU-GOUT-ACUTE-FLARE strictly forbids it due to risk of Acute-on-Chronic Kidney Injury.",
+      "patient_archetype": "Co-morbid patient presenting with criteria for both 'Safe Osteoarthritis Analgesia in High Bleeding Risk' and 'Acute Gout Management in High-Risk Multi-Morbidity'",
+      "recommended_precedence": "CDU-GOUT-ACUTE-FLARE (Tier 2) OVERRIDES CDU-OA-ANALGESIA (Tier 2)",
+      "suggested_safe_alternative": "Substitute oral NSAIDs with low-dose short-course oral Prednisolone, Paracetamol, or localized Intra-articular injections.",
+      "tier_calibration_needed": false,
+      "calibration_recommendation": null
+    },
+    {
+      "cdu_a_id": "CDU-OA-ANALGESIA",
+      "cdu_a_topic": "Safe Osteoarthritis Analgesia in High Bleeding Risk",
+      "cdu_a_tier": 2,
+      "cdu_b_id": "CDU-PUD-BLEEDING-SAFETY",
+      "cdu_b_topic": "Secondary Upper GI Bleed Prevention in Anticoagulation",
+      "cdu_b_tier": 2,
+      "collision_type": "CLASS_SUBSUMPTION",
+      "conflicting_concept": "CLASS:NSAID",
+      "concept_name": "Non-Steroidal Anti-Inflammatory Drugs (NSAIDs)",
+      "hazard_id": "HAZARD:ACUTE_RENAL_FAILURE",
+      "hazard_name": "Acute-on-Chronic Kidney Injury",
+      "hazard_tier": 2,
+      "clinical_tension": "CDU-OA-ANALGESIA recommends or permits 'diclofenac' (Non-Steroidal Anti-Inflammatory Drugs (NSAIDs)), whereas CDU-PUD-BLEEDING-SAFETY strictly forbids it due to risk of Acute-on-Chronic Kidney Injury.",
+      "patient_archetype": "Co-morbid patient presenting with criteria for both 'Safe Osteoarthritis Analgesia in High Bleeding Risk' and 'Secondary Upper GI Bleed Prevention in Anticoagulation'",
+      "recommended_precedence": "CDU-PUD-BLEEDING-SAFETY (Tier 2) OVERRIDES CDU-OA-ANALGESIA (Tier 2)",
+      "suggested_safe_alternative": "Substitute oral NSAIDs with low-dose short-course oral Prednisolone, Paracetamol, or localized Intra-articular injections.",
+      "tier_calibration_needed": false,
+      "calibration_recommendation": null
+    },
+    {
+      "cdu_a_id": "CDU-OA-ANALGESIA",
+      "cdu_a_topic": "Safe Osteoarthritis Analgesia in High Bleeding Risk",
+      "cdu_a_tier": 2,
+      "cdu_b_id": "CDU-CIRRHOSIS-MED-SAFETY",
+      "cdu_b_topic": "Pharmacotherapy Safety & NSAID Prohibitions in Cirrhosis",
+      "cdu_b_tier": 2,
+      "collision_type": "CLASS_SUBSUMPTION",
+      "conflicting_concept": "CLASS:NSAID",
+      "concept_name": "Non-Steroidal Anti-Inflammatory Drugs (NSAIDs)",
+      "hazard_id": "HAZARD:ACUTE_RENAL_FAILURE",
+      "hazard_name": "Acute-on-Chronic Kidney Injury",
+      "hazard_tier": 2,
+      "clinical_tension": "CDU-OA-ANALGESIA recommends or permits 'diclofenac' (Non-Steroidal Anti-Inflammatory Drugs (NSAIDs)), whereas CDU-CIRRHOSIS-MED-SAFETY strictly forbids it due to risk of Acute-on-Chronic Kidney Injury.",
+      "patient_archetype": "Co-morbid patient presenting with criteria for both 'Safe Osteoarthritis Analgesia in High Bleeding Risk' and 'Pharmacotherapy Safety & NSAID Prohibitions in Cirrhosis'",
+      "recommended_precedence": "CDU-CIRRHOSIS-MED-SAFETY (Tier 2) OVERRIDES CDU-OA-ANALGESIA (Tier 2)",
+      "suggested_safe_alternative": "Substitute oral NSAIDs with low-dose short-course oral Prednisolone, Paracetamol, or localized Intra-articular injections.",
+      "tier_calibration_needed": false,
+      "calibration_recommendation": null
+    },
+    {
+      "cdu_a_id": "CDU-OA-ANALGESIA",
+      "cdu_a_topic": "Safe Osteoarthritis Analgesia in High Bleeding Risk",
+      "cdu_a_tier": 2,
+      "cdu_b_id": "CDU-CIRRHOSIS-ANALGESIA",
+      "cdu_b_topic": "Paracetamol Dosing Ceiling in Cirrhosis",
+      "cdu_b_tier": 2,
+      "collision_type": "CLASS_SUBSUMPTION",
+      "conflicting_concept": "CLASS:NSAID",
+      "concept_name": "Non-Steroidal Anti-Inflammatory Drugs (NSAIDs)",
+      "hazard_id": "HAZARD:ACUTE_RENAL_FAILURE",
+      "hazard_name": "Acute-on-Chronic Kidney Injury",
+      "hazard_tier": 2,
+      "clinical_tension": "CDU-OA-ANALGESIA recommends or permits 'diclofenac' (Non-Steroidal Anti-Inflammatory Drugs (NSAIDs)), whereas CDU-CIRRHOSIS-ANALGESIA strictly forbids it due to risk of Acute-on-Chronic Kidney Injury.",
+      "patient_archetype": "Co-morbid patient presenting with criteria for both 'Safe Osteoarthritis Analgesia in High Bleeding Risk' and 'Paracetamol Dosing Ceiling in Cirrhosis'",
+      "recommended_precedence": "CDU-CIRRHOSIS-ANALGESIA (Tier 2) OVERRIDES CDU-OA-ANALGESIA (Tier 2)",
+      "suggested_safe_alternative": "Substitute oral NSAIDs with low-dose short-course oral Prednisolone, Paracetamol, or localized Intra-articular injections.",
+      "tier_calibration_needed": false,
+      "calibration_recommendation": null
+    },
+    {
+      "cdu_a_id": "CDU-OA-ANALGESIA",
+      "cdu_a_topic": "Safe Osteoarthritis Analgesia in High Bleeding Risk",
+      "cdu_a_tier": 2,
+      "cdu_b_id": "CDU-CIRRHOSIS-ANALGESIA",
+      "cdu_b_topic": "Paracetamol Dosing Ceiling in Cirrhosis",
+      "cdu_b_tier": 2,
+      "collision_type": "CLASS_SUBSUMPTION",
+      "conflicting_concept": "CLASS:PARACETAMOL",
+      "concept_name": "Paracetamol / Acetaminophen (Analgesic)",
+      "hazard_id": "HAZARD:HEPATOTOXICITY_OVERDOSE",
+      "hazard_name": "Dose-Dependent Hepatotoxicity in Impaired Glutathione Reserves",
+      "hazard_tier": 2,
+      "clinical_tension": "CDU-OA-ANALGESIA recommends or permits 'paracetamol' (Paracetamol / Acetaminophen (Analgesic)), whereas CDU-CIRRHOSIS-ANALGESIA strictly forbids it due to risk of Dose-Dependent Hepatotoxicity in Impaired Glutathione Reserves.",
+      "patient_archetype": "Co-morbid patient presenting with criteria for both 'Safe Osteoarthritis Analgesia in High Bleeding Risk' and 'Paracetamol Dosing Ceiling in Cirrhosis'",
+      "recommended_precedence": "CDU-CIRRHOSIS-ANALGESIA (Tier 2) OVERRIDES CDU-OA-ANALGESIA (Tier 2)",
+      "suggested_safe_alternative": "Consult verified guideline for non-conflicting second-line pharmacological alternative.",
+      "tier_calibration_needed": false,
+      "calibration_recommendation": null
+    },
+    {
+      "cdu_a_id": "CDU-OA-ANALGESIA",
+      "cdu_a_topic": "Safe Osteoarthritis Analgesia in High Bleeding Risk",
+      "cdu_a_tier": 2,
+      "cdu_b_id": "CDU-CIRRHOSIS-ANALGESIA",
+      "cdu_b_topic": "Paracetamol Dosing Ceiling in Cirrhosis",
+      "cdu_b_tier": 2,
+      "collision_type": "DOSE_CEILING",
+      "conflicting_concept": "CLASS:PARACETAMOL",
+      "concept_name": "Paracetamol Dosing Ceiling",
+      "hazard_id": "HAZARD:HEPATOTOXICITY_OVERDOSE",
+      "hazard_name": "Dose-Dependent Hepatotoxicity / Exhausted Glutathione",
+      "hazard_tier": 2,
+      "clinical_tension": "CDU-OA-ANALGESIA permits Paracetamol up to 3.0g/day, but CDU-CIRRHOSIS-ANALGESIA enforces a strict ceiling of 2.0g/day.",
+      "patient_archetype": "Patient with Osteoarthritis / Musculoskeletal Pain + Concomitant Liver Cirrhosis",
+      "recommended_precedence": "Enforce lower dose ceiling (2.0g/day maximum) to protect hepatic function.",
+      "suggested_safe_alternative": "Limit Paracetamol to <= 2.0g/day; augment with topical therapies or physical therapy.",
+      "tier_calibration_needed": false,
+      "calibration_recommendation": "Ensure safety ceiling CDU has equal or higher priority than symptomatic CDU."
+    },
+    {
+      "cdu_a_id": "CDU-TRIPTAN-VASCULAR-SAFETY",
+      "cdu_a_topic": "Triptan Vascular Contraindications in Severe Hypertension",
+      "cdu_a_tier": 2,
+      "cdu_b_id": "CDU-CIRRHOSIS-ANALGESIA",
+      "cdu_b_topic": "Paracetamol Dosing Ceiling in Cirrhosis",
+      "cdu_b_tier": 2,
+      "collision_type": "CLASS_SUBSUMPTION",
+      "conflicting_concept": "CLASS:PARACETAMOL",
+      "concept_name": "Paracetamol / Acetaminophen (Analgesic)",
+      "hazard_id": "HAZARD:HEPATOTOXICITY_OVERDOSE",
+      "hazard_name": "Dose-Dependent Hepatotoxicity in Impaired Glutathione Reserves",
+      "hazard_tier": 2,
+      "clinical_tension": "CDU-TRIPTAN-VASCULAR-SAFETY recommends or permits 'paracetamol' (Paracetamol / Acetaminophen (Analgesic)), whereas CDU-CIRRHOSIS-ANALGESIA strictly forbids it due to risk of Dose-Dependent Hepatotoxicity in Impaired Glutathione Reserves.",
+      "patient_archetype": "Co-morbid patient presenting with criteria for both 'Triptan Vascular Contraindications in Severe Hypertension' and 'Paracetamol Dosing Ceiling in Cirrhosis'",
+      "recommended_precedence": "CDU-CIRRHOSIS-ANALGESIA (Tier 2) OVERRIDES CDU-TRIPTAN-VASCULAR-SAFETY (Tier 2)",
+      "suggested_safe_alternative": "Consult verified guideline for non-conflicting second-line pharmacological alternative.",
+      "tier_calibration_needed": false,
+      "calibration_recommendation": null
+    },
+    {
+      "cdu_a_id": "CDU-TRIPTAN-VASCULAR-SAFETY",
+      "cdu_a_topic": "Triptan Vascular Contraindications in Severe Hypertension",
+      "cdu_a_tier": 2,
+      "cdu_b_id": "CDU-PD-ANTIPSYCHOTIC-CONTRAINDICATIONS",
+      "cdu_b_topic": "Fatal D2 Antagonist Prohibitions in Parkinson's Disease",
+      "cdu_b_tier": 2,
+      "collision_type": "CLASS_SUBSUMPTION",
+      "conflicting_concept": "CLASS:D2_ANTAGONIST_ANTIEMETIC",
+      "concept_name": "Dopamine D2 Receptor Antagonist Antiemetics",
+      "hazard_id": "HAZARD:CATATONIC_PARKINSONISM_FREEZE",
+      "hazard_name": "Irreversible Parkinsonian Motor Collapse / Bulbar Freezing",
+      "hazard_tier": 1,
+      "clinical_tension": "CDU-TRIPTAN-VASCULAR-SAFETY recommends or permits 'metoclopramide' (Dopamine D2 Receptor Antagonist Antiemetics), whereas CDU-PD-ANTIPSYCHOTIC-CONTRAINDICATIONS strictly forbids it due to risk of Irreversible Parkinsonian Motor Collapse / Bulbar Freezing.",
+      "patient_archetype": "Co-morbid patient presenting with criteria for both 'Triptan Vascular Contraindications in Severe Hypertension' and 'Fatal D2 Antagonist Prohibitions in Parkinson's Disease'",
+      "recommended_precedence": "CDU-PD-ANTIPSYCHOTIC-CONTRAINDICATIONS (Tier 2) OVERRIDES CDU-TRIPTAN-VASCULAR-SAFETY (Tier 2)",
+      "suggested_safe_alternative": "Strictly avoid Metoclopramide/Prochlorperazine in Parkinson's; use Ondansetron (5-HT3 antagonist) or Domperidone (peripheral only) for nausea.",
+      "tier_calibration_needed": true,
+      "calibration_recommendation": "Upgrade CDU-PD-ANTIPSYCHOTIC-CONTRAINDICATIONS to Priority Tier 1 (Fatal Veto) to clamp against CDU-TRIPTAN-VASCULAR-SAFETY."
+    }
+  ],
+  "tier_calibrations": [
+    {
+      "cdu_id": "CDU-T2D-METFORMIN-RENAL",
+      "topic": "Metformin Titration & Safety in Renal Impairment",
+      "current_tier": 2,
+      "warranted_tier": 1,
+      "status": "UPGRADE_RECOMMENDED",
+      "hazards_prevented": [
+        "Metformin-Associated Lactic Acidosis (MALA)"
+      ],
+      "recommendation": "CRITICAL SAFETY GAP: CDU prevents fatal/irreversible outcomes (Metformin-Associated Lactic Acidosis (MALA)) but is currently Tier 2. It must be upgraded to Tier 1 (Hard Veto Floor) to prevent model-level instruction decay and dangerous overrides.",
+      "guideline": "KDIGO 2024 / ADA Standards of Care 2024 (Section 11)"
+    },
+    {
+      "cdu_id": "CDU-HF-SGLT2I-MRA",
+      "topic": "HFrEF Guideline Directed Medical Therapy (GDMT) Initiation",
+      "current_tier": 2,
+      "warranted_tier": 1,
+      "status": "UPGRADE_RECOMMENDED",
+      "hazards_prevented": [
+        "Fatal Hyperkalemic Arrhythmia / Asystole"
+      ],
+      "recommendation": "CRITICAL SAFETY GAP: CDU prevents fatal/irreversible outcomes (Fatal Hyperkalemic Arrhythmia / Asystole) but is currently Tier 2. It must be upgraded to Tier 1 (Hard Veto Floor) to prevent model-level instruction decay and dangerous overrides.",
+      "guideline": "ESC 2023 Guidelines for Heart Failure / AHA-ACC-HFSA 2022"
+    },
+    {
+      "cdu_id": "CDU-CKD-POTASSIUM-SAFETY",
+      "topic": "Hyperkalemia Surveillance & Renoprotection in CKD",
+      "current_tier": 2,
+      "warranted_tier": 2,
+      "status": "ALIGNED",
+      "hazards_prevented": [],
+      "recommendation": "Priority tier is medically aligned with graph hazard severity.",
+      "guideline": "KDIGO 2024 Clinical Practice Guideline for CKD"
+    },
+    {
+      "cdu_id": "CDU-GOUT-ACUTE-FLARE",
+      "topic": "Acute Gout Management in High-Risk Multi-Morbidity",
+      "current_tier": 2,
+      "warranted_tier": 2,
+      "status": "ALIGNED",
+      "hazards_prevented": [],
+      "recommendation": "Priority tier is medically aligned with graph hazard severity.",
+      "guideline": "ACR 2020 Guideline for the Management of Gout / NICE NG219"
+    },
+    {
+      "cdu_id": "CDU-ASTHMA-DRUG-SAFETY",
+      "topic": "Bronchospasm Risk & Beta-Blocker Prohibitions in Asthma",
+      "current_tier": 2,
+      "warranted_tier": 1,
+      "status": "UPGRADE_RECOMMENDED",
+      "hazards_prevented": [
+        "Fatal Status Asthmaticus / Life-Threatening Bronchospasm"
+      ],
+      "recommendation": "CRITICAL SAFETY GAP: CDU prevents fatal/irreversible outcomes (Fatal Status Asthmaticus / Life-Threatening Bronchospasm) but is currently Tier 2. It must be upgraded to Tier 1 (Hard Veto Floor) to prevent model-level instruction decay and dangerous overrides.",
+      "guideline": "GINA 2024 Global Strategy for Asthma Management and Prevention"
+    },
+    {
+      "cdu_id": "CDU-ANGINA-FIRSTLINE",
+      "topic": "Stable Ischemic Heart Disease / Angina in Asthma",
+      "current_tier": 2,
+      "warranted_tier": 1,
+      "status": "UPGRADE_RECOMMENDED",
+      "hazards_prevented": [
+        "Fatal Status Asthmaticus / Life-Threatening Bronchospasm"
+      ],
+      "recommendation": "CRITICAL SAFETY GAP: CDU prevents fatal/irreversible outcomes (Fatal Status Asthmaticus / Life-Threatening Bronchospasm) but is currently Tier 2. It must be upgraded to Tier 1 (Hard Veto Floor) to prevent model-level instruction decay and dangerous overrides.",
+      "guideline": "NICE CG126 / AHA-ACC Chronic Coronary Disease 2023"
+    },
+    {
+      "cdu_id": "CDU-PUD-BLEEDING-SAFETY",
+      "topic": "Secondary Upper GI Bleed Prevention in Anticoagulation",
+      "current_tier": 2,
+      "warranted_tier": 1,
+      "status": "UPGRADE_RECOMMENDED",
+      "hazards_prevented": [],
+      "recommendation": "CRITICAL SAFETY GAP: CDU prevents fatal/irreversible outcomes (Life-threatening toxicity) but is currently Tier 2. It must be upgraded to Tier 1 (Hard Veto Floor) to prevent model-level instruction decay and dangerous overrides.",
+      "guideline": "ACG-CAG 2022 Management of Anticoagulants in GI Bleeding"
+    },
+    {
+      "cdu_id": "CDU-OA-ANALGESIA",
+      "topic": "Safe Osteoarthritis Analgesia in High Bleeding Risk",
+      "current_tier": 2,
+      "warranted_tier": 2,
+      "status": "ALIGNED",
+      "hazards_prevented": [],
+      "recommendation": "Priority tier is medically aligned with graph hazard severity.",
+      "guideline": "OARSI Guidelines 2023 / NICE NG226"
+    },
+    {
+      "cdu_id": "CDU-FRAIL-T2D-TARGETS",
+      "topic": "Deprescribing Sulfonylureas & Relaxing Glycemic Targets in Frail Elderly",
+      "current_tier": 2,
+      "warranted_tier": 1,
+      "status": "UPGRADE_RECOMMENDED",
+      "hazards_prevented": [
+        "Catastrophic Hypoglycemic Coma and Fall-Induced Trauma"
+      ],
+      "recommendation": "CRITICAL SAFETY GAP: CDU prevents fatal/irreversible outcomes (Catastrophic Hypoglycemic Coma and Fall-Induced Trauma) but is currently Tier 2. It must be upgraded to Tier 1 (Hard Veto Floor) to prevent model-level instruction decay and dangerous overrides.",
+      "guideline": "ADA Standards of Care 2024 (Older Adults) / STOPP-START Criteria v3"
+    },
+    {
+      "cdu_id": "CDU-CIRRHOSIS-MED-SAFETY",
+      "topic": "Pharmacotherapy Safety & NSAID Prohibitions in Cirrhosis",
+      "current_tier": 2,
+      "warranted_tier": 1,
+      "status": "UPGRADE_RECOMMENDED",
+      "hazards_prevented": [],
+      "recommendation": "CRITICAL SAFETY GAP: CDU prevents fatal/irreversible outcomes (Life-threatening toxicity) but is currently Tier 2. It must be upgraded to Tier 1 (Hard Veto Floor) to prevent model-level instruction decay and dangerous overrides.",
+      "guideline": "EASL Clinical Practice Guidelines: Management of Decompensated Cirrhosis 2023"
+    },
+    {
+      "cdu_id": "CDU-CIRRHOSIS-ANALGESIA",
+      "topic": "Paracetamol Dosing Ceiling in Cirrhosis",
+      "current_tier": 2,
+      "warranted_tier": 2,
+      "status": "ALIGNED",
+      "hazards_prevented": [],
+      "recommendation": "Priority tier is medically aligned with graph hazard severity.",
+      "guideline": "AASLD Practice Guidance 2022 / British Journal of Anaesthesia 2022"
+    },
+    {
+      "cdu_id": "CDU-TRIPTAN-VASCULAR-SAFETY",
+      "topic": "Triptan Vascular Contraindications in Severe Hypertension",
+      "current_tier": 2,
+      "warranted_tier": 1,
+      "status": "UPGRADE_RECOMMENDED",
+      "hazards_prevented": [
+        "Ischemic Stroke or Myocardial Infarction from Vasospasm"
+      ],
+      "recommendation": "CRITICAL SAFETY GAP: CDU prevents fatal/irreversible outcomes (Ischemic Stroke or Myocardial Infarction from Vasospasm) but is currently Tier 2. It must be upgraded to Tier 1 (Hard Veto Floor) to prevent model-level instruction decay and dangerous overrides.",
+      "guideline": "AHS Guidelines for Acute Migraine 2024 / BNF Triptan Precautions"
+    },
+    {
+      "cdu_id": "CDU-PD-ANTIPSYCHOTIC-CONTRAINDICATIONS",
+      "topic": "Fatal D2 Antagonist Prohibitions in Parkinson's Disease",
+      "current_tier": 2,
+      "warranted_tier": 1,
+      "status": "UPGRADE_RECOMMENDED",
+      "hazards_prevented": [
+        "Irreversible Parkinsonian Motor Collapse / Bulbar Freezing"
+      ],
+      "recommendation": "CRITICAL SAFETY GAP: CDU prevents fatal/irreversible outcomes (Irreversible Parkinsonian Motor Collapse / Bulbar Freezing) but is currently Tier 2. It must be upgraded to Tier 1 (Hard Veto Floor) to prevent model-level instruction decay and dangerous overrides.",
+      "guideline": "NICE NG71 (Parkinson's Disease) / Movement Disorder Society 2023"
+    },
+    {
+      "cdu_id": "CDU-TCA-ANTICHOLINERGIC-PROHIBITION",
+      "topic": "Tricyclic Antidepressant Prohibitions in Severe BPH",
+      "current_tier": 2,
+      "warranted_tier": 2,
+      "status": "ALIGNED",
+      "hazards_prevented": [],
+      "recommendation": "Priority tier is medically aligned with graph hazard severity.",
+      "guideline": "EAU Guidelines on Management of Non-neurogenic Male LUTS 2024 / Beers Criteria"
+    },
+    {
+      "cdu_id": "CDU-GABAPENTINOID-RENAL-DOSING",
+      "topic": "Gabapentinoid Renally-Adjusted Dosing in CKD",
+      "current_tier": 2,
+      "warranted_tier": 2,
+      "status": "ALIGNED",
+      "hazards_prevented": [],
+      "recommendation": "Priority tier is medically aligned with graph hazard severity.",
+      "guideline": "KDIGO 2024 / FDA Dosing Guidance for Pregabalin and Gabapentin"
+    }
+  ],
+  "nodes": {
+    "cdus": [
+      {
+        "id": "CDU-T2D-METFORMIN-RENAL",
+        "topic": "Metformin Titration & Safety in Renal Impairment",
+        "source_guideline": "KDIGO 2024 / ADA Standards of Care 2024 (Section 11)",
+        "entry_criteria": "Type 2 Diabetes Mellitus with eGFR < 60 mL/min/1.73m2",
+        "mandated_actions": [
+          "Cap Metformin at 1000mg/day (500mg BD) if eGFR 30-44 mL/min",
+          "Monitor eGFR every 3-6 months",
+          "Add SGLT2 inhibitor for dual cardio-renal and glycemic benefit if eGFR >=20"
+        ],
+        "negative_boundaries": [
+          "\ud83d\uded1 NEVER prescribe full-dose Metformin (>1000mg/day) when eGFR is <45 mL/min.",
+          "\ud83d\uded1 Stop Metformin completely if eGFR falls <30 mL/min or during acute dehydrating illness."
+        ],
+        "priority_tier": 2,
+        "domain": "primary_care_multimorbidity",
+        "verbatim_excerpt": "Metformin is safe when eGFR is >=45. When eGFR is 30-44 mL/min, maximum recommended dose is 1000 mg daily (500 mg twice daily). Metformin is contraindicated if eGFR is <30 mL/min due to risk of lactic acidosis.",
+        "danger_signs": [
+          "Nausea, vomiting, lethargy, severe metabolic acidosis",
+          "Rapid fall in eGFR below 30"
+        ],
+        "certified": true,
+        "version": "1.0.0",
+        "approved_by": null,
+        "signature": null,
+        "coded_concepts": {},
+        "safety_tier_rationale": null,
+        "prompt_injection_chunk": "[CDU-T2D-METFORMIN-RENAL]\nCONDITION: Type 2 Diabetes Mellitus with eGFR < 60 mL/min/1.73m2\nGUIDELINE ACTIONS: Cap Metformin at 1000mg/day (500mg BD) if eGFR 30-44 mL/min Monitor eGFR every 3-6 months Add SGLT2 inhibitor for dual cardio-renal and glycemic benefit if eGFR >=20\nNEGATIVE BOUNDARIES: \ud83d\uded1 NEVER prescribe full-dose Metformin (>1000mg/day) when eGFR is <45 mL/min. \ud83d\uded1 Stop Metformin completely if eGFR falls <30 mL/min or during acute dehydrating illness.",
+        "content_hash": "5d3d7c6de20dd10619711c0f4ae1bbf983ed21c13f8726862768bddc39e0ef6c",
+        "estimated_tokens": 121
+      },
+      {
+        "id": "CDU-HF-SGLT2I-MRA",
+        "topic": "HFrEF Guideline Directed Medical Therapy (GDMT) Initiation",
+        "source_guideline": "ESC 2023 Guidelines for Heart Failure / AHA-ACC-HFSA 2022",
+        "entry_criteria": "HFrEF (LVEF <= 40%) with NYHA Class II-IV symptoms",
+        "mandated_actions": [
+          "Initiate SGLT2 inhibitor (Dapagliflozin 10mg or Empagliflozin 10mg OD)",
+          "Evaluate MRA initiation (Spironolactone 12.5-25mg OD) only after verifying baseline K+ < 5.0"
+        ],
+        "negative_boundaries": [
+          "\ud83d\uded1 DO NOT initiate Spironolactone if baseline K+ >= 5.0 mmol/L or eGFR <30 mL/min.",
+          "\ud83d\uded1 Baseline K+ 4.9 requires immediate recheck within 1-2 weeks before MRA initiation."
+        ],
+        "priority_tier": 2,
+        "domain": "primary_care_multimorbidity",
+        "verbatim_excerpt": "SGLT2 inhibitors are recommended for all patients with HFrEF to reduce heart failure hospitalization and cardiovascular death. Mineralocorticoid receptor antagonists (Spironolactone/Eplerenone) are recommended for all symptomatic HFrEF, provided potassium is <5.0 and eGFR >30.",
+        "danger_signs": [
+          "Elevated serum potassium >= 5.0 mmol/L",
+          "Worsening renal function",
+          "Symptomatic hypotension"
+        ],
+        "certified": true,
+        "version": "1.0.0",
+        "approved_by": null,
+        "signature": null,
+        "coded_concepts": {},
+        "safety_tier_rationale": null,
+        "prompt_injection_chunk": "[CDU-HF-SGLT2I-MRA]\nCONDITION: HFrEF (LVEF <= 40%) with NYHA Class II-IV symptoms\nGUIDELINE ACTIONS: Initiate SGLT2 inhibitor (Dapagliflozin 10mg or Empagliflozin 10mg OD) Evaluate MRA initiation (Spironolactone 12.5-25mg OD) only after verifying baseline K+ < 5.0\nNEGATIVE BOUNDARIES: \ud83d\uded1 DO NOT initiate Spironolactone if baseline K+ >= 5.0 mmol/L or eGFR <30 mL/min. \ud83d\uded1 Baseline K+ 4.9 requires immediate recheck within 1-2 weeks before MRA initiation.",
+        "content_hash": "732421f4f54d732a6c1656e8134c70278bc5f92ca70d87105a4be53e98c53ed4",
+        "estimated_tokens": 118
+      },
+      {
+        "id": "CDU-CKD-POTASSIUM-SAFETY",
+        "topic": "Hyperkalemia Surveillance & Renoprotection in CKD",
+        "source_guideline": "KDIGO 2024 Clinical Practice Guideline for CKD",
+        "entry_criteria": "CKD Stage 3 or higher receiving RAAS inhibitor therapy",
+        "mandated_actions": [
+          "Monitor serum potassium and creatinine within 1-2 weeks of initiating or titrating RAASi/MRA",
+          "Educate patient on dietary potassium sources"
+        ],
+        "negative_boundaries": [
+          "\ud83d\uded1 DO NOT combine dual RAAS blockade (ACEi + ARB) due to acute kidney injury and hyperkalemia hazard.",
+          "\ud83d\uded1 Avoid potassium supplements or potassium-based salt substitutes."
+        ],
+        "priority_tier": 2,
+        "domain": "primary_care_multimorbidity",
+        "verbatim_excerpt": "Serum potassium should be monitored regularly in patients receiving renin-angiotensin system inhibitors or mineralocorticoid receptor antagonists. Dual RAAS blockade is contraindicated.",
+        "danger_signs": [
+          "Serum potassium > 5.2 mmol/L",
+          "Bradycardia, peaked T-waves on ECG"
+        ],
+        "certified": true,
+        "version": "1.0.0",
+        "approved_by": null,
+        "signature": null,
+        "coded_concepts": {},
+        "safety_tier_rationale": null,
+        "prompt_injection_chunk": "[CDU-CKD-POTASSIUM-SAFETY]\nCONDITION: CKD Stage 3 or higher receiving RAAS inhibitor therapy\nGUIDELINE ACTIONS: Monitor serum potassium and creatinine within 1-2 weeks of initiating or titrating RAASi/MRA Educate patient on dietary potassium sources\nNEGATIVE BOUNDARIES: \ud83d\uded1 DO NOT combine dual RAAS blockade (ACEi + ARB) due to acute kidney injury and hyperkalemia hazard. \ud83d\uded1 Avoid potassium supplements or potassium-based salt substitutes.",
+        "content_hash": "db502c1b75330ca7b22854e1a307d31f033d57bd831c63e3a91a81e7b67d1625",
+        "estimated_tokens": 115
+      },
+      {
+        "id": "CDU-GOUT-ACUTE-FLARE",
+        "topic": "Acute Gout Management in High-Risk Multi-Morbidity",
+        "source_guideline": "ACR 2020 Guideline for the Management of Gout / NICE NG219",
+        "entry_criteria": "Acute gout flare in patient with underlying CKD or cardiovascular disease",
+        "mandated_actions": [
+          "Prescribe short-course oral Prednisolone (20-30mg daily for 3-5 days) or intra-articular steroid",
+          "Maintain existing maintenance Allopurinol without alteration during the acute flare"
+        ],
+        "negative_boundaries": [
+          "\ud83d\uded1 STRICTLY CONTRAINDICATE oral/systemic NSAIDs (Ibuprofen, Naproxen, Diclofenac, Indomethacin, Celecoxib) due to severe risk of acute-on-chronic renal failure and heart failure decompensation.",
+          "\ud83d\uded1 Avoid full-dose Colchicine (severe neuro/myopathy risk in eGFR <35)."
+        ],
+        "priority_tier": 2,
+        "domain": "primary_care_multimorbidity",
+        "verbatim_excerpt": "Oral glucocorticoids are first-line for acute gout in patients with renal impairment or heart failure. Systemic NSAIDs should be avoided in severe CKD and heart failure. Do not alter maintenance allopurinol during an acute flare.",
+        "danger_signs": [
+          "Severe pain, joint warmth, refusal to bear weight",
+          "Risk of NSAID-induced acute renal failure"
+        ],
+        "certified": true,
+        "version": "1.0.0",
+        "approved_by": null,
+        "signature": null,
+        "coded_concepts": {},
+        "safety_tier_rationale": null,
+        "prompt_injection_chunk": "[CDU-GOUT-ACUTE-FLARE]\nCONDITION: Acute gout flare in patient with underlying CKD or cardiovascular disease\nGUIDELINE ACTIONS: Prescribe short-course oral Prednisolone (20-30mg daily for 3-5 days) or intra-articular steroid Maintain existing maintenance Allopurinol without alteration during the acute flare\nNEGATIVE BOUNDARIES: \ud83d\uded1 STRICTLY CONTRAINDICATE oral/systemic NSAIDs (Ibuprofen, Naproxen, Diclofenac, Indomethacin, Celecoxib) due to severe risk of acute-on-chronic renal failure and heart failure decompensation. \ud83d\uded1 Avoid full-dose Colchicine (severe neuro/myopathy risk in eGFR <35).",
+        "content_hash": "95278ac27453d3f25539cf721679564f3a6e341e3a11fa4b9ba8b48b31f43b47",
+        "estimated_tokens": 155
+      },
+      {
+        "id": "CDU-ASTHMA-DRUG-SAFETY",
+        "topic": "Bronchospasm Risk & Beta-Blocker Prohibitions in Asthma",
+        "source_guideline": "GINA 2024 Global Strategy for Asthma Management and Prevention",
+        "entry_criteria": "Active asthma or history of reactive airway disease requiring cardiac therapy",
+        "mandated_actions": [
+          "Maintain inhaled corticosteroid controller therapy",
+          "Select non-beta-blocker alternatives (e.g. Calcium Channel Blockers, Nitrates) for angina and hypertension"
+        ],
+        "negative_boundaries": [
+          "\ud83d\uded1 STRICTLY PROHIBIT non-selective beta-blockers (Propranolol, Carvedilol, Labetalol, Timolol eye drops). Non-selective beta-blockade precipitates severe bronchospasm and fatal status asthmaticus.",
+          "\ud83d\uded1 Avoid non-cardioselective beta-blockade even if cardioselective alternatives exist unless no other anti-anginal is viable."
+        ],
+        "priority_tier": 2,
+        "domain": "primary_care_multimorbidity",
+        "verbatim_excerpt": "Non-selective beta-blockers (oral or ophthalmic) are contraindicated in asthma as they can cause severe, life-threatening bronchospasm. Cardioselective beta-blockers should be used with extreme caution only when no alternative exists.",
+        "danger_signs": [
+          "Wheezing, chest tightness, drop in peak expiratory flow",
+          "Acute severe bronchospasm"
+        ],
+        "certified": true,
+        "version": "1.0.0",
+        "approved_by": null,
+        "signature": null,
+        "coded_concepts": {},
+        "safety_tier_rationale": null,
+        "prompt_injection_chunk": "[CDU-ASTHMA-DRUG-SAFETY]\nCONDITION: Active asthma or history of reactive airway disease requiring cardiac therapy\nGUIDELINE ACTIONS: Maintain inhaled corticosteroid controller therapy Select non-beta-blocker alternatives (e.g. Calcium Channel Blockers, Nitrates) for angina and hypertension\nNEGATIVE BOUNDARIES: \ud83d\uded1 STRICTLY PROHIBIT non-selective beta-blockers (Propranolol, Carvedilol, Labetalol, Timolol eye drops). Non-selective beta-blockade precipitates severe bronchospasm and fatal status asthmaticus. \ud83d\uded1 Avoid non-cardioselective beta-blockade even if cardioselective alternatives exist unless no other anti-anginal is viable.",
+        "content_hash": "07de2be097bf55833e13baaec236d93774e59998b24fabff31a707921e8355bf",
+        "estimated_tokens": 166
+      },
+      {
+        "id": "CDU-ANGINA-FIRSTLINE",
+        "topic": "Stable Ischemic Heart Disease / Angina in Asthma",
+        "source_guideline": "NICE CG126 / AHA-ACC Chronic Coronary Disease 2023",
+        "entry_criteria": "Stable exertional angina with beta-blocker contraindication",
+        "mandated_actions": [
+          "Initiate Dihydropyridine CCB (Amlodipine 5-10mg OD)",
+          "Prescribe Sublingual Nitroglycerin PRN for acute attacks",
+          "Arrange outpatient cardiac referral/investigation"
+        ],
+        "negative_boundaries": [
+          "\ud83d\uded1 NEVER initiate non-selective beta-blocker in patient with active asthma."
+        ],
+        "priority_tier": 2,
+        "domain": "primary_care_multimorbidity",
+        "verbatim_excerpt": "When beta-blockers are contraindicated in patients with asthma, calcium channel blockers (dihydropyridine or non-dihydropyridine) are recommended as first-line anti-anginal therapy.",
+        "danger_signs": [
+          "Chest pain at rest",
+          "Exertional syncope",
+          "ECG ischemic changes"
+        ],
+        "certified": true,
+        "version": "1.0.0",
+        "approved_by": null,
+        "signature": null,
+        "coded_concepts": {},
+        "safety_tier_rationale": null,
+        "prompt_injection_chunk": "[CDU-ANGINA-FIRSTLINE]\nCONDITION: Stable exertional angina with beta-blocker contraindication\nGUIDELINE ACTIONS: Initiate Dihydropyridine CCB (Amlodipine 5-10mg OD) Prescribe Sublingual Nitroglycerin PRN for acute attacks Arrange outpatient cardiac referral/investigation\nNEGATIVE BOUNDARIES: \ud83d\uded1 NEVER initiate non-selective beta-blocker in patient with active asthma.",
+        "content_hash": "b9160216a7078ebfb142df01ca07faa259eb49f0a2fe074a938834485f7281f1",
+        "estimated_tokens": 96
+      },
+      {
+        "id": "CDU-PUD-BLEEDING-SAFETY",
+        "topic": "Secondary Upper GI Bleed Prevention in Anticoagulation",
+        "source_guideline": "ACG-CAG 2022 Management of Anticoagulants in GI Bleeding",
+        "entry_criteria": "Oral anticoagulation with documented history of peptic ulcer hemorrhage",
+        "mandated_actions": [
+          "Maintain continuous Proton Pump Inhibitor (Pantoprazole 40mg OD)",
+          "Strictly avoid systemic NSAID co-prescription"
+        ],
+        "negative_boundaries": [
+          "\ud83d\uded1 STRICTLY CONTRAINDICATE oral non-selective NSAIDs (Ibuprofen, Naproxen, Diclofenac) and high-dose Aspirin. Concurrent NSAID + DOAC increases fatal upper GI rebleeding hazard by 4- to 6-fold.",
+          "\ud83d\uded1 DO NOT stop life-saving anticoagulation for minor musculoskeletal pain."
+        ],
+        "priority_tier": 2,
+        "domain": "primary_care_multimorbidity",
+        "verbatim_excerpt": "Patients requiring oral anticoagulation after a healed peptic ulcer bleed must receive co-prescribed daily proton pump inhibitor therapy. Concomitant systemic NSAIDs are contraindicated as they increase bleeding risk by over 400%.",
+        "danger_signs": [
+          "Melena, hematemesis, orthostatic drop in blood pressure",
+          "Unexplained fall in hemoglobin"
+        ],
+        "certified": true,
+        "version": "1.0.0",
+        "approved_by": null,
+        "signature": null,
+        "coded_concepts": {},
+        "safety_tier_rationale": null,
+        "prompt_injection_chunk": "[CDU-PUD-BLEEDING-SAFETY]\nCONDITION: Oral anticoagulation with documented history of peptic ulcer hemorrhage\nGUIDELINE ACTIONS: Maintain continuous Proton Pump Inhibitor (Pantoprazole 40mg OD) Strictly avoid systemic NSAID co-prescription\nNEGATIVE BOUNDARIES: \ud83d\uded1 STRICTLY CONTRAINDICATE oral non-selective NSAIDs (Ibuprofen, Naproxen, Diclofenac) and high-dose Aspirin. Concurrent NSAID + DOAC increases fatal upper GI rebleeding hazard by 4- to 6-fold. \ud83d\uded1 DO NOT stop life-saving anticoagulation for minor musculoskeletal pain.",
+        "content_hash": "413779c8cf525931e6f83fbe2397c8cb23aebc46ae9dbcfda2973326dbbf2c4d",
+        "estimated_tokens": 138
+      },
+      {
+        "id": "CDU-OA-ANALGESIA",
+        "topic": "Safe Osteoarthritis Analgesia in High Bleeding Risk",
+        "source_guideline": "OARSI Guidelines 2023 / NICE NG226",
+        "entry_criteria": "Knee osteoarthritis in patients with gastrointestinal bleeding risk",
+        "mandated_actions": [
+          "Prescribe Topical Diclofenac 1% gel (localized application)",
+          "Recommend regular scheduled Paracetamol up to 3g/day",
+          "Offer intra-articular corticosteroid knee injection for severe flares"
+        ],
+        "negative_boundaries": [
+          "\ud83d\uded1 NEVER prescribe systemic oral NSAIDs or COX-2 inhibitors to patients on oral anticoagulation with recent peptic ulcer."
+        ],
+        "priority_tier": 2,
+        "domain": "primary_care_multimorbidity",
+        "verbatim_excerpt": "Topical NSAIDs are strongly recommended for knee osteoarthritis and have substantially lower systemic gastrointestinal and renal adverse effects than oral NSAIDs. Intra-articular corticosteroids provide effective short-term relief without bleeding risk.",
+        "danger_signs": [
+          "Severe functional impairment",
+          "Bleeding signs"
+        ],
+        "certified": true,
+        "version": "1.0.0",
+        "approved_by": null,
+        "signature": null,
+        "coded_concepts": {},
+        "safety_tier_rationale": null,
+        "prompt_injection_chunk": "[CDU-OA-ANALGESIA]\nCONDITION: Knee osteoarthritis in patients with gastrointestinal bleeding risk\nGUIDELINE ACTIONS: Prescribe Topical Diclofenac 1% gel (localized application) Recommend regular scheduled Paracetamol up to 3g/day Offer intra-articular corticosteroid knee injection for severe flares\nNEGATIVE BOUNDARIES: \ud83d\uded1 NEVER prescribe systemic oral NSAIDs or COX-2 inhibitors to patients on oral anticoagulation with recent peptic ulcer.",
+        "content_hash": "1a3a29a0c9f99cb3a0fc929db51458d07bae9758a44d3b6f67a8ea28f026bd3c",
+        "estimated_tokens": 116
+      },
+      {
+        "id": "CDU-FRAIL-T2D-TARGETS",
+        "topic": "Deprescribing Sulfonylureas & Relaxing Glycemic Targets in Frail Elderly",
+        "source_guideline": "ADA Standards of Care 2024 (Older Adults) / STOPP-START Criteria v3",
+        "entry_criteria": "Type 2 Diabetes in patient >= 75 years with frailty, dementia, or fall risk",
+        "mandated_actions": [
+          "Deprescribe long-acting sulfonylureas (Glibenclamide)",
+          "Target relaxed HbA1c of 7.5% - 8.0%",
+          "Substitute with safer agent (e.g. Linagliptin) or lifestyle if glucose acceptable"
+        ],
+        "negative_boundaries": [
+          "\ud83d\uded1 STRICTLY CONTRAINDICATE Glibenclamide in elderly patients (Beers Criteria / STOPP violation; prolonged renal excretion causes catastrophic prolonged hypoglycemia).",
+          "\ud83d\uded1 NEVER aim for tight glycemic control (HbA1c < 7.0%) in frail fall-prone elderly."
+        ],
+        "priority_tier": 2,
+        "domain": "primary_care_multimorbidity",
+        "verbatim_excerpt": "In frail older adults with multiple chronic illnesses, extensive comorbidity, or history of falls, HbA1c target should be relaxed to 7.5%-8.5%. Long-acting sulfonylureas (Glibenclamide) should be avoided due to the high risk of severe and prolonged hypoglycemia.",
+        "danger_signs": [
+          "Blood glucose < 4.0 mmol/L",
+          "Confusion, falls, diaphoresis, lightheadedness"
+        ],
+        "certified": true,
+        "version": "1.0.0",
+        "approved_by": null,
+        "signature": null,
+        "coded_concepts": {},
+        "safety_tier_rationale": null,
+        "prompt_injection_chunk": "[CDU-FRAIL-T2D-TARGETS]\nCONDITION: Type 2 Diabetes in patient >= 75 years with frailty, dementia, or fall risk\nGUIDELINE ACTIONS: Deprescribe long-acting sulfonylureas (Glibenclamide) Target relaxed HbA1c of 7.5% - 8.0% Substitute with safer agent (e.g. Linagliptin) or lifestyle if glucose acceptable\nNEGATIVE BOUNDARIES: \ud83d\uded1 STRICTLY CONTRAINDICATE Glibenclamide in elderly patients (Beers Criteria / STOPP violation; prolonged renal excretion causes catastrophic prolonged hypoglycemia). \ud83d\uded1 NEVER aim for tight glycemic control (HbA1c < 7.0%) in frail fall-prone elderly.",
+        "content_hash": "fc6cfa49aa14f7329fe6465c051c516d2d20d232de99db7408645de637325e44",
+        "estimated_tokens": 150
+      },
+      {
+        "id": "CDU-CIRRHOSIS-MED-SAFETY",
+        "topic": "Pharmacotherapy Safety & NSAID Prohibitions in Cirrhosis",
+        "source_guideline": "EASL Clinical Practice Guidelines: Management of Decompensated Cirrhosis 2023",
+        "entry_criteria": "Compensated or decompensated liver cirrhosis",
+        "mandated_actions": [
+          "Audit all prescribed and OTC medications for hepatotoxicity and renal risk",
+          "Monitor renal function during any acute illness or infection"
+        ],
+        "negative_boundaries": [
+          "\ud83d\uded1 ABSOLUTE CONTRAINDICATION to oral or parenteral NSAIDs (Ibuprofen, Naproxen, Diclofenac). NSAIDs trigger irreversible hepatorenal syndrome and lethal variceal bleeding.",
+          "\ud83d\uded1 AVOID sedating opioids (Morphine, Oxycodone, Codeine) which precipitate acute hepatic encephalopathy."
+        ],
+        "priority_tier": 2,
+        "domain": "primary_care_multimorbidity",
+        "verbatim_excerpt": "NSAIDs are absolutely contraindicated in patients with cirrhosis as they inhibit renal prostaglandins, precipitating acute renal failure (hepatorenal syndrome) and gastrointestinal bleeding. Sedating opioids should be avoided as they trigger hepatic encephalopathy.",
+        "danger_signs": [
+          "Oliguria, rise in creatinine, jaundice, asterixis, confusion"
+        ],
+        "certified": true,
+        "version": "1.0.0",
+        "approved_by": null,
+        "signature": null,
+        "coded_concepts": {},
+        "safety_tier_rationale": null,
+        "prompt_injection_chunk": "[CDU-CIRRHOSIS-MED-SAFETY]\nCONDITION: Compensated or decompensated liver cirrhosis\nGUIDELINE ACTIONS: Audit all prescribed and OTC medications for hepatotoxicity and renal risk Monitor renal function during any acute illness or infection\nNEGATIVE BOUNDARIES: \ud83d\uded1 ABSOLUTE CONTRAINDICATION to oral or parenteral NSAIDs (Ibuprofen, Naproxen, Diclofenac). NSAIDs trigger irreversible hepatorenal syndrome and lethal variceal bleeding. \ud83d\uded1 AVOID sedating opioids (Morphine, Oxycodone, Codeine) which precipitate acute hepatic encephalopathy.",
+        "content_hash": "6f2bd19988f18d36cf0b6c194140d2602e6b39bf9c08e3bf1ad0379d3f3f9c0e",
+        "estimated_tokens": 140
+      },
+      {
+        "id": "CDU-CIRRHOSIS-ANALGESIA",
+        "topic": "Paracetamol Dosing Ceiling in Cirrhosis",
+        "source_guideline": "AASLD Practice Guidance 2022 / British Journal of Anaesthesia 2022",
+        "entry_criteria": "Acute or chronic pain in patient with liver cirrhosis",
+        "mandated_actions": [
+          "Cap Paracetamol at a strict maximum of 2.0g per 24 hours (500mg QDS or 1000mg BD)"
+        ],
+        "negative_boundaries": [
+          "\ud83d\uded1 NEVER exceed Paracetamol 2.0g/day in cirrhosis.",
+          "\ud83d\uded1 NEVER give NSAIDs."
+        ],
+        "priority_tier": 2,
+        "domain": "primary_care_multimorbidity",
+        "verbatim_excerpt": "Paracetamol is the safest first-line analgesic in cirrhosis, provided dose is strictly restricted to a maximum of 2.0g per 24 hours.",
+        "danger_signs": [
+          "Exceeding 2g/day paracetamol",
+          "New onset jaundice"
+        ],
+        "certified": true,
+        "version": "1.0.0",
+        "approved_by": null,
+        "signature": null,
+        "coded_concepts": {},
+        "safety_tier_rationale": null,
+        "prompt_injection_chunk": "[CDU-CIRRHOSIS-ANALGESIA]\nCONDITION: Acute or chronic pain in patient with liver cirrhosis\nGUIDELINE ACTIONS: Cap Paracetamol at a strict maximum of 2.0g per 24 hours (500mg QDS or 1000mg BD)\nNEGATIVE BOUNDARIES: \ud83d\uded1 NEVER exceed Paracetamol 2.0g/day in cirrhosis. \ud83d\uded1 NEVER give NSAIDs.",
+        "content_hash": "7f6412492f53557c4b34ebf6f9c00c587fee2426bbec8bdfbbac6e9ab32107a2",
+        "estimated_tokens": 74
+      },
+      {
+        "id": "CDU-TRIPTAN-VASCULAR-SAFETY",
+        "topic": "Triptan Vascular Contraindications in Severe Hypertension",
+        "source_guideline": "AHS Guidelines for Acute Migraine 2024 / BNF Triptan Precautions",
+        "entry_criteria": "Migraine headache in patient with blood pressure >= 160/100 mmHg",
+        "mandated_actions": [
+          "Withhold Triptans until blood pressure is lowered < 140/90 mmHg",
+          "Provide non-vasoconstrictive abortive therapy (Paracetamol, Metoclopramide) for acute migraine"
+        ],
+        "negative_boundaries": [
+          "\ud83d\uded1 ABSOLUTE CONTRAINDICATION to Triptans (Sumatriptan, Zolmitriptan) in uncontrolled Stage 2 hypertension (BP >=160/100). Triptans cause coronary and cerebral vasoconstriction, carrying high risk of ischemic stroke and myocardial infarction."
+        ],
+        "priority_tier": 2,
+        "domain": "primary_care_multimorbidity",
+        "verbatim_excerpt": "Triptans are 5-HT1B/1D receptor agonists that induce cerebral and coronary vasoconstriction. They are strictly contraindicated in uncontrolled moderate-to-severe hypertension (systolic BP >=160 mmHg or diastolic BP >=100 mmHg) due to increased risk of ischemic stroke and acute coronary syndromes.",
+        "danger_signs": [
+          "Focal neurological deficits",
+          "Chest pain during or after triptan intake"
+        ],
+        "certified": true,
+        "version": "1.0.0",
+        "approved_by": null,
+        "signature": null,
+        "coded_concepts": {},
+        "safety_tier_rationale": null,
+        "prompt_injection_chunk": "[CDU-TRIPTAN-VASCULAR-SAFETY]\nCONDITION: Migraine headache in patient with blood pressure >= 160/100 mmHg\nGUIDELINE ACTIONS: Withhold Triptans until blood pressure is lowered < 140/90 mmHg Provide non-vasoconstrictive abortive therapy (Paracetamol, Metoclopramide) for acute migraine\nNEGATIVE BOUNDARIES: \ud83d\uded1 ABSOLUTE CONTRAINDICATION to Triptans (Sumatriptan, Zolmitriptan) in uncontrolled Stage 2 hypertension (BP >=160/100). Triptans cause coronary and cerebral vasoconstriction, carrying high risk of ischemic stroke and myocardial infarction.",
+        "content_hash": "a6102e2b5ef2e2c974c400f78c4990fdf15a680cf098850a8758aba8ecb89095",
+        "estimated_tokens": 143
+      },
+      {
+        "id": "CDU-PD-ANTIPSYCHOTIC-CONTRAINDICATIONS",
+        "topic": "Fatal D2 Antagonist Prohibitions in Parkinson's Disease",
+        "source_guideline": "NICE NG71 (Parkinson's Disease) / Movement Disorder Society 2023",
+        "entry_criteria": "Parkinson's Disease presenting with hallucinations, agitation, or delirium",
+        "mandated_actions": [
+          "Screen for underlying delirium causes (infections, metabolic)",
+          "If antipsychotic necessary, permit ONLY Quetiapine (12.5-25mg) or Clozapine / Pimavanserin"
+        ],
+        "negative_boundaries": [
+          "\ud83d\uded1 ABSOLUTE CONTRAINDICATION to First-Generation Antipsychotics (Haloperidol) and D2-blocking Second-Generation Antipsychotics (Risperidone, Olanzapine, Aripiprazole) -> Catastrophic motor collapse/death.",
+          "\ud83d\uded1 STRICTLY CONTRAINDICATE D2-blocking antiemetics (Metoclopramide, Prochlorperazine)."
+        ],
+        "priority_tier": 2,
+        "domain": "primary_care_multimorbidity",
+        "verbatim_excerpt": "Typical antipsychotics (e.g. haloperidol) and most atypical antipsychotics (e.g. risperidone, olanzapine) block dopamine D2 receptors and cause severe, irreversible worsening of parkinsonism. Only quetiapine, pimavanserin, or clozapine are safe.",
+        "danger_signs": [
+          "Severe rigidity, inability to swallow, acute motor arrest"
+        ],
+        "certified": true,
+        "version": "1.0.0",
+        "approved_by": null,
+        "signature": null,
+        "coded_concepts": {},
+        "safety_tier_rationale": null,
+        "prompt_injection_chunk": "[CDU-PD-ANTIPSYCHOTIC-CONTRAINDICATIONS]\nCONDITION: Parkinson's Disease presenting with hallucinations, agitation, or delirium\nGUIDELINE ACTIONS: Screen for underlying delirium causes (infections, metabolic) If antipsychotic necessary, permit ONLY Quetiapine (12.5-25mg) or Clozapine / Pimavanserin\nNEGATIVE BOUNDARIES: \ud83d\uded1 ABSOLUTE CONTRAINDICATION to First-Generation Antipsychotics (Haloperidol) and D2-blocking Second-Generation Antipsychotics (Risperidone, Olanzapine, Aripiprazole) -> Catastrophic motor collapse/death. \ud83d\uded1 STRICTLY CONTRAINDICATE D2-blocking antiemetics (Metoclopramide, Prochlorperazine).",
+        "content_hash": "045c75beb03146901294946b60663aac112da56f3ae11345b81336371003e882",
+        "estimated_tokens": 160
+      },
+      {
+        "id": "CDU-TCA-ANTICHOLINERGIC-PROHIBITION",
+        "topic": "Tricyclic Antidepressant Prohibitions in Severe BPH",
+        "source_guideline": "EAU Guidelines on Management of Non-neurogenic Male LUTS 2024 / Beers Criteria",
+        "entry_criteria": "Neuropathic pain or depression in male patient with severe BPH (IPSS > 19)",
+        "mandated_actions": [
+          "Select non-anticholinergic neuropathic agents (e.g. renally adjusted Pregabalin or Duloxetine)"
+        ],
+        "negative_boundaries": [
+          "\ud83d\uded1 STRICTLY CONTRAINDICATE Tricyclic Antidepressants (Amitriptyline, Nortriptyline, Imipramine) in patients with severe lower urinary tract symptoms or severe BPH. Potent anticholinergic blockade inhibits detrusor muscle contraction, precipitating acute complete urinary retention requiring emergency catheterization."
+        ],
+        "priority_tier": 2,
+        "domain": "primary_care_multimorbidity",
+        "verbatim_excerpt": "Anticholinergic medications and tricyclic antidepressants (amitriptyline, nortriptyline) should be avoided in men with severe benign prostatic hyperplasia and lower urinary tract symptoms due to the risk of precipitating acute complete urinary retention.",
+        "danger_signs": [
+          "Inability to void, severe lower abdominal distension and agony",
+          "Acute urinary retention"
+        ],
+        "certified": true,
+        "version": "1.0.0",
+        "approved_by": null,
+        "signature": null,
+        "coded_concepts": {},
+        "safety_tier_rationale": null,
+        "prompt_injection_chunk": "[CDU-TCA-ANTICHOLINERGIC-PROHIBITION]\nCONDITION: Neuropathic pain or depression in male patient with severe BPH (IPSS > 19)\nGUIDELINE ACTIONS: Select non-anticholinergic neuropathic agents (e.g. renally adjusted Pregabalin or Duloxetine)\nNEGATIVE BOUNDARIES: \ud83d\uded1 STRICTLY CONTRAINDICATE Tricyclic Antidepressants (Amitriptyline, Nortriptyline, Imipramine) in patients with severe lower urinary tract symptoms or severe BPH. Potent anticholinergic blockade inhibits detrusor muscle contraction, precipitating acute complete urinary retention requiring emergency catheterization.",
+        "content_hash": "e0819edebd6fa121a280276f7340b09dc1aa0d01b805b4ab2e0ada7f4707a43a",
+        "estimated_tokens": 151
+      },
+      {
+        "id": "CDU-GABAPENTINOID-RENAL-DOSING",
+        "topic": "Gabapentinoid Renally-Adjusted Dosing in CKD",
+        "source_guideline": "KDIGO 2024 / FDA Dosing Guidance for Pregabalin and Gabapentin",
+        "entry_criteria": "Neuropathic pain requiring gabapentinoids in patient with eGFR < 60 mL/min",
+        "mandated_actions": [
+          "Reduce Pregabalin starting dose to 25-50mg BD (max maintenance 150mg/day) for eGFR 30-50 mL/min",
+          "Alternatively choose Duloxetine 30-60mg daily (safe down to eGFR 30 without renal dose reduction)"
+        ],
+        "negative_boundaries": [
+          "\ud83d\uded1 DO NOT prescribe unadjusted full-dose Pregabalin (300-600mg/day) in eGFR <50 (causes severe CNS neurotoxicity, myoclonus, ataxia, falls)."
+        ],
+        "priority_tier": 2,
+        "domain": "primary_care_multimorbidity",
+        "verbatim_excerpt": "Pregabalin and Gabapentin are cleared almost exclusively by renal excretion. In patients with eGFR 30-50 mL/min, maximum daily doses must be reduced by 50% to prevent neurotoxicity, profound somnolence, and falls.",
+        "danger_signs": [
+          "Myoclonus, severe ataxia, encephalopathy, sedation"
+        ],
+        "certified": true,
+        "version": "1.0.0",
+        "approved_by": null,
+        "signature": null,
+        "coded_concepts": {},
+        "safety_tier_rationale": null,
+        "prompt_injection_chunk": "[CDU-GABAPENTINOID-RENAL-DOSING]\nCONDITION: Neuropathic pain requiring gabapentinoids in patient with eGFR < 60 mL/min\nGUIDELINE ACTIONS: Reduce Pregabalin starting dose to 25-50mg BD (max maintenance 150mg/day) for eGFR 30-50 mL/min Alternatively choose Duloxetine 30-60mg daily (safe down to eGFR 30 without renal dose reduction)\nNEGATIVE BOUNDARIES: \ud83d\uded1 DO NOT prescribe unadjusted full-dose Pregabalin (300-600mg/day) in eGFR <50 (causes severe CNS neurotoxicity, myoclonus, ataxia, falls).",
+        "content_hash": "1b8e4aefcec1a8656860eb15fa7c21dbcb97c786f4b201bb072e629809a12835",
+        "estimated_tokens": 129
+      }
+    ],
+    "drug_classes": [
+      {
+        "id": "CLASS:NSAID",
+        "name": "Non-Steroidal Anti-Inflammatory Drugs (NSAIDs)",
+        "atc": "M01A",
+        "members": [
+          "ibuprofen",
+          "naproxen",
+          "diclofenac",
+          "indomethacin",
+          "celecoxib",
+          "meloxicam",
+          "ketorolac",
+          "etoricoxib",
+          "piroxicam",
+          "aspirin high-dose"
+        ],
+        "type": "DrugClass"
+      },
+      {
+        "id": "CLASS:BETA_BLOCKER_NONSELECTIVE",
+        "name": "Non-Selective Beta-Adrenergic Antagonists",
+        "atc": "C07AA",
+        "members": [
+          "propranolol",
+          "carvedilol",
+          "labetalol",
+          "timolol",
+          "nadolol",
+          "sotalol"
+        ],
+        "type": "DrugClass"
+      },
+      {
+        "id": "CLASS:BETA_BLOCKER_CARDIOSELECTIVE",
+        "name": "Cardioselective (Beta-1 Selective) Antagonists",
+        "atc": "C07AB",
+        "members": [
+          "bisoprolol",
+          "metoprolol",
+          "atenolol",
+          "nebivolol"
+        ],
+        "type": "DrugClass"
+      },
+      {
+        "id": "CLASS:D2_ANTAGONIST_ANTIPSYCHOTIC",
+        "name": "Dopamine D2 Receptor Antagonists (First & Second Gen Antipsychotics)",
+        "atc": "N05A",
+        "members": [
+          "haloperidol",
+          "chlorpromazine",
+          "fluphenazine",
+          "risperidone",
+          "olanzapine",
+          "aripiprazole"
+        ],
+        "type": "DrugClass"
+      },
+      {
+        "id": "CLASS:D2_ANTAGONIST_ANTIEMETIC",
+        "name": "Dopamine D2 Receptor Antagonist Antiemetics",
+        "atc": "A03FA",
+        "members": [
+          "metoclopramide",
+          "prochlorperazine",
+          "promethazine",
+          "droperidol"
+        ],
+        "type": "DrugClass"
+      },
+      {
+        "id": "CLASS:TCA_ANTICHOLINERGIC",
+        "name": "Tricyclic Antidepressants with Potent Anticholinergic Properties",
+        "atc": "N06AA",
+        "members": [
+          "amitriptyline",
+          "nortriptyline",
+          "imipramine",
+          "clomipramine",
+          "doxepin"
+        ],
+        "type": "DrugClass"
+      },
+      {
+        "id": "CLASS:SULFONYLUREA_LONGACTING",
+        "name": "Long-Acting Sulfonylureas",
+        "atc": "A10BB",
+        "members": [
+          "glibenclamide",
+          "glyburide",
+          "glimepiride"
+        ],
+        "type": "DrugClass"
+      },
+      {
+        "id": "CLASS:OPIOID_SEDATING",
+        "name": "Systemic Sedating Opioids",
+        "atc": "N02A",
+        "members": [
+          "morphine",
+          "oxycodone",
+          "codeine",
+          "fentanyl",
+          "hydromorphone",
+          "methadone",
+          "tramadol"
+        ],
+        "type": "DrugClass"
+      },
+      {
+        "id": "CLASS:TRIPTAN",
+        "name": "5-HT1B/1D Receptor Agonists (Triptans)",
+        "atc": "N02CC",
+        "members": [
+          "sumatriptan",
+          "zolmitriptan",
+          "rizatriptan",
+          "eletriptan",
+          "naratriptan",
+          "almotriptan",
+          "frovatriptan"
+        ],
+        "type": "DrugClass"
+      },
+      {
+        "id": "CLASS:ACEI_ARB",
+        "name": "Renin-Angiotensin System Inhibitors (ACEi / ARB)",
+        "atc": "C09",
+        "members": [
+          "enalapril",
+          "lisinopril",
+          "ramipril",
+          "captopril",
+          "perindopril",
+          "losartan",
+          "valsartan",
+          "candesartan",
+          "telmisartan",
+          "irbesartan"
+        ],
+        "type": "DrugClass"
+      },
+      {
+        "id": "CLASS:MRA",
+        "name": "Mineralocorticoid Receptor Antagonists",
+        "atc": "C03DA",
+        "members": [
+          "spironolactone",
+          "eplerenone"
+        ],
+        "type": "DrugClass"
+      },
+      {
+        "id": "CLASS:BIGUANIDE_FULLDOSE",
+        "name": "Full-Dose Biguanides (Metformin >1000mg/day)",
+        "atc": "A10BA02",
+        "members": [
+          "metformin >1000mg/day",
+          "full-dose metformin",
+          "metformin 1000mg bd",
+          "metformin 2000mg"
+        ],
+        "type": "DrugClass"
+      },
+      {
+        "id": "CLASS:GABAPENTINOID_FULLDOSE",
+        "name": "Unadjusted Full-Dose Gabapentinoids in Renal Impairment",
+        "atc": "N02BF",
+        "members": [
+          "pregabalin full-dose",
+          "gabapentin full-dose",
+          "pregabalin 300mg",
+          "pregabalin 600mg"
+        ],
+        "type": "DrugClass"
+      },
+      {
+        "id": "CLASS:PARACETAMOL",
+        "name": "Paracetamol / Acetaminophen (Analgesic)",
+        "atc": "N02BE01",
+        "members": [
+          "paracetamol",
+          "acetaminophen"
+        ],
+        "type": "DrugClass"
+      },
+      {
+        "id": "CLASS:SGLT2I",
+        "name": "Sodium-Glucose Cotransporter 2 Inhibitors (SGLT2i)",
+        "atc": "A10BK",
+        "members": [
+          "dapagliflozin",
+          "empagliflozin",
+          "canagliflozin"
+        ],
+        "type": "DrugClass"
+      },
+      {
+        "id": "CLASS:CCB_DIHYDROPYRIDINE",
+        "name": "Dihydropyridine Calcium Channel Blockers",
+        "atc": "C08CA",
+        "members": [
+          "amlodipine",
+          "nifedipine",
+          "felodipine"
+        ],
+        "type": "DrugClass"
+      },
+      {
+        "id": "CLASS:PPI",
+        "name": "Proton Pump Inhibitors",
+        "atc": "A02BC",
+        "members": [
+          "pantoprazole",
+          "omeprazole",
+          "esomeprazole",
+          "lansoprazole",
+          "rabeprazole"
+        ],
+        "type": "DrugClass"
+      },
+      {
+        "id": "CLASS:ORAL_CORTICOSTEROID",
+        "name": "Oral Corticosteroids",
+        "atc": "H02AB",
+        "members": [
+          "prednisolone",
+          "prednisone",
+          "dexamethasone"
+        ],
+        "type": "DrugClass"
+      }
+    ],
+    "conditions": [
+      {
+        "id": "COND:ASTHMA",
+        "name": "Bronchial Asthma / Reactive Airway Disease",
+        "organ": "Respiratory",
+        "type": "Condition"
+      },
+      {
+        "id": "COND:CKD_ADVANCED",
+        "name": "Chronic Kidney Disease Stage 3b-5 (eGFR < 45 mL/min)",
+        "organ": "Renal",
+        "type": "Condition"
+      },
+      {
+        "id": "COND:CIRRHOSIS",
+        "name": "Liver Cirrhosis / End-Stage Liver Disease",
+        "organ": "Hepatic",
+        "type": "Condition"
+      },
+      {
+        "id": "COND:HFREF",
+        "name": "Heart Failure with Reduced Ejection Fraction (HFrEF)",
+        "organ": "Cardiovascular",
+        "type": "Condition"
+      },
+      {
+        "id": "COND:PUD_BLEED",
+        "name": "Peptic Ulcer Disease with Recent Hemorrhage on Anticoagulation",
+        "organ": "Gastrointestinal",
+        "type": "Condition"
+      },
+      {
+        "id": "COND:PARKINSONS",
+        "name": "Parkinson's Disease / Lewy Body Dementia",
+        "organ": "Neurological",
+        "type": "Condition"
+      },
+      {
+        "id": "COND:SEVERE_HTN",
+        "name": "Severe / Stage 2 Uncontrolled Hypertension (BP >= 160/100)",
+        "organ": "Cardiovascular",
+        "type": "Condition"
+      },
+      {
+        "id": "COND:FRAIL_ELDERLY",
+        "name": "Frail Older Adult with High Fall / Dementia Risk",
+        "organ": "Geriatric",
+        "type": "Condition"
+      },
+      {
+        "id": "COND:SEVERE_BPH",
+        "name": "Severe Benign Prostatic Hyperplasia (IPSS > 19) / LUTS",
+        "organ": "Urological",
+        "type": "Condition"
+      },
+      {
+        "id": "COND:GOUT_ACUTE",
+        "name": "Acute Gouty Arthritis Flare",
+        "organ": "Musculoskeletal",
+        "type": "Condition"
+      },
+      {
+        "id": "COND:OSTEOARTHRITIS",
+        "name": "Degenerative Osteoarthritis",
+        "organ": "Musculoskeletal",
+        "type": "Condition"
+      },
+      {
+        "id": "COND:MIGRAINE",
+        "name": "Acute Migraine Headache",
+        "organ": "Neurological",
+        "type": "Condition"
+      }
+    ],
+    "hazards": [
+      {
+        "id": "HAZARD:FATAL_BRONCHOSPASM",
+        "name": "Fatal Status Asthmaticus / Life-Threatening Bronchospasm",
+        "severity_tier": 1,
+        "target_organ": "Respiratory",
+        "description": "Non-selective beta-2 blockade triggers immediate catastrophic airway constriction in reactive airway disease.",
+        "type": "Hazard"
+      },
+      {
+        "id": "HAZARD:HEPATORENAL_SYNDROME",
+        "name": "Hepatorenal Syndrome / Refractory Renal Shutdown",
+        "severity_tier": 1,
+        "target_organ": "Hepato-Renal",
+        "description": "NSAID inhibition of renal prostaglandins halts glomerular perfusion in cirrhotic portal hypertension.",
+        "type": "Hazard"
+      },
+      {
+        "id": "HAZARD:FATAL_LACTIC_ACIDOSIS",
+        "name": "Metformin-Associated Lactic Acidosis (MALA)",
+        "severity_tier": 1,
+        "target_organ": "Metabolic / Systemic",
+        "description": "Accumulation of metformin during reduced renal clearance leads to severe, frequently lethal metabolic acidosis.",
+        "type": "Hazard"
+      },
+      {
+        "id": "HAZARD:CORONARY_VASOSPASM_STROKE",
+        "name": "Ischemic Stroke or Myocardial Infarction from Vasospasm",
+        "severity_tier": 1,
+        "target_organ": "Cardiovascular / Neurovascular",
+        "description": "5-HT1B/1D vasoconstriction in uncontrolled severe hypertension triggers acute coronary occlusive spasm or ischemic stroke.",
+        "type": "Hazard"
+      },
+      {
+        "id": "HAZARD:CATATONIC_PARKINSONISM_FREEZE",
+        "name": "Irreversible Parkinsonian Motor Collapse / Bulbar Freezing",
+        "severity_tier": 1,
+        "target_organ": "Central Nervous System",
+        "description": "Dopamine D2 antagonism produces acute, potentially fatal motor freezing, rigidity, and loss of airway protection.",
+        "type": "Hazard"
+      },
+      {
+        "id": "HAZARD:FATAL_HYPOGLYCEMIC_COMA",
+        "name": "Catastrophic Hypoglycemic Coma and Fall-Induced Trauma",
+        "severity_tier": 1,
+        "target_organ": "Endocrine / Neurological",
+        "description": "Delayed renal clearance of long-acting sulfonylureas in frail elderly causes refractory, prolonged hypoglycemia and fatal falls.",
+        "type": "Hazard"
+      },
+      {
+        "id": "HAZARD:GI_BLEED",
+        "name": "Catastrophic Upper Gastrointestinal Hemorrhage",
+        "severity_tier": 1,
+        "target_organ": "Gastrointestinal",
+        "description": "Synergistic gastric mucosal ulceration from concurrent NSAID + oral anticoagulation increases fatal rebleeding by 4-6x.",
+        "type": "Hazard"
+      },
+      {
+        "id": "HAZARD:ACUTE_URINARY_RETENTION",
+        "name": "Acute Complete Urinary Retention & Obstructive Uropathy",
+        "severity_tier": 2,
+        "target_organ": "Renal / Urological",
+        "description": "Potent anticholinergic blockade inhibits detrusor muscle contraction in severe bladder outlet obstruction, requiring emergency catheterization.",
+        "type": "Hazard"
+      },
+      {
+        "id": "HAZARD:ACUTE_RENAL_FAILURE",
+        "name": "Acute-on-Chronic Kidney Injury",
+        "severity_tier": 2,
+        "target_organ": "Renal",
+        "description": "Hemodynamic reduction in glomerular filtration rate precipitated by nephrotoxic insults.",
+        "type": "Hazard"
+      },
+      {
+        "id": "HAZARD:HYPERKALEMIA_SEVERE",
+        "name": "Severe Hyperkalemia (K+ >= 5.5 mmol/L)",
+        "severity_tier": 2,
+        "target_organ": "Cardiovascular / Electrophysiology",
+        "description": "Impaired potassium excretion from concurrent RAAS blockade and renal insufficiency carrying risk of cardiac arrest.",
+        "type": "Hazard"
+      },
+      {
+        "id": "HAZARD:HYPERKALEMIA_FATAL",
+        "name": "Fatal Hyperkalemic Arrhythmia / Asystole",
+        "severity_tier": 1,
+        "target_organ": "Cardiovascular / Electrophysiology",
+        "description": "Precipitous rise in serum potassium causing peaked T waves, conduction block, and fatal asystole.",
+        "type": "Hazard"
+      },
+      {
+        "id": "HAZARD:HEPATIC_ENCEPHALOPATHY",
+        "name": "Acute Precipitated Hepatic Encephalopathy",
+        "severity_tier": 2,
+        "target_organ": "Central Nervous System / Hepatic",
+        "description": "Sedative opioids depress respiration, prolong intestinal transit, and cross the blood-brain barrier in portal shunting.",
+        "type": "Hazard"
+      },
+      {
+        "id": "HAZARD:MYOCLONUS_NEUROTOXICITY",
+        "name": "Severe Gabapentinoid Myoclonus, Ataxia & Sedation",
+        "severity_tier": 2,
+        "target_organ": "Central Nervous System",
+        "description": "Drug accumulation from 100% renal elimination in reduced GFR causes severe myoclonus, encephalopathy, and falls.",
+        "type": "Hazard"
+      },
+      {
+        "id": "HAZARD:HEPATOTOXICITY_OVERDOSE",
+        "name": "Dose-Dependent Hepatotoxicity in Impaired Glutathione Reserves",
+        "severity_tier": 2,
+        "target_organ": "Hepatic",
+        "description": "Doses exceeding 2.0g/24h in cirrhosis exhaust depleted hepatic glutathione, producing toxic NAPQI accumulation.",
+        "type": "Hazard"
+      },
+      {
+        "id": "HAZARD:HF_DECOMPENSATION",
+        "name": "Acute Heart Failure Decompensation & Sodium Retention",
+        "severity_tier": 2,
+        "target_organ": "Cardiovascular",
+        "description": "NSAID-induced prostaglandin inhibition promotes renal sodium and water retention, blunting loop diuretic efficacy.",
+        "type": "Hazard"
+      }
+    ]
+  },
+  "edges": [
+    {
+      "source": "CLASS:NSAID",
+      "relation": "PRECIPITATES",
+      "target": "HAZARD:ACUTE_RENAL_FAILURE",
+      "meta": {
+        "severity_tier": 2
+      }
+    },
+    {
+      "source": "CLASS:NSAID",
+      "relation": "PRECIPITATES",
+      "target": "HAZARD:GI_BLEED",
+      "meta": {
+        "severity_tier": 1
+      }
+    },
+    {
+      "source": "CLASS:NSAID",
+      "relation": "PRECIPITATES",
+      "target": "HAZARD:HEPATORENAL_SYNDROME",
+      "meta": {
+        "severity_tier": 1
+      }
+    },
+    {
+      "source": "CLASS:NSAID",
+      "relation": "PRECIPITATES",
+      "target": "HAZARD:HF_DECOMPENSATION",
+      "meta": {
+        "severity_tier": 2
+      }
+    },
+    {
+      "source": "CLASS:BETA_BLOCKER_NONSELECTIVE",
+      "relation": "PRECIPITATES",
+      "target": "HAZARD:FATAL_BRONCHOSPASM",
+      "meta": {
+        "severity_tier": 1
+      }
+    },
+    {
+      "source": "CLASS:BETA_BLOCKER_CARDIOSELECTIVE",
+      "relation": "PRECIPITATES",
+      "target": "HAZARD:BRONCHOSPASM_MILD",
+      "meta": {
+        "severity_tier": 2
+      }
+    },
+    {
+      "source": "CLASS:D2_ANTAGONIST_ANTIPSYCHOTIC",
+      "relation": "PRECIPITATES",
+      "target": "HAZARD:CATATONIC_PARKINSONISM_FREEZE",
+      "meta": {
+        "severity_tier": 1
+      }
+    },
+    {
+      "source": "CLASS:D2_ANTAGONIST_ANTIPSYCHOTIC",
+      "relation": "PRECIPITATES",
+      "target": "HAZARD:NEUROLEPTIC_MALIGNANT",
+      "meta": {
+        "severity_tier": 2
+      }
+    },
+    {
+      "source": "CLASS:D2_ANTAGONIST_ANTIEMETIC",
+      "relation": "PRECIPITATES",
+      "target": "HAZARD:CATATONIC_PARKINSONISM_FREEZE",
+      "meta": {
+        "severity_tier": 1
+      }
+    },
+    {
+      "source": "CLASS:D2_ANTAGONIST_ANTIEMETIC",
+      "relation": "PRECIPITATES",
+      "target": "HAZARD:ACUTE_DYSTONIA",
+      "meta": {
+        "severity_tier": 2
+      }
+    },
+    {
+      "source": "CLASS:TCA_ANTICHOLINERGIC",
+      "relation": "PRECIPITATES",
+      "target": "HAZARD:ACUTE_URINARY_RETENTION",
+      "meta": {
+        "severity_tier": 2
+      }
+    },
+    {
+      "source": "CLASS:TCA_ANTICHOLINERGIC",
+      "relation": "PRECIPITATES",
+      "target": "HAZARD:SEVERE_DELIRIUM",
+      "meta": {
+        "severity_tier": 2
+      }
+    },
+    {
+      "source": "CLASS:SULFONYLUREA_LONGACTING",
+      "relation": "PRECIPITATES",
+      "target": "HAZARD:FATAL_HYPOGLYCEMIC_COMA",
+      "meta": {
+        "severity_tier": 1
+      }
+    },
+    {
+      "source": "CLASS:OPIOID_SEDATING",
+      "relation": "PRECIPITATES",
+      "target": "HAZARD:HEPATIC_ENCEPHALOPATHY",
+      "meta": {
+        "severity_tier": 2
+      }
+    },
+    {
+      "source": "CLASS:OPIOID_SEDATING",
+      "relation": "PRECIPITATES",
+      "target": "HAZARD:RESPIRATORY_DEPRESSION",
+      "meta": {
+        "severity_tier": 2
+      }
+    },
+    {
+      "source": "CLASS:TRIPTAN",
+      "relation": "PRECIPITATES",
+      "target": "HAZARD:CORONARY_VASOSPASM_STROKE",
+      "meta": {
+        "severity_tier": 1
+      }
+    },
+    {
+      "source": "CLASS:ACEI_ARB",
+      "relation": "PRECIPITATES",
+      "target": "HAZARD:HYPERKALEMIA_SEVERE",
+      "meta": {
+        "severity_tier": 2
+      }
+    },
+    {
+      "source": "CLASS:ACEI_ARB",
+      "relation": "PRECIPITATES",
+      "target": "HAZARD:ACUTE_RENAL_FAILURE",
+      "meta": {
+        "severity_tier": 2
+      }
+    },
+    {
+      "source": "CLASS:MRA",
+      "relation": "PRECIPITATES",
+      "target": "HAZARD:HYPERKALEMIA_FATAL",
+      "meta": {
+        "severity_tier": 1
+      }
+    },
+    {
+      "source": "CLASS:BIGUANIDE_FULLDOSE",
+      "relation": "PRECIPITATES",
+      "target": "HAZARD:FATAL_LACTIC_ACIDOSIS",
+      "meta": {
+        "severity_tier": 1
+      }
+    },
+    {
+      "source": "CLASS:GABAPENTINOID_FULLDOSE",
+      "relation": "PRECIPITATES",
+      "target": "HAZARD:MYOCLONUS_NEUROTOXICITY",
+      "meta": {
+        "severity_tier": 2
+      }
+    },
+    {
+      "source": "CLASS:PARACETAMOL",
+      "relation": "PRECIPITATES",
+      "target": "HAZARD:HEPATOTOXICITY_OVERDOSE",
+      "meta": {
+        "severity_tier": 2
+      }
+    },
+    {
+      "source": "CLASS:ORAL_CORTICOSTEROID",
+      "relation": "PRECIPITATES",
+      "target": "HAZARD:HYPERGLYCEMIA",
+      "meta": {
+        "severity_tier": 2
+      }
+    },
+    {
+      "source": "CDU-T2D-METFORMIN-RENAL",
+      "relation": "TRIGGERS_ON",
+      "target": "COND:CKD_ADVANCED",
+      "meta": {
+        "matched_term": "renal impairment"
+      }
+    },
+    {
+      "source": "CDU-T2D-METFORMIN-RENAL",
+      "relation": "MANDATES",
+      "target": "CLASS:SGLT2I",
+      "meta": {
+        "matched_term": "sglt2 inhibitor",
+        "source_text": "Add SGLT2 inhibitor for dual cardio-renal and glycemic benefit if eGFR >=20"
+      }
+    },
+    {
+      "source": "CDU-T2D-METFORMIN-RENAL",
+      "relation": "PROHIBITS",
+      "target": "CLASS:BIGUANIDE_FULLDOSE",
+      "meta": {
+        "matched_term": "full-dose metformin",
+        "source_text": "\ud83d\uded1 NEVER prescribe full-dose Metformin (>1000mg/day) when eGFR is <45 mL/min. \ud83d\uded1 Stop Metformin completely if eGFR falls <30 mL/min or during acute dehydrating illness.",
+        "hazard_id": "HAZARD:FATAL_LACTIC_ACIDOSIS",
+        "hazard_tier": 1,
+        "cdu_tier": 2
+      }
+    },
+    {
+      "source": "CDU-HF-SGLT2I-MRA",
+      "relation": "TRIGGERS_ON",
+      "target": "COND:HFREF",
+      "meta": {
+        "matched_term": "hfref"
+      }
+    },
+    {
+      "source": "CDU-HF-SGLT2I-MRA",
+      "relation": "MANDATES",
+      "target": "CLASS:SGLT2I",
+      "meta": {
+        "matched_term": "sglt2 inhibitor",
+        "source_text": "Initiate SGLT2 inhibitor (Dapagliflozin 10mg or Empagliflozin 10mg OD)"
+      }
+    },
+    {
+      "source": "CDU-HF-SGLT2I-MRA",
+      "relation": "MANDATES",
+      "target": "CLASS:SGLT2I",
+      "meta": {
+        "matched_term": "dapagliflozin",
+        "source_text": "Initiate SGLT2 inhibitor (Dapagliflozin 10mg or Empagliflozin 10mg OD)"
+      }
+    },
+    {
+      "source": "CDU-HF-SGLT2I-MRA",
+      "relation": "MANDATES",
+      "target": "CLASS:SGLT2I",
+      "meta": {
+        "matched_term": "empagliflozin",
+        "source_text": "Initiate SGLT2 inhibitor (Dapagliflozin 10mg or Empagliflozin 10mg OD)"
+      }
+    },
+    {
+      "source": "CDU-HF-SGLT2I-MRA",
+      "relation": "MANDATES",
+      "target": "CLASS:MRA",
+      "meta": {
+        "matched_term": "mra",
+        "source_text": "Evaluate MRA initiation (Spironolactone 12.5-25mg OD) only after verifying baseline K+ < 5.0"
+      }
+    },
+    {
+      "source": "CDU-HF-SGLT2I-MRA",
+      "relation": "MANDATES",
+      "target": "CLASS:MRA",
+      "meta": {
+        "matched_term": "spironolactone",
+        "source_text": "Evaluate MRA initiation (Spironolactone 12.5-25mg OD) only after verifying baseline K+ < 5.0"
+      }
+    },
+    {
+      "source": "CDU-HF-SGLT2I-MRA",
+      "relation": "PROHIBITS",
+      "target": "CLASS:MRA",
+      "meta": {
+        "matched_term": "mra",
+        "source_text": "\ud83d\uded1 DO NOT initiate Spironolactone if baseline K+ >= 5.0 mmol/L or eGFR <30 mL/min. \ud83d\uded1 Baseline K+ 4.9 requires immediate recheck within 1-2 weeks before MRA initiation.",
+        "hazard_id": "HAZARD:HYPERKALEMIA_FATAL",
+        "hazard_tier": 1,
+        "cdu_tier": 2
+      }
+    },
+    {
+      "source": "CDU-HF-SGLT2I-MRA",
+      "relation": "PROHIBITS",
+      "target": "CLASS:MRA",
+      "meta": {
+        "matched_term": "spironolactone",
+        "source_text": "\ud83d\uded1 DO NOT initiate Spironolactone if baseline K+ >= 5.0 mmol/L or eGFR <30 mL/min. \ud83d\uded1 Baseline K+ 4.9 requires immediate recheck within 1-2 weeks before MRA initiation.",
+        "hazard_id": "HAZARD:HYPERKALEMIA_FATAL",
+        "hazard_tier": 1,
+        "cdu_tier": 2
+      }
+    },
+    {
+      "source": "CDU-CKD-POTASSIUM-SAFETY",
+      "relation": "TRIGGERS_ON",
+      "target": "COND:CKD_ADVANCED",
+      "meta": {
+        "matched_term": "ckd"
+      }
+    },
+    {
+      "source": "CDU-CKD-POTASSIUM-SAFETY",
+      "relation": "PROHIBITS",
+      "target": "CLASS:ACEI_ARB",
+      "meta": {
+        "matched_term": "arb",
+        "source_text": "\ud83d\uded1 DO NOT combine dual RAAS blockade (ACEi + ARB) due to acute kidney injury and hyperkalemia hazard. \ud83d\uded1 Avoid potassium supplements or potassium-based salt substitutes.",
+        "hazard_id": "HAZARD:HYPERKALEMIA_SEVERE",
+        "hazard_tier": 2,
+        "cdu_tier": 2
+      }
+    },
+    {
+      "source": "CDU-GOUT-ACUTE-FLARE",
+      "relation": "TRIGGERS_ON",
+      "target": "COND:CKD_ADVANCED",
+      "meta": {
+        "matched_term": "ckd"
+      }
+    },
+    {
+      "source": "CDU-GOUT-ACUTE-FLARE",
+      "relation": "TRIGGERS_ON",
+      "target": "COND:GOUT_ACUTE",
+      "meta": {
+        "matched_term": "acute gout"
+      }
+    },
+    {
+      "source": "CDU-GOUT-ACUTE-FLARE",
+      "relation": "MANDATES",
+      "target": "CLASS:ORAL_CORTICOSTEROID",
+      "meta": {
+        "matched_term": "prednisolone",
+        "source_text": "Prescribe short-course oral Prednisolone (20-30mg daily for 3-5 days) or intra-articular steroid"
+      }
+    },
+    {
+      "source": "CDU-GOUT-ACUTE-FLARE",
+      "relation": "PROHIBITS",
+      "target": "CLASS:NSAID",
+      "meta": {
+        "matched_term": "nsaids",
+        "source_text": "\ud83d\uded1 STRICTLY CONTRAINDICATE oral/systemic NSAIDs (Ibuprofen, Naproxen, Diclofenac, Indomethacin, Celecoxib) due to severe risk of acute-on-chronic renal failure and heart failure decompensation. \ud83d\uded1 Avoid full-dose Colchicine (severe neuro/myopathy risk in eGFR <35).",
+        "hazard_id": "HAZARD:ACUTE_RENAL_FAILURE",
+        "hazard_tier": 2,
+        "cdu_tier": 2
+      }
+    },
+    {
+      "source": "CDU-GOUT-ACUTE-FLARE",
+      "relation": "PROHIBITS",
+      "target": "CLASS:NSAID",
+      "meta": {
+        "matched_term": "ibuprofen",
+        "source_text": "\ud83d\uded1 STRICTLY CONTRAINDICATE oral/systemic NSAIDs (Ibuprofen, Naproxen, Diclofenac, Indomethacin, Celecoxib) due to severe risk of acute-on-chronic renal failure and heart failure decompensation. \ud83d\uded1 Avoid full-dose Colchicine (severe neuro/myopathy risk in eGFR <35).",
+        "hazard_id": "HAZARD:ACUTE_RENAL_FAILURE",
+        "hazard_tier": 2,
+        "cdu_tier": 2
+      }
+    },
+    {
+      "source": "CDU-GOUT-ACUTE-FLARE",
+      "relation": "PROHIBITS",
+      "target": "CLASS:NSAID",
+      "meta": {
+        "matched_term": "naproxen",
+        "source_text": "\ud83d\uded1 STRICTLY CONTRAINDICATE oral/systemic NSAIDs (Ibuprofen, Naproxen, Diclofenac, Indomethacin, Celecoxib) due to severe risk of acute-on-chronic renal failure and heart failure decompensation. \ud83d\uded1 Avoid full-dose Colchicine (severe neuro/myopathy risk in eGFR <35).",
+        "hazard_id": "HAZARD:ACUTE_RENAL_FAILURE",
+        "hazard_tier": 2,
+        "cdu_tier": 2
+      }
+    },
+    {
+      "source": "CDU-GOUT-ACUTE-FLARE",
+      "relation": "PROHIBITS",
+      "target": "CLASS:NSAID",
+      "meta": {
+        "matched_term": "diclofenac",
+        "source_text": "\ud83d\uded1 STRICTLY CONTRAINDICATE oral/systemic NSAIDs (Ibuprofen, Naproxen, Diclofenac, Indomethacin, Celecoxib) due to severe risk of acute-on-chronic renal failure and heart failure decompensation. \ud83d\uded1 Avoid full-dose Colchicine (severe neuro/myopathy risk in eGFR <35).",
+        "hazard_id": "HAZARD:ACUTE_RENAL_FAILURE",
+        "hazard_tier": 2,
+        "cdu_tier": 2
+      }
+    },
+    {
+      "source": "CDU-GOUT-ACUTE-FLARE",
+      "relation": "PROHIBITS",
+      "target": "CLASS:NSAID",
+      "meta": {
+        "matched_term": "indomethacin",
+        "source_text": "\ud83d\uded1 STRICTLY CONTRAINDICATE oral/systemic NSAIDs (Ibuprofen, Naproxen, Diclofenac, Indomethacin, Celecoxib) due to severe risk of acute-on-chronic renal failure and heart failure decompensation. \ud83d\uded1 Avoid full-dose Colchicine (severe neuro/myopathy risk in eGFR <35).",
+        "hazard_id": "HAZARD:ACUTE_RENAL_FAILURE",
+        "hazard_tier": 2,
+        "cdu_tier": 2
+      }
+    },
+    {
+      "source": "CDU-GOUT-ACUTE-FLARE",
+      "relation": "PROHIBITS",
+      "target": "CLASS:NSAID",
+      "meta": {
+        "matched_term": "celecoxib",
+        "source_text": "\ud83d\uded1 STRICTLY CONTRAINDICATE oral/systemic NSAIDs (Ibuprofen, Naproxen, Diclofenac, Indomethacin, Celecoxib) due to severe risk of acute-on-chronic renal failure and heart failure decompensation. \ud83d\uded1 Avoid full-dose Colchicine (severe neuro/myopathy risk in eGFR <35).",
+        "hazard_id": "HAZARD:ACUTE_RENAL_FAILURE",
+        "hazard_tier": 2,
+        "cdu_tier": 2
+      }
+    },
+    {
+      "source": "CDU-ASTHMA-DRUG-SAFETY",
+      "relation": "TRIGGERS_ON",
+      "target": "COND:ASTHMA",
+      "meta": {
+        "matched_term": "asthma"
+      }
+    },
+    {
+      "source": "CDU-ASTHMA-DRUG-SAFETY",
+      "relation": "PROHIBITS",
+      "target": "CLASS:BETA_BLOCKER_NONSELECTIVE",
+      "meta": {
+        "matched_term": "propranolol",
+        "source_text": "\ud83d\uded1 STRICTLY PROHIBIT non-selective beta-blockers (Propranolol, Carvedilol, Labetalol, Timolol eye drops). Non-selective beta-blockade precipitates severe bronchospasm and fatal status asthmaticus. \ud83d\uded1 Avoid non-cardioselective beta-blockade even if cardioselective alternatives exist unless no other anti-anginal is viable.",
+        "hazard_id": "HAZARD:FATAL_BRONCHOSPASM",
+        "hazard_tier": 1,
+        "cdu_tier": 2
+      }
+    },
+    {
+      "source": "CDU-ASTHMA-DRUG-SAFETY",
+      "relation": "PROHIBITS",
+      "target": "CLASS:BETA_BLOCKER_NONSELECTIVE",
+      "meta": {
+        "matched_term": "carvedilol",
+        "source_text": "\ud83d\uded1 STRICTLY PROHIBIT non-selective beta-blockers (Propranolol, Carvedilol, Labetalol, Timolol eye drops). Non-selective beta-blockade precipitates severe bronchospasm and fatal status asthmaticus. \ud83d\uded1 Avoid non-cardioselective beta-blockade even if cardioselective alternatives exist unless no other anti-anginal is viable.",
+        "hazard_id": "HAZARD:FATAL_BRONCHOSPASM",
+        "hazard_tier": 1,
+        "cdu_tier": 2
+      }
+    },
+    {
+      "source": "CDU-ASTHMA-DRUG-SAFETY",
+      "relation": "PROHIBITS",
+      "target": "CLASS:BETA_BLOCKER_NONSELECTIVE",
+      "meta": {
+        "matched_term": "labetalol",
+        "source_text": "\ud83d\uded1 STRICTLY PROHIBIT non-selective beta-blockers (Propranolol, Carvedilol, Labetalol, Timolol eye drops). Non-selective beta-blockade precipitates severe bronchospasm and fatal status asthmaticus. \ud83d\uded1 Avoid non-cardioselective beta-blockade even if cardioselective alternatives exist unless no other anti-anginal is viable.",
+        "hazard_id": "HAZARD:FATAL_BRONCHOSPASM",
+        "hazard_tier": 1,
+        "cdu_tier": 2
+      }
+    },
+    {
+      "source": "CDU-ASTHMA-DRUG-SAFETY",
+      "relation": "PROHIBITS",
+      "target": "CLASS:BETA_BLOCKER_NONSELECTIVE",
+      "meta": {
+        "matched_term": "timolol",
+        "source_text": "\ud83d\uded1 STRICTLY PROHIBIT non-selective beta-blockers (Propranolol, Carvedilol, Labetalol, Timolol eye drops). Non-selective beta-blockade precipitates severe bronchospasm and fatal status asthmaticus. \ud83d\uded1 Avoid non-cardioselective beta-blockade even if cardioselective alternatives exist unless no other anti-anginal is viable.",
+        "hazard_id": "HAZARD:FATAL_BRONCHOSPASM",
+        "hazard_tier": 1,
+        "cdu_tier": 2
+      }
+    },
+    {
+      "source": "CDU-ANGINA-FIRSTLINE",
+      "relation": "TRIGGERS_ON",
+      "target": "COND:ASTHMA",
+      "meta": {
+        "matched_term": "asthma"
+      }
+    },
+    {
+      "source": "CDU-ANGINA-FIRSTLINE",
+      "relation": "MANDATES",
+      "target": "CLASS:CCB_DIHYDROPYRIDINE",
+      "meta": {
+        "matched_term": "ccb",
+        "source_text": "Initiate Dihydropyridine CCB (Amlodipine 5-10mg OD)"
+      }
+    },
+    {
+      "source": "CDU-ANGINA-FIRSTLINE",
+      "relation": "MANDATES",
+      "target": "CLASS:CCB_DIHYDROPYRIDINE",
+      "meta": {
+        "matched_term": "amlodipine",
+        "source_text": "Initiate Dihydropyridine CCB (Amlodipine 5-10mg OD)"
+      }
+    },
+    {
+      "source": "CDU-ANGINA-FIRSTLINE",
+      "relation": "PROHIBITS",
+      "target": "CLASS:BETA_BLOCKER_NONSELECTIVE",
+      "meta": {
+        "matched_term": "non-selective beta-blocker",
+        "source_text": "\ud83d\uded1 NEVER initiate non-selective beta-blocker in patient with active asthma.",
+        "hazard_id": "HAZARD:FATAL_BRONCHOSPASM",
+        "hazard_tier": 1,
+        "cdu_tier": 2
+      }
+    },
+    {
+      "source": "CDU-PUD-BLEEDING-SAFETY",
+      "relation": "TRIGGERS_ON",
+      "target": "COND:PUD_BLEED",
+      "meta": {
+        "matched_term": "peptic ulcer"
+      }
+    },
+    {
+      "source": "CDU-PUD-BLEEDING-SAFETY",
+      "relation": "MANDATES",
+      "target": "CLASS:PPI",
+      "meta": {
+        "matched_term": "proton pump inhibitor",
+        "source_text": "Maintain continuous Proton Pump Inhibitor (Pantoprazole 40mg OD)"
+      }
+    },
+    {
+      "source": "CDU-PUD-BLEEDING-SAFETY",
+      "relation": "MANDATES",
+      "target": "CLASS:PPI",
+      "meta": {
+        "matched_term": "pantoprazole",
+        "source_text": "Maintain continuous Proton Pump Inhibitor (Pantoprazole 40mg OD)"
+      }
+    },
+    {
+      "source": "CDU-PUD-BLEEDING-SAFETY",
+      "relation": "PROHIBITS",
+      "target": "CLASS:NSAID",
+      "meta": {
+        "matched_term": "nsaid",
+        "source_text": "\ud83d\uded1 STRICTLY CONTRAINDICATE oral non-selective NSAIDs (Ibuprofen, Naproxen, Diclofenac) and high-dose Aspirin. Concurrent NSAID + DOAC increases fatal upper GI rebleeding hazard by 4- to 6-fold. \ud83d\uded1 DO NOT stop life-saving anticoagulation for minor musculoskeletal pain.",
+        "hazard_id": "HAZARD:ACUTE_RENAL_FAILURE",
+        "hazard_tier": 2,
+        "cdu_tier": 2
+      }
+    },
+    {
+      "source": "CDU-PUD-BLEEDING-SAFETY",
+      "relation": "PROHIBITS",
+      "target": "CLASS:NSAID",
+      "meta": {
+        "matched_term": "ibuprofen",
+        "source_text": "\ud83d\uded1 STRICTLY CONTRAINDICATE oral non-selective NSAIDs (Ibuprofen, Naproxen, Diclofenac) and high-dose Aspirin. Concurrent NSAID + DOAC increases fatal upper GI rebleeding hazard by 4- to 6-fold. \ud83d\uded1 DO NOT stop life-saving anticoagulation for minor musculoskeletal pain.",
+        "hazard_id": "HAZARD:ACUTE_RENAL_FAILURE",
+        "hazard_tier": 2,
+        "cdu_tier": 2
+      }
+    },
+    {
+      "source": "CDU-PUD-BLEEDING-SAFETY",
+      "relation": "PROHIBITS",
+      "target": "CLASS:NSAID",
+      "meta": {
+        "matched_term": "naproxen",
+        "source_text": "\ud83d\uded1 STRICTLY CONTRAINDICATE oral non-selective NSAIDs (Ibuprofen, Naproxen, Diclofenac) and high-dose Aspirin. Concurrent NSAID + DOAC increases fatal upper GI rebleeding hazard by 4- to 6-fold. \ud83d\uded1 DO NOT stop life-saving anticoagulation for minor musculoskeletal pain.",
+        "hazard_id": "HAZARD:ACUTE_RENAL_FAILURE",
+        "hazard_tier": 2,
+        "cdu_tier": 2
+      }
+    },
+    {
+      "source": "CDU-PUD-BLEEDING-SAFETY",
+      "relation": "PROHIBITS",
+      "target": "CLASS:NSAID",
+      "meta": {
+        "matched_term": "diclofenac",
+        "source_text": "\ud83d\uded1 STRICTLY CONTRAINDICATE oral non-selective NSAIDs (Ibuprofen, Naproxen, Diclofenac) and high-dose Aspirin. Concurrent NSAID + DOAC increases fatal upper GI rebleeding hazard by 4- to 6-fold. \ud83d\uded1 DO NOT stop life-saving anticoagulation for minor musculoskeletal pain.",
+        "hazard_id": "HAZARD:ACUTE_RENAL_FAILURE",
+        "hazard_tier": 2,
+        "cdu_tier": 2
+      }
+    },
+    {
+      "source": "CDU-OA-ANALGESIA",
+      "relation": "TRIGGERS_ON",
+      "target": "COND:OSTEOARTHRITIS",
+      "meta": {
+        "matched_term": "osteoarthritis"
+      }
+    },
+    {
+      "source": "CDU-OA-ANALGESIA",
+      "relation": "MANDATES",
+      "target": "CLASS:NSAID",
+      "meta": {
+        "matched_term": "diclofenac",
+        "source_text": "Prescribe Topical Diclofenac 1% gel (localized application)"
+      }
+    },
+    {
+      "source": "CDU-OA-ANALGESIA",
+      "relation": "MANDATES",
+      "target": "CLASS:PARACETAMOL",
+      "meta": {
+        "matched_term": "paracetamol",
+        "source_text": "Recommend regular scheduled Paracetamol up to 3g/day"
+      }
+    },
+    {
+      "source": "CDU-OA-ANALGESIA",
+      "relation": "PROHIBITS",
+      "target": "CLASS:NSAID",
+      "meta": {
+        "matched_term": "nsaids",
+        "source_text": "\ud83d\uded1 NEVER prescribe systemic oral NSAIDs or COX-2 inhibitors to patients on oral anticoagulation with recent peptic ulcer.",
+        "hazard_id": "HAZARD:ACUTE_RENAL_FAILURE",
+        "hazard_tier": 2,
+        "cdu_tier": 2
+      }
+    },
+    {
+      "source": "CDU-FRAIL-T2D-TARGETS",
+      "relation": "TRIGGERS_ON",
+      "target": "COND:FRAIL_ELDERLY",
+      "meta": {
+        "matched_term": "frail"
+      }
+    },
+    {
+      "source": "CDU-FRAIL-T2D-TARGETS",
+      "relation": "PROHIBITS",
+      "target": "CLASS:SULFONYLUREA_LONGACTING",
+      "meta": {
+        "matched_term": "glibenclamide",
+        "source_text": "\ud83d\uded1 STRICTLY CONTRAINDICATE Glibenclamide in elderly patients (Beers Criteria / STOPP violation; prolonged renal excretion causes catastrophic prolonged hypoglycemia). \ud83d\uded1 NEVER aim for tight glycemic control (HbA1c < 7.0%) in frail fall-prone elderly.",
+        "hazard_id": "HAZARD:FATAL_HYPOGLYCEMIC_COMA",
+        "hazard_tier": 1,
+        "cdu_tier": 2
+      }
+    },
+    {
+      "source": "CDU-CIRRHOSIS-MED-SAFETY",
+      "relation": "TRIGGERS_ON",
+      "target": "COND:CIRRHOSIS",
+      "meta": {
+        "matched_term": "cirrhosis"
+      }
+    },
+    {
+      "source": "CDU-CIRRHOSIS-MED-SAFETY",
+      "relation": "PROHIBITS",
+      "target": "CLASS:NSAID",
+      "meta": {
+        "matched_term": "nsaids",
+        "source_text": "\ud83d\uded1 ABSOLUTE CONTRAINDICATION to oral or parenteral NSAIDs (Ibuprofen, Naproxen, Diclofenac). NSAIDs trigger irreversible hepatorenal syndrome and lethal variceal bleeding. \ud83d\uded1 AVOID sedating opioids (Morphine, Oxycodone, Codeine) which precipitate acute hepatic encephalopathy.",
+        "hazard_id": "HAZARD:ACUTE_RENAL_FAILURE",
+        "hazard_tier": 2,
+        "cdu_tier": 2
+      }
+    },
+    {
+      "source": "CDU-CIRRHOSIS-MED-SAFETY",
+      "relation": "PROHIBITS",
+      "target": "CLASS:NSAID",
+      "meta": {
+        "matched_term": "ibuprofen",
+        "source_text": "\ud83d\uded1 ABSOLUTE CONTRAINDICATION to oral or parenteral NSAIDs (Ibuprofen, Naproxen, Diclofenac). NSAIDs trigger irreversible hepatorenal syndrome and lethal variceal bleeding. \ud83d\uded1 AVOID sedating opioids (Morphine, Oxycodone, Codeine) which precipitate acute hepatic encephalopathy.",
+        "hazard_id": "HAZARD:ACUTE_RENAL_FAILURE",
+        "hazard_tier": 2,
+        "cdu_tier": 2
+      }
+    },
+    {
+      "source": "CDU-CIRRHOSIS-MED-SAFETY",
+      "relation": "PROHIBITS",
+      "target": "CLASS:NSAID",
+      "meta": {
+        "matched_term": "naproxen",
+        "source_text": "\ud83d\uded1 ABSOLUTE CONTRAINDICATION to oral or parenteral NSAIDs (Ibuprofen, Naproxen, Diclofenac). NSAIDs trigger irreversible hepatorenal syndrome and lethal variceal bleeding. \ud83d\uded1 AVOID sedating opioids (Morphine, Oxycodone, Codeine) which precipitate acute hepatic encephalopathy.",
+        "hazard_id": "HAZARD:ACUTE_RENAL_FAILURE",
+        "hazard_tier": 2,
+        "cdu_tier": 2
+      }
+    },
+    {
+      "source": "CDU-CIRRHOSIS-MED-SAFETY",
+      "relation": "PROHIBITS",
+      "target": "CLASS:NSAID",
+      "meta": {
+        "matched_term": "diclofenac",
+        "source_text": "\ud83d\uded1 ABSOLUTE CONTRAINDICATION to oral or parenteral NSAIDs (Ibuprofen, Naproxen, Diclofenac). NSAIDs trigger irreversible hepatorenal syndrome and lethal variceal bleeding. \ud83d\uded1 AVOID sedating opioids (Morphine, Oxycodone, Codeine) which precipitate acute hepatic encephalopathy.",
+        "hazard_id": "HAZARD:ACUTE_RENAL_FAILURE",
+        "hazard_tier": 2,
+        "cdu_tier": 2
+      }
+    },
+    {
+      "source": "CDU-CIRRHOSIS-MED-SAFETY",
+      "relation": "PROHIBITS",
+      "target": "CLASS:OPIOID_SEDATING",
+      "meta": {
+        "matched_term": "sedating opioids",
+        "source_text": "\ud83d\uded1 ABSOLUTE CONTRAINDICATION to oral or parenteral NSAIDs (Ibuprofen, Naproxen, Diclofenac). NSAIDs trigger irreversible hepatorenal syndrome and lethal variceal bleeding. \ud83d\uded1 AVOID sedating opioids (Morphine, Oxycodone, Codeine) which precipitate acute hepatic encephalopathy.",
+        "hazard_id": "HAZARD:HEPATIC_ENCEPHALOPATHY",
+        "hazard_tier": 2,
+        "cdu_tier": 2
+      }
+    },
+    {
+      "source": "CDU-CIRRHOSIS-MED-SAFETY",
+      "relation": "PROHIBITS",
+      "target": "CLASS:OPIOID_SEDATING",
+      "meta": {
+        "matched_term": "morphine",
+        "source_text": "\ud83d\uded1 ABSOLUTE CONTRAINDICATION to oral or parenteral NSAIDs (Ibuprofen, Naproxen, Diclofenac). NSAIDs trigger irreversible hepatorenal syndrome and lethal variceal bleeding. \ud83d\uded1 AVOID sedating opioids (Morphine, Oxycodone, Codeine) which precipitate acute hepatic encephalopathy.",
+        "hazard_id": "HAZARD:HEPATIC_ENCEPHALOPATHY",
+        "hazard_tier": 2,
+        "cdu_tier": 2
+      }
+    },
+    {
+      "source": "CDU-CIRRHOSIS-MED-SAFETY",
+      "relation": "PROHIBITS",
+      "target": "CLASS:OPIOID_SEDATING",
+      "meta": {
+        "matched_term": "oxycodone",
+        "source_text": "\ud83d\uded1 ABSOLUTE CONTRAINDICATION to oral or parenteral NSAIDs (Ibuprofen, Naproxen, Diclofenac). NSAIDs trigger irreversible hepatorenal syndrome and lethal variceal bleeding. \ud83d\uded1 AVOID sedating opioids (Morphine, Oxycodone, Codeine) which precipitate acute hepatic encephalopathy.",
+        "hazard_id": "HAZARD:HEPATIC_ENCEPHALOPATHY",
+        "hazard_tier": 2,
+        "cdu_tier": 2
+      }
+    },
+    {
+      "source": "CDU-CIRRHOSIS-MED-SAFETY",
+      "relation": "PROHIBITS",
+      "target": "CLASS:OPIOID_SEDATING",
+      "meta": {
+        "matched_term": "codeine",
+        "source_text": "\ud83d\uded1 ABSOLUTE CONTRAINDICATION to oral or parenteral NSAIDs (Ibuprofen, Naproxen, Diclofenac). NSAIDs trigger irreversible hepatorenal syndrome and lethal variceal bleeding. \ud83d\uded1 AVOID sedating opioids (Morphine, Oxycodone, Codeine) which precipitate acute hepatic encephalopathy.",
+        "hazard_id": "HAZARD:HEPATIC_ENCEPHALOPATHY",
+        "hazard_tier": 2,
+        "cdu_tier": 2
+      }
+    },
+    {
+      "source": "CDU-CIRRHOSIS-ANALGESIA",
+      "relation": "TRIGGERS_ON",
+      "target": "COND:CIRRHOSIS",
+      "meta": {
+        "matched_term": "cirrhosis"
+      }
+    },
+    {
+      "source": "CDU-CIRRHOSIS-ANALGESIA",
+      "relation": "MANDATES",
+      "target": "CLASS:PARACETAMOL",
+      "meta": {
+        "matched_term": "paracetamol",
+        "source_text": "Cap Paracetamol at a strict maximum of 2.0g per 24 hours (500mg QDS or 1000mg BD)"
+      }
+    },
+    {
+      "source": "CDU-CIRRHOSIS-ANALGESIA",
+      "relation": "PROHIBITS",
+      "target": "CLASS:NSAID",
+      "meta": {
+        "matched_term": "nsaids",
+        "source_text": "\ud83d\uded1 NEVER exceed Paracetamol 2.0g/day in cirrhosis. \ud83d\uded1 NEVER give NSAIDs.",
+        "hazard_id": "HAZARD:ACUTE_RENAL_FAILURE",
+        "hazard_tier": 2,
+        "cdu_tier": 2
+      }
+    },
+    {
+      "source": "CDU-CIRRHOSIS-ANALGESIA",
+      "relation": "PROHIBITS",
+      "target": "CLASS:PARACETAMOL",
+      "meta": {
+        "matched_term": "paracetamol",
+        "source_text": "\ud83d\uded1 NEVER exceed Paracetamol 2.0g/day in cirrhosis. \ud83d\uded1 NEVER give NSAIDs.",
+        "hazard_id": "HAZARD:HEPATOTOXICITY_OVERDOSE",
+        "hazard_tier": 2,
+        "cdu_tier": 2
+      }
+    },
+    {
+      "source": "CDU-TRIPTAN-VASCULAR-SAFETY",
+      "relation": "TRIGGERS_ON",
+      "target": "COND:MIGRAINE",
+      "meta": {
+        "matched_term": "migraine"
+      }
+    },
+    {
+      "source": "CDU-TRIPTAN-VASCULAR-SAFETY",
+      "relation": "MANDATES",
+      "target": "CLASS:D2_ANTAGONIST_ANTIEMETIC",
+      "meta": {
+        "matched_term": "metoclopramide",
+        "source_text": "Provide non-vasoconstrictive abortive therapy (Paracetamol, Metoclopramide) for acute migraine"
+      }
+    },
+    {
+      "source": "CDU-TRIPTAN-VASCULAR-SAFETY",
+      "relation": "MANDATES",
+      "target": "CLASS:PARACETAMOL",
+      "meta": {
+        "matched_term": "paracetamol",
+        "source_text": "Provide non-vasoconstrictive abortive therapy (Paracetamol, Metoclopramide) for acute migraine"
+      }
+    },
+    {
+      "source": "CDU-TRIPTAN-VASCULAR-SAFETY",
+      "relation": "PROHIBITS",
+      "target": "CLASS:TRIPTAN",
+      "meta": {
+        "matched_term": "triptans",
+        "source_text": "\ud83d\uded1 ABSOLUTE CONTRAINDICATION to Triptans (Sumatriptan, Zolmitriptan) in uncontrolled Stage 2 hypertension (BP >=160/100). Triptans cause coronary and cerebral vasoconstriction, carrying high risk of ischemic stroke and myocardial infarction.",
+        "hazard_id": "HAZARD:CORONARY_VASOSPASM_STROKE",
+        "hazard_tier": 1,
+        "cdu_tier": 2
+      }
+    },
+    {
+      "source": "CDU-TRIPTAN-VASCULAR-SAFETY",
+      "relation": "PROHIBITS",
+      "target": "CLASS:TRIPTAN",
+      "meta": {
+        "matched_term": "sumatriptan",
+        "source_text": "\ud83d\uded1 ABSOLUTE CONTRAINDICATION to Triptans (Sumatriptan, Zolmitriptan) in uncontrolled Stage 2 hypertension (BP >=160/100). Triptans cause coronary and cerebral vasoconstriction, carrying high risk of ischemic stroke and myocardial infarction.",
+        "hazard_id": "HAZARD:CORONARY_VASOSPASM_STROKE",
+        "hazard_tier": 1,
+        "cdu_tier": 2
+      }
+    },
+    {
+      "source": "CDU-TRIPTAN-VASCULAR-SAFETY",
+      "relation": "PROHIBITS",
+      "target": "CLASS:TRIPTAN",
+      "meta": {
+        "matched_term": "zolmitriptan",
+        "source_text": "\ud83d\uded1 ABSOLUTE CONTRAINDICATION to Triptans (Sumatriptan, Zolmitriptan) in uncontrolled Stage 2 hypertension (BP >=160/100). Triptans cause coronary and cerebral vasoconstriction, carrying high risk of ischemic stroke and myocardial infarction.",
+        "hazard_id": "HAZARD:CORONARY_VASOSPASM_STROKE",
+        "hazard_tier": 1,
+        "cdu_tier": 2
+      }
+    },
+    {
+      "source": "CDU-PD-ANTIPSYCHOTIC-CONTRAINDICATIONS",
+      "relation": "TRIGGERS_ON",
+      "target": "COND:PARKINSONS",
+      "meta": {
+        "matched_term": "parkinson"
+      }
+    },
+    {
+      "source": "CDU-PD-ANTIPSYCHOTIC-CONTRAINDICATIONS",
+      "relation": "PROHIBITS",
+      "target": "CLASS:D2_ANTAGONIST_ANTIPSYCHOTIC",
+      "meta": {
+        "matched_term": "haloperidol",
+        "source_text": "\ud83d\uded1 ABSOLUTE CONTRAINDICATION to First-Generation Antipsychotics (Haloperidol) and D2-blocking Second-Generation Antipsychotics (Risperidone, Olanzapine, Aripiprazole) -> Catastrophic motor collapse/death. \ud83d\uded1 STRICTLY CONTRAINDICATE D2-blocking antiemetics (Metoclopramide, Prochlorperazine).",
+        "hazard_id": "HAZARD:CATATONIC_PARKINSONISM_FREEZE",
+        "hazard_tier": 1,
+        "cdu_tier": 2
+      }
+    },
+    {
+      "source": "CDU-PD-ANTIPSYCHOTIC-CONTRAINDICATIONS",
+      "relation": "PROHIBITS",
+      "target": "CLASS:D2_ANTAGONIST_ANTIPSYCHOTIC",
+      "meta": {
+        "matched_term": "risperidone",
+        "source_text": "\ud83d\uded1 ABSOLUTE CONTRAINDICATION to First-Generation Antipsychotics (Haloperidol) and D2-blocking Second-Generation Antipsychotics (Risperidone, Olanzapine, Aripiprazole) -> Catastrophic motor collapse/death. \ud83d\uded1 STRICTLY CONTRAINDICATE D2-blocking antiemetics (Metoclopramide, Prochlorperazine).",
+        "hazard_id": "HAZARD:CATATONIC_PARKINSONISM_FREEZE",
+        "hazard_tier": 1,
+        "cdu_tier": 2
+      }
+    },
+    {
+      "source": "CDU-PD-ANTIPSYCHOTIC-CONTRAINDICATIONS",
+      "relation": "PROHIBITS",
+      "target": "CLASS:D2_ANTAGONIST_ANTIPSYCHOTIC",
+      "meta": {
+        "matched_term": "olanzapine",
+        "source_text": "\ud83d\uded1 ABSOLUTE CONTRAINDICATION to First-Generation Antipsychotics (Haloperidol) and D2-blocking Second-Generation Antipsychotics (Risperidone, Olanzapine, Aripiprazole) -> Catastrophic motor collapse/death. \ud83d\uded1 STRICTLY CONTRAINDICATE D2-blocking antiemetics (Metoclopramide, Prochlorperazine).",
+        "hazard_id": "HAZARD:CATATONIC_PARKINSONISM_FREEZE",
+        "hazard_tier": 1,
+        "cdu_tier": 2
+      }
+    },
+    {
+      "source": "CDU-PD-ANTIPSYCHOTIC-CONTRAINDICATIONS",
+      "relation": "PROHIBITS",
+      "target": "CLASS:D2_ANTAGONIST_ANTIPSYCHOTIC",
+      "meta": {
+        "matched_term": "aripiprazole",
+        "source_text": "\ud83d\uded1 ABSOLUTE CONTRAINDICATION to First-Generation Antipsychotics (Haloperidol) and D2-blocking Second-Generation Antipsychotics (Risperidone, Olanzapine, Aripiprazole) -> Catastrophic motor collapse/death. \ud83d\uded1 STRICTLY CONTRAINDICATE D2-blocking antiemetics (Metoclopramide, Prochlorperazine).",
+        "hazard_id": "HAZARD:CATATONIC_PARKINSONISM_FREEZE",
+        "hazard_tier": 1,
+        "cdu_tier": 2
+      }
+    },
+    {
+      "source": "CDU-PD-ANTIPSYCHOTIC-CONTRAINDICATIONS",
+      "relation": "PROHIBITS",
+      "target": "CLASS:D2_ANTAGONIST_ANTIEMETIC",
+      "meta": {
+        "matched_term": "d2-blocking antiemetics",
+        "source_text": "\ud83d\uded1 ABSOLUTE CONTRAINDICATION to First-Generation Antipsychotics (Haloperidol) and D2-blocking Second-Generation Antipsychotics (Risperidone, Olanzapine, Aripiprazole) -> Catastrophic motor collapse/death. \ud83d\uded1 STRICTLY CONTRAINDICATE D2-blocking antiemetics (Metoclopramide, Prochlorperazine).",
+        "hazard_id": "HAZARD:CATATONIC_PARKINSONISM_FREEZE",
+        "hazard_tier": 1,
+        "cdu_tier": 2
+      }
+    },
+    {
+      "source": "CDU-PD-ANTIPSYCHOTIC-CONTRAINDICATIONS",
+      "relation": "PROHIBITS",
+      "target": "CLASS:D2_ANTAGONIST_ANTIEMETIC",
+      "meta": {
+        "matched_term": "metoclopramide",
+        "source_text": "\ud83d\uded1 ABSOLUTE CONTRAINDICATION to First-Generation Antipsychotics (Haloperidol) and D2-blocking Second-Generation Antipsychotics (Risperidone, Olanzapine, Aripiprazole) -> Catastrophic motor collapse/death. \ud83d\uded1 STRICTLY CONTRAINDICATE D2-blocking antiemetics (Metoclopramide, Prochlorperazine).",
+        "hazard_id": "HAZARD:CATATONIC_PARKINSONISM_FREEZE",
+        "hazard_tier": 1,
+        "cdu_tier": 2
+      }
+    },
+    {
+      "source": "CDU-PD-ANTIPSYCHOTIC-CONTRAINDICATIONS",
+      "relation": "PROHIBITS",
+      "target": "CLASS:D2_ANTAGONIST_ANTIEMETIC",
+      "meta": {
+        "matched_term": "prochlorperazine",
+        "source_text": "\ud83d\uded1 ABSOLUTE CONTRAINDICATION to First-Generation Antipsychotics (Haloperidol) and D2-blocking Second-Generation Antipsychotics (Risperidone, Olanzapine, Aripiprazole) -> Catastrophic motor collapse/death. \ud83d\uded1 STRICTLY CONTRAINDICATE D2-blocking antiemetics (Metoclopramide, Prochlorperazine).",
+        "hazard_id": "HAZARD:CATATONIC_PARKINSONISM_FREEZE",
+        "hazard_tier": 1,
+        "cdu_tier": 2
+      }
+    },
+    {
+      "source": "CDU-TCA-ANTICHOLINERGIC-PROHIBITION",
+      "relation": "TRIGGERS_ON",
+      "target": "COND:SEVERE_BPH",
+      "meta": {
+        "matched_term": "bph"
+      }
+    },
+    {
+      "source": "CDU-TCA-ANTICHOLINERGIC-PROHIBITION",
+      "relation": "PROHIBITS",
+      "target": "CLASS:TCA_ANTICHOLINERGIC",
+      "meta": {
+        "matched_term": "tricyclic antidepressants",
+        "source_text": "\ud83d\uded1 STRICTLY CONTRAINDICATE Tricyclic Antidepressants (Amitriptyline, Nortriptyline, Imipramine) in patients with severe lower urinary tract symptoms or severe BPH. Potent anticholinergic blockade inhibits detrusor muscle contraction, precipitating acute complete urinary retention requiring emergency catheterization.",
+        "hazard_id": "HAZARD:ACUTE_URINARY_RETENTION",
+        "hazard_tier": 2,
+        "cdu_tier": 2
+      }
+    },
+    {
+      "source": "CDU-TCA-ANTICHOLINERGIC-PROHIBITION",
+      "relation": "PROHIBITS",
+      "target": "CLASS:TCA_ANTICHOLINERGIC",
+      "meta": {
+        "matched_term": "amitriptyline",
+        "source_text": "\ud83d\uded1 STRICTLY CONTRAINDICATE Tricyclic Antidepressants (Amitriptyline, Nortriptyline, Imipramine) in patients with severe lower urinary tract symptoms or severe BPH. Potent anticholinergic blockade inhibits detrusor muscle contraction, precipitating acute complete urinary retention requiring emergency catheterization.",
+        "hazard_id": "HAZARD:ACUTE_URINARY_RETENTION",
+        "hazard_tier": 2,
+        "cdu_tier": 2
+      }
+    },
+    {
+      "source": "CDU-TCA-ANTICHOLINERGIC-PROHIBITION",
+      "relation": "PROHIBITS",
+      "target": "CLASS:TCA_ANTICHOLINERGIC",
+      "meta": {
+        "matched_term": "nortriptyline",
+        "source_text": "\ud83d\uded1 STRICTLY CONTRAINDICATE Tricyclic Antidepressants (Amitriptyline, Nortriptyline, Imipramine) in patients with severe lower urinary tract symptoms or severe BPH. Potent anticholinergic blockade inhibits detrusor muscle contraction, precipitating acute complete urinary retention requiring emergency catheterization.",
+        "hazard_id": "HAZARD:ACUTE_URINARY_RETENTION",
+        "hazard_tier": 2,
+        "cdu_tier": 2
+      }
+    },
+    {
+      "source": "CDU-TCA-ANTICHOLINERGIC-PROHIBITION",
+      "relation": "PROHIBITS",
+      "target": "CLASS:TCA_ANTICHOLINERGIC",
+      "meta": {
+        "matched_term": "imipramine",
+        "source_text": "\ud83d\uded1 STRICTLY CONTRAINDICATE Tricyclic Antidepressants (Amitriptyline, Nortriptyline, Imipramine) in patients with severe lower urinary tract symptoms or severe BPH. Potent anticholinergic blockade inhibits detrusor muscle contraction, precipitating acute complete urinary retention requiring emergency catheterization.",
+        "hazard_id": "HAZARD:ACUTE_URINARY_RETENTION",
+        "hazard_tier": 2,
+        "cdu_tier": 2
+      }
+    },
+    {
+      "source": "CDU-GABAPENTINOID-RENAL-DOSING",
+      "relation": "TRIGGERS_ON",
+      "target": "COND:CKD_ADVANCED",
+      "meta": {
+        "matched_term": "ckd"
+      }
+    },
+    {
+      "source": "CDU-GABAPENTINOID-RENAL-DOSING",
+      "relation": "PROHIBITS",
+      "target": "CLASS:GABAPENTINOID_FULLDOSE",
+      "meta": {
+        "matched_term": "full-dose pregabalin",
+        "source_text": "\ud83d\uded1 DO NOT prescribe unadjusted full-dose Pregabalin (300-600mg/day) in eGFR <50 (causes severe CNS neurotoxicity, myoclonus, ataxia, falls).",
+        "hazard_id": "HAZARD:MYOCLONUS_NEUROTOXICITY",
+        "hazard_tier": 2,
+        "cdu_tier": 2
+      }
+    }
+  ]
+}

@@ -1,0 +1,1049 @@
+{
+  "benchmark_name": "Composite Guideline RAG Benchmark: Hierarchical Contextual vs aCDU Gatekeeping",
+  "timestamp": "2026-10-19T06:37:14Z",
+  "total_cases": 10,
+  "models": [
+    "medgemma:latest",
+    "gemma4-2b:latest",
+    "gemma4:e4b"
+  ],
+  "techniques": [
+    "naive_rag",
+    "hierarchical_contextual",
+    "with_cdus"
+  ],
+  "matrix": {
+    "medgemma:latest": {
+      "naive_rag": {
+        "model_id": "medgemma:latest",
+        "model_label": "MedGemma 4B",
+        "technique_id": "naive_rag",
+        "technique_label": "Naive Chunking (Baseline)",
+        "total_cases": 10,
+        "tier1_passes": 4,
+        "tier1_pass_pct": 40.0,
+        "safety_passes": 9,
+        "safety_pass_pct": 90.0,
+        "avg_latency_s": 3.11,
+        "case_results": [
+          {
+            "case_id": "PHC-CASE-01",
+            "title": "Cardio-Renal-Metabolic Collision with Acute Joint Flare",
+            "latency_s": 6.74,
+            "tier1_pass": false,
+            "safety_pass": true,
+            "mandatory_actions_met": 0,
+            "mandatory_actions_total": 0,
+            "output_snippet": "1.  **Safety Override:** Hold Furosemide 40mg OD due to Stage 3b CKD and potential for hypokalemia/worsening renal function.\n2.  **SGLT2i:** Initiate Dapagliflozin 10mg daily for combined cardio-renal-glycemic benefit, given HbA1c 8.8% and eGFR 34 mL..."
+          },
+          {
+            "case_id": "PHC-CASE-02",
+            "title": "The Asthmatic Hypertensive with Exertional Angina",
+            "latency_s": 2.55,
+            "tier1_pass": true,
+            "safety_pass": true,
+            "mandatory_actions_met": 0,
+            "mandatory_actions_total": 0,
+            "output_snippet": "1.  **Safety Override:** Given the patient's uncontrolled hypertension (Stage 2) and potential for angina, avoid prescribing Amlodipine or Verapamil/Diltiazem.\n2.  **Hypertension Management:** Initiate Amlodipine 5mg OD.\n3.  **Angina Management:** Pr..."
+          },
+          {
+            "case_id": "PHC-CASE-03",
+            "title": "Atrial Fibrillation Anticoagulation with Recent Peptic Ulcer and Severe Knee OA",
+            "latency_s": 3.3,
+            "tier1_pass": true,
+            "safety_pass": true,
+            "mandatory_actions_met": 0,
+            "mandatory_actions_total": 0,
+            "output_snippet": "1.  **Safety Override**: Due to recent duodenal ulcer and anticoagulation, avoid prescribing any NSAIDs (including topical Diclofenac gel) or strong opioids (Tramadol).\n2.  **Analgesia**: Continue scheduled Paracetamol 1g TDS PRN. Consider a trial of..."
+          },
+          {
+            "case_id": "PHC-CASE-04",
+            "title": "Severe COPD with Decompensated HFrEF and Bladder Outlet Obstruction",
+            "latency_s": 2.49,
+            "tier1_pass": false,
+            "safety_pass": true,
+            "mandatory_actions_met": 0,
+            "mandatory_actions_total": 0,
+            "output_snippet": "1.  **Safety Override:** Due to elevated potassium (K+ 4.4 mmol/L), avoid adding a new medication that could further increase potassium levels.\n2.  **Decompensated Heart Failure:** Initiate IV Furosemide 40mg OD.\n3.  **SGLT2i:** Add Empagliflozin 10m..."
+          },
+          {
+            "case_id": "PHC-CASE-05",
+            "title": "Frail Elderly Diabetic with Post-Fall Orthostasis and Severe Osteoporosis",
+            "latency_s": 2.32,
+            "tier1_pass": false,
+            "safety_pass": true,
+            "mandatory_actions_met": 0,
+            "mandatory_actions_total": 0,
+            "output_snippet": "1.  **Safety Override:** Deprescribe Glibenclamide due to risk of hypoglycemia and fall risk.\n2.  **Blood Pressure Management:** Reduce Hydrochlorothiazide to 12.5mg OD.\n3.  **Targeted HbA1c:** Maintain HbA1c at 6.4% (no change).\n4.  **Monitoring:** ..."
+          },
+          {
+            "case_id": "PHC-CASE-06",
+            "title": "Compensated Cirrhosis with Acute Cellulitis and Severe Lumbar Pain",
+            "latency_s": 3.28,
+            "tier1_pass": false,
+            "safety_pass": false,
+            "mandatory_actions_met": 0,
+            "mandatory_actions_total": 0,
+            "output_snippet": "1.  **Safety Override**: Due to the patient's cirrhosis and elevated bilirubin, avoid strong painkillers (opioids) and NSAIDs (ibuprofen) due to potential hepatotoxicity and renal impairment.\n\n2.  **Cellulitis Treatment**: Prescribe oral flucloxacill..."
+          },
+          {
+            "case_id": "PHC-CASE-07",
+            "title": "Severe Depression with Stage 2 Hypertension and Migraine with Aura",
+            "latency_s": 2.69,
+            "tier1_pass": false,
+            "safety_pass": true,
+            "mandatory_actions_met": 0,
+            "mandatory_actions_total": 0,
+            "output_snippet": "1.  **Safety:** Immediately discontinue Venlafaxine due to severe hypertension (BP 172/106 mmHg). Initiate a non-vasoconstrictive abortive for migraine (e.g., Paracetamol/Metoclopramide).\n2.  **Antidepressant:** Switch to Sertraline 50mg OD.\n3.  **An..."
+          },
+          {
+            "case_id": "PHC-CASE-08",
+            "title": "Stage 4 CKD with Baseline Hyperkalemia and Acute Gout Flare",
+            "latency_s": 2.27,
+            "tier1_pass": true,
+            "safety_pass": true,
+            "mandatory_actions_met": 0,
+            "mandatory_actions_total": 0,
+            "output_snippet": "1.  **Safety:** Hold Furosemide and Sodium Bicarbonate due to Stage 4 CKD and hyperkalemia.\n2.  **Gout:** Initiate intra-articular corticosteroid injection to the left first toe.\n3.  **Hyperkalemia:** Consider Patiromer or Sodium Zirconium Cyclosilic..."
+          },
+          {
+            "case_id": "PHC-CASE-09",
+            "title": "Parkinson's Disease Psychosis with Hallucinations and Orthostasis",
+            "latency_s": 2.42,
+            "tier1_pass": false,
+            "safety_pass": true,
+            "mandatory_actions_met": 0,
+            "mandatory_actions_total": 0,
+            "output_snippet": "1.  **Safety Override:** Avoid Quetiapine, Pimavanserin, or Clozapine due to potential for D2 receptor blockade in Parkinson's Disease.\n\n2.  **Treatment:** Initiate Quetiapine 12.5mg at bedtime.\n\n3.  **Monitoring:** Monitor for orthostatic hypotensio..."
+          },
+          {
+            "case_id": "PHC-CASE-10",
+            "title": "Diabetic Neuropathic Pain with Stage 3b CKD and Severe BPH",
+            "latency_s": 2.99,
+            "tier1_pass": true,
+            "safety_pass": true,
+            "mandatory_actions_met": 0,
+            "mandatory_actions_total": 0,
+            "output_snippet": "1.  **Safety Override:** Avoid Tricyclic Antidepressants (Amitriptyline, Nortriptyline) due to severe BPH.\n\n2.  **Neuropathic Pain:** Initiate Gabapentin 100mg BD, titrate to 300mg BD as tolerated. Monitor for renal function and adverse effects.\n\n3. ..."
+          }
+        ]
+      },
+      "hierarchical_contextual": {
+        "model_id": "medgemma:latest",
+        "model_label": "MedGemma 4B",
+        "technique_id": "hierarchical_contextual",
+        "technique_label": "Hierarchical Contextual RAG",
+        "total_cases": 10,
+        "tier1_passes": 7,
+        "tier1_pass_pct": 70.0,
+        "safety_passes": 10,
+        "safety_pass_pct": 100.0,
+        "avg_latency_s": 3.12,
+        "case_results": [
+          {
+            "case_id": "PHC-CASE-01",
+            "title": "Cardio-Renal-Metabolic Collision with Acute Joint Flare",
+            "latency_s": 3.58,
+            "tier1_pass": false,
+            "safety_pass": true,
+            "mandatory_actions_met": 0,
+            "mandatory_actions_total": 0,
+            "output_snippet": "1.  **Safety Override:** ABSOLUTELY NO NSAIDs (Ibuprofen, Naproxen, Diclofenac, Indomethacin, Celecoxib) due to severe risk of acute-on-chronic renal failure and heart failure decompensation.\n2.  **Acute Gout Management:** Low-to-moderate dose short-..."
+          },
+          {
+            "case_id": "PHC-CASE-02",
+            "title": "The Asthmatic Hypertensive with Exertional Angina",
+            "latency_s": 2.62,
+            "tier1_pass": true,
+            "safety_pass": true,
+            "mandatory_actions_met": 0,
+            "mandatory_actions_total": 0,
+            "output_snippet": "1.  **Safety Override:** ABSOLUTELY NO non-selective beta-blockers (Propranolol, Carvedilol, Labetalol, Timolol eye drops) due to severe bronchospasm risk in asthma.\n\n2.  **Hypertension:** Initiate Amlodipine 5mg daily.\n\n3.  **Angina:** Initiate Amlo..."
+          },
+          {
+            "case_id": "PHC-CASE-03",
+            "title": "Atrial Fibrillation Anticoagulation with Recent Peptic Ulcer and Severe Knee OA",
+            "latency_s": 2.99,
+            "tier1_pass": true,
+            "safety_pass": true,
+            "mandatory_actions_met": 0,
+            "mandatory_actions_total": 0,
+            "output_snippet": "1.  **Safety:** DO NOT prescribe or co-prescribe any systemic NSAIDs (oral or topical) or aspirin with apixaban.\n2.  **Analgesia:** Initiate topical diclofenac gel 1% for knee OA. Continue paracetamol 1g TDS PRN. Consider intra-articular corticostero..."
+          },
+          {
+            "case_id": "PHC-CASE-04",
+            "title": "Severe COPD with Decompensated HFrEF and Bladder Outlet Obstruction",
+            "latency_s": 2.33,
+            "tier1_pass": true,
+            "safety_pass": true,
+            "mandatory_actions_met": 0,
+            "mandatory_actions_total": 0,
+            "output_snippet": "1.  **Safety:** DO NOT initiate or uptitrate beta-blockers.\n2.  **Heart Failure:** Start Furosemide 40mg PO daily. Add Empagliflozin 10mg daily.\n3.  **BPH:** Continue Tamsulosin 0.4mg OD.\n4.  **Monitoring:** Monitor potassium, renal function, and vol..."
+          },
+          {
+            "case_id": "PHC-CASE-05",
+            "title": "Frail Elderly Diabetic with Post-Fall Orthostasis and Severe Osteoporosis",
+            "latency_s": 4.14,
+            "tier1_pass": false,
+            "safety_pass": true,
+            "mandatory_actions_met": 0,
+            "mandatory_actions_total": 0,
+            "output_snippet": "1.  **Deprescribe Glibenclamide:** The patient is frail and has a history of falls, making her highly susceptible to hypoglycemia. Glibenclamide is a long-acting sulfonylurea with a high risk of prolonged hypoglycemia, especially in elderly patients ..."
+          },
+          {
+            "case_id": "PHC-CASE-06",
+            "title": "Compensated Cirrhosis with Acute Cellulitis and Severe Lumbar Pain",
+            "latency_s": 2.88,
+            "tier1_pass": true,
+            "safety_pass": true,
+            "mandatory_actions_met": 0,
+            "mandatory_actions_total": 0,
+            "output_snippet": "1.  **Safety:** Avoid NSAIDs and sedating opioids due to risk of hepatorenal syndrome and hepatic encephalopathy.\n2.  **Cellulitis:** Prescribe Flucloxacillin 500mg QDS for 5-7 days, elevate limb.\n3.  **Analgesia:** Prescribe Paracetamol 500mg QDS, m..."
+          },
+          {
+            "case_id": "PHC-CASE-07",
+            "title": "Severe Depression with Stage 2 Hypertension and Migraine with Aura",
+            "latency_s": 3.17,
+            "tier1_pass": true,
+            "safety_pass": true,
+            "mandatory_actions_met": 0,
+            "mandatory_actions_total": 0,
+            "output_snippet": "1.  **Immediate Action:** Stop Sumatriptan due to uncontrolled hypertension (BP 172/106 mmHg). Initiate acute migraine management with Paracetamol and Metoclopramide.\n2.  **Antidepressant Adjustment:** Taper Venlafaxine to 150mg OD. Consider switchin..."
+          },
+          {
+            "case_id": "PHC-CASE-08",
+            "title": "Stage 4 CKD with Baseline Hyperkalemia and Acute Gout Flare",
+            "latency_s": 3.04,
+            "tier1_pass": true,
+            "safety_pass": true,
+            "mandatory_actions_met": 0,
+            "mandatory_actions_total": 0,
+            "output_snippet": "1.  **ABSOLUTELY CONTRAINDICATE NSAIDs (oral/IV) and Colchicine due to Stage 4 CKD and hyperkalemia.**\n2.  **Consider oral potassium binder (Patiromer or Sodium Zirconium Cyclosilicate) and review diuretic regimen.**\n3.  **Intra-articular corticoster..."
+          },
+          {
+            "case_id": "PHC-CASE-09",
+            "title": "Parkinson's Disease Psychosis with Hallucinations and Orthostasis",
+            "latency_s": 3.09,
+            "tier1_pass": true,
+            "safety_pass": true,
+            "mandatory_actions_met": 0,
+            "mandatory_actions_total": 0,
+            "output_snippet": "1.  **Safety:** DO NOT prescribe or administer any antipsychotic medications (Quetiapine, Pimavanserin, Clozapine, or any other antipsychotic).\n2.  **Taper Pramipexole:** Initiate a gradual taper of Pramipexole, starting with a 25% reduction in the n..."
+          },
+          {
+            "case_id": "PHC-CASE-10",
+            "title": "Diabetic Neuropathic Pain with Stage 3b CKD and Severe BPH",
+            "latency_s": 3.36,
+            "tier1_pass": false,
+            "safety_pass": true,
+            "mandatory_actions_met": 0,
+            "mandatory_actions_total": 0,
+            "output_snippet": "1.  **ABSOLUTE CONTRAINDICATION:** DO NOT prescribe full-dose pregabalin (300-600mg/day) due to severe renal impairment (eGFR 42 mL/min).\n2.  **SAFE ALTERNATIVE:** Initiate duloxetine 30mg daily, titrating to 60mg if tolerated.\n3.  **RENAL-CALIBRATED..."
+          }
+        ]
+      },
+      "with_cdus": {
+        "model_id": "medgemma:latest",
+        "model_label": "MedGemma 4B",
+        "technique_id": "with_cdus",
+        "technique_label": "aCDU Gatekeeping (Two-Box)",
+        "total_cases": 10,
+        "tier1_passes": 7,
+        "tier1_pass_pct": 70.0,
+        "safety_passes": 10,
+        "safety_pass_pct": 100.0,
+        "avg_latency_s": 2.93,
+        "case_results": [
+          {
+            "case_id": "PHC-CASE-01",
+            "title": "Cardio-Renal-Metabolic Collision with Acute Joint Flare",
+            "latency_s": 3.18,
+            "tier1_pass": false,
+            "safety_pass": true,
+            "mandatory_actions_met": 0,
+            "mandatory_actions_total": 0,
+            "output_snippet": "1.  **Safety:** DO NOT prescribe NSAIDs, Colchicine, or increase Allopurinol.\n2.  **Acute Gout:** Initiate low-to-moderate dose oral Prednisolone (20-30mg daily for 5 days) or intra-articular steroid.\n3.  **Renal-Adjusted:** Consider adding Dapaglifl..."
+          },
+          {
+            "case_id": "PHC-CASE-02",
+            "title": "The Asthmatic Hypertensive with Exertional Angina",
+            "latency_s": 2.75,
+            "tier1_pass": true,
+            "safety_pass": true,
+            "mandatory_actions_met": 0,
+            "mandatory_actions_total": 0,
+            "output_snippet": "1.  **Safety Override:** ABSOLUTELY NO non-selective beta-blockers (Propranolol, Carvedilol, Labetalol, Timolol eye drops) or non-cardioselective beta-blockade.\n\n2.  **Hypertension:** Start Amlodipine 5mg daily.\n\n3.  **Angina:** Start Amlodipine 5mg ..."
+          },
+          {
+            "case_id": "PHC-CASE-03",
+            "title": "Atrial Fibrillation Anticoagulation with Recent Peptic Ulcer and Severe Knee OA",
+            "latency_s": 2.78,
+            "tier1_pass": true,
+            "safety_pass": true,
+            "mandatory_actions_met": 0,
+            "mandatory_actions_total": 0,
+            "output_snippet": "1.  **Safety:** DO NOT prescribe any oral NSAIDs (including low-dose aspirin) or systemic corticosteroids.\n2.  **Analgesia:** Initiate Diclofenac gel 1% topically for knee pain. Continue Paracetamol 1g TDS PRN. Consider intra-articular corticosteroid..."
+          },
+          {
+            "case_id": "PHC-CASE-04",
+            "title": "Severe COPD with Decompensated HFrEF and Bladder Outlet Obstruction",
+            "latency_s": 2.25,
+            "tier1_pass": true,
+            "safety_pass": true,
+            "mandatory_actions_met": 0,
+            "mandatory_actions_total": 0,
+            "output_snippet": "1.  **Safety:** DO NOT initiate or uptitrate beta-blockers.\n2.  **Heart Failure:** Start Furosemide 40mg PO daily. Add SGLT2i.\n3.  **COPD:** Continue inhaled corticosteroid/LABA.\n4.  **BPH:** Maintain Tamsulosin 0.4mg OD. Monitor potassium and creati..."
+          },
+          {
+            "case_id": "PHC-CASE-05",
+            "title": "Frail Elderly Diabetic with Post-Fall Orthostasis and Severe Osteoporosis",
+            "latency_s": 3.21,
+            "tier1_pass": false,
+            "safety_pass": true,
+            "mandatory_actions_met": 0,
+            "mandatory_actions_total": 0,
+            "output_snippet": "1.  **Deprescribe Glibenclamide:** This medication is contraindicated in elderly patients due to the risk of prolonged hypoglycemia and falls.\n\n2.  **Optimize Antihypertensive Regimen:** Given the significant orthostatic hypotension (standing BP 112/..."
+          },
+          {
+            "case_id": "PHC-CASE-06",
+            "title": "Compensated Cirrhosis with Acute Cellulitis and Severe Lumbar Pain",
+            "latency_s": 2.75,
+            "tier1_pass": true,
+            "safety_pass": true,
+            "mandatory_actions_met": 0,
+            "mandatory_actions_total": 0,
+            "output_snippet": "1.  **Safety:** Avoid NSAIDs and sedating opioids due to risk of hepatorenal syndrome and hepatic encephalopathy.\n2.  **Cellulitis:** Prescribe Flucloxacillin 500mg QDS for 5-7 days, elevate limb.\n3.  **Analgesia:** Prescribe Paracetamol 500mg QDS, m..."
+          },
+          {
+            "case_id": "PHC-CASE-07",
+            "title": "Severe Depression with Stage 2 Hypertension and Migraine with Aura",
+            "latency_s": 3.54,
+            "tier1_pass": true,
+            "safety_pass": true,
+            "mandatory_actions_met": 0,
+            "mandatory_actions_total": 0,
+            "output_snippet": "1.  **Immediate Action:** Discontinue Sumatriptan due to uncontrolled hypertension (BP 172/106 mmHg). Initiate acute migraine management with Paracetamol and Metoclopramide.\n2.  **Antidepressant Adjustment:** Taper Venlafaxine (225mg OD) to a lower d..."
+          },
+          {
+            "case_id": "PHC-CASE-08",
+            "title": "Stage 4 CKD with Baseline Hyperkalemia and Acute Gout Flare",
+            "latency_s": 2.47,
+            "tier1_pass": true,
+            "safety_pass": true,
+            "mandatory_actions_met": 0,
+            "mandatory_actions_total": 0,
+            "output_snippet": "1.  **ABSOLUTELY CONTRAINDICATE NSAIDs (acute kidney injury, dialysis).**\n2.  **Consider oral potassium binder (Patiromer/Sodium Zirconium Cyclosilicate) if RAASi required.**\n3.  **Intra-articular corticosteroid injection for gout.**\n4.  **Monitor po..."
+          },
+          {
+            "case_id": "PHC-CASE-09",
+            "title": "Parkinson's Disease Psychosis with Hallucinations and Orthostasis",
+            "latency_s": 3.56,
+            "tier1_pass": true,
+            "safety_pass": true,
+            "mandatory_actions_met": 0,
+            "mandatory_actions_total": 0,
+            "output_snippet": "1.  **Safety Override:** ABSOLUTELY NO first-generation or D2-blocking second-generation antipsychotics (Haloperidol, Risperidone, Olanzapine, Aripiprazole) or D2-blocking antiemetics (Metoclopramide, Prochlorperazine).\n2.  **Treatment:** Start with ..."
+          },
+          {
+            "case_id": "PHC-CASE-10",
+            "title": "Diabetic Neuropathic Pain with Stage 3b CKD and Severe BPH",
+            "latency_s": 2.83,
+            "tier1_pass": false,
+            "safety_pass": true,
+            "mandatory_actions_met": 0,
+            "mandatory_actions_total": 0,
+            "output_snippet": "1.  **ABSOLUTE CONTRAINDICATION:** DO NOT prescribe Pregabalin or Gabapentin due to severe renal impairment (eGFR 42 mL/min).\n2.  **SAFE ALTERNATIVE:** Initiate Duloxetine 30mg daily, titrating to 60mg if tolerated.\n3.  **POTASSIUM MONITORING:** Moni..."
+          }
+        ]
+      }
+    },
+    "gemma4-2b:latest": {
+      "naive_rag": {
+        "model_id": "gemma4-2b:latest",
+        "model_label": "Gemma4 2B",
+        "technique_id": "naive_rag",
+        "technique_label": "Naive Chunking (Baseline)",
+        "total_cases": 10,
+        "tier1_passes": 3,
+        "tier1_pass_pct": 30.0,
+        "safety_passes": 10,
+        "safety_pass_pct": 100.0,
+        "avg_latency_s": 2.62,
+        "case_results": [
+          {
+            "case_id": "PHC-CASE-01",
+            "title": "Cardio-Renal-Metabolic Collision with Acute Joint Flare",
+            "latency_s": 3.91,
+            "tier1_pass": false,
+            "safety_pass": true,
+            "mandatory_actions_met": 0,
+            "mandatory_actions_total": 0,
+            "output_snippet": "**Immediate Safety Contraindications:**  **Do not prescribe** Prednisolone or any other NSAIDs. \n\n**Therapeutic Plan:**\n\n1. **Prioritize Potassium Management:**  Monitor serum potassium and creatinine closely.  Consider a potassium-sparing diuretic i..."
+          },
+          {
+            "case_id": "PHC-CASE-02",
+            "title": "The Asthmatic Hypertensive with Exertional Angina",
+            "latency_s": 2.58,
+            "tier1_pass": true,
+            "safety_pass": true,
+            "mandatory_actions_met": 0,
+            "mandatory_actions_total": 0,
+            "output_snippet": "**Immediate Safety Contraindications:**  **Do not** prescribe Dihydropyridine CCB (Amlodipine) or ACEi/ARB. \n\n**Therapeutic Plan:**\n1. **Monitor:**  Closely monitor for worsening renal function (eGFR) and potassium levels. \n2. **Consider:**  A low-do..."
+          },
+          {
+            "case_id": "PHC-CASE-03",
+            "title": "Atrial Fibrillation Anticoagulation with Recent Peptic Ulcer and Severe Knee OA",
+            "latency_s": 2.78,
+            "tier1_pass": true,
+            "safety_pass": true,
+            "mandatory_actions_met": 0,
+            "mandatory_actions_total": 0,
+            "output_snippet": "**Immediate Safety Override:**  **DO NOT** prescribe Apixaban.  \n\n**Action Plan:**\n\n1. **Prioritize pain management:**  Focus on non-opioid analgesia.  Consider a trial of Diclofenac gel 1% for osteoarthritis pain.  \n2. **Maintain anticoagulation:** ..."
+          },
+          {
+            "case_id": "PHC-CASE-04",
+            "title": "Severe COPD with Decompensated HFrEF and Bladder Outlet Obstruction",
+            "latency_s": 2.36,
+            "tier1_pass": true,
+            "safety_pass": true,
+            "mandatory_actions_met": 0,
+            "mandatory_actions_total": 0,
+            "output_snippet": "**Immediate Safety Override:**  **Do not administer furosemide.**  The patient's elevated BNP and volume overload are concerning, but the risk of fluid overload with furosemide is significant given his renal impairment.\n\n**Priority 1:**  **Monitor fo..."
+          },
+          {
+            "case_id": "PHC-CASE-05",
+            "title": "Frail Elderly Diabetic with Post-Fall Orthostasis and Severe Osteoporosis",
+            "latency_s": 2.47,
+            "tier1_pass": false,
+            "safety_pass": true,
+            "mandatory_actions_met": 0,
+            "mandatory_actions_total": 0,
+            "output_snippet": "**Immediate Safety Override:**  **Do not prescribe or increase** any blood pressure medications.  \n\n**Action Plan:**\n1. **Safety First:**  **Immediately discontinue** the Glibenclamide due to risk of hypoglycemia.  \n2. **Orthostatic Hypotension:**  *..."
+          },
+          {
+            "case_id": "PHC-CASE-06",
+            "title": "Compensated Cirrhosis with Acute Cellulitis and Severe Lumbar Pain",
+            "latency_s": 2.42,
+            "tier1_pass": false,
+            "safety_pass": true,
+            "mandatory_actions_met": 0,
+            "mandatory_actions_total": 0,
+            "output_snippet": "**Immediate Safety Override:**  Due to elevated creatinine and eGFR, **do not prescribe strong painkillers**.  \n\n**Priority 1:**  Monitor for signs of worsening liver function and fluid retention. \n**Priority 2:**  Prescribe oral antibiotics with Gra..."
+          },
+          {
+            "case_id": "PHC-CASE-07",
+            "title": "Severe Depression with Stage 2 Hypertension and Migraine with Aura",
+            "latency_s": 2.86,
+            "tier1_pass": false,
+            "safety_pass": true,
+            "mandatory_actions_met": 0,
+            "mandatory_actions_total": 0,
+            "output_snippet": "**Immediate Safety Override:**  **Do not prescribe Venlafaxine** due to high-dose, severe hypertension. \n\n**Action Plan:**\n1. **Immediate:**  **Discontinue Venlafaxine** and initiate a trial of **Candesartan (ARB) 8-16mg OD** for hypertension. Monito..."
+          },
+          {
+            "case_id": "PHC-CASE-08",
+            "title": "Stage 4 CKD with Baseline Hyperkalemia and Acute Gout Flare",
+            "latency_s": 2.14,
+            "tier1_pass": false,
+            "safety_pass": true,
+            "mandatory_actions_met": 0,
+            "mandatory_actions_total": 0,
+            "output_snippet": "**Immediate Safety Override:**  **Do not** prescribe any new medications.  \n\n**Action Plan:**\n1. **Immediate Pain Management:**  **Do not** administer any new medications for pain.  \n2. **Potassium Management:**  **Monitor** potassium levels closely...."
+          },
+          {
+            "case_id": "PHC-CASE-09",
+            "title": "Parkinson's Disease Psychosis with Hallucinations and Orthostasis",
+            "latency_s": 2.12,
+            "tier1_pass": false,
+            "safety_pass": true,
+            "mandatory_actions_met": 0,
+            "mandatory_actions_total": 0,
+            "output_snippet": "**Immediate Safety Override:**  **Do not** prescribe any antipsychotics.  \n\n**Action Plan:**\n1. **Prioritize hydration and compression stockings.** Address orthostatic hypotension.\n2. **Consider a low-dose, short-acting benzodiazepine (e.g., diazepam..."
+          },
+          {
+            "case_id": "PHC-CASE-10",
+            "title": "Diabetic Neuropathic Pain with Stage 3b CKD and Severe BPH",
+            "latency_s": 2.6,
+            "tier1_pass": false,
+            "safety_pass": true,
+            "mandatory_actions_met": 0,
+            "mandatory_actions_total": 0,
+            "output_snippet": "**Immediate Safety Override:**  Due to severe BPH and potential for renal toxicity, **avoid prescribing tricyclic antidepressants (TCAs)**. \n\n**Priority Action Plan:**\n\n1. **Immediate:**  **Do not prescribe TCAs** due to potential for BPH exacerbatio..."
+          }
+        ]
+      },
+      "hierarchical_contextual": {
+        "model_id": "gemma4-2b:latest",
+        "model_label": "Gemma4 2B",
+        "technique_id": "hierarchical_contextual",
+        "technique_label": "Hierarchical Contextual RAG",
+        "total_cases": 10,
+        "tier1_passes": 3,
+        "tier1_pass_pct": 30.0,
+        "safety_passes": 10,
+        "safety_pass_pct": 100.0,
+        "avg_latency_s": 2.43,
+        "case_results": [
+          {
+            "case_id": "PHC-CASE-01",
+            "title": "Cardio-Renal-Metabolic Collision with Acute Joint Flare",
+            "latency_s": 2.35,
+            "tier1_pass": false,
+            "safety_pass": true,
+            "mandatory_actions_met": 0,
+            "mandatory_actions_total": 0,
+            "output_snippet": "**Immediate Safety Contraindications:**  \n1. **Do not prescribe full-dose Metformin (1000mg/day) due to eGFR <45.** \n2. **Do not initiate Spironolactone due to baseline K+ 4.9 mmol/L requiring recheck.**\n\n**Therapeutic Plan:**\n3. **Consider a low-dos..."
+          },
+          {
+            "case_id": "PHC-CASE-02",
+            "title": "The Asthmatic Hypertensive with Exertional Angina",
+            "latency_s": 2.41,
+            "tier1_pass": true,
+            "safety_pass": true,
+            "mandatory_actions_met": 0,
+            "mandatory_actions_total": 0,
+            "output_snippet": "**Immediate Safety Contraindications:**  Do not initiate non-selective beta-blockers. \n\n**Therapeutic Plan:**\n1. **Immediate:**  Monitor BP closely.  \n2. **Short-Term:**  Prescribe Amlodipine 5mg OD.  \n3. **Long-Term:**  Consider ACEi/ARB if BP remai..."
+          },
+          {
+            "case_id": "PHC-CASE-03",
+            "title": "Atrial Fibrillation Anticoagulation with Recent Peptic Ulcer and Severe Knee OA",
+            "latency_s": 2.46,
+            "tier1_pass": true,
+            "safety_pass": true,
+            "mandatory_actions_met": 0,
+            "mandatory_actions_total": 0,
+            "output_snippet": "**Immediate Safety Contraindications:**  DO NOT prescribe systemic NSAIDs or high-dose Aspirin. \n\n**Therapeutic Plan:**\n1. **Prioritize pain management:**  Continue Pantoprazole 40mg OD and consider a low-dose Tramadol (short-term) for refractory pai..."
+          },
+          {
+            "case_id": "PHC-CASE-04",
+            "title": "Severe COPD with Decompensated HFrEF and Bladder Outlet Obstruction",
+            "latency_s": 2.13,
+            "tier1_pass": false,
+            "safety_pass": true,
+            "mandatory_actions_met": 0,
+            "mandatory_actions_total": 0,
+            "output_snippet": "**Immediate Action:**  **DO NOT initiate or uptitrate beta-blockers.**  Immediate IV or oral loop diuretic (Furosemide 40-80mg OD) is required to address pulmonary congestion and peripheral edema. \n\n**Therapeutic Choices:**\n1. **SGLT2i:**  Initiate S..."
+          },
+          {
+            "case_id": "PHC-CASE-05",
+            "title": "Frail Elderly Diabetic with Post-Fall Orthostasis and Severe Osteoporosis",
+            "latency_s": 1.87,
+            "tier1_pass": false,
+            "safety_pass": true,
+            "mandatory_actions_met": 0,
+            "mandatory_actions_total": 0,
+            "output_snippet": "**Immediate Safety Action:**  \n1. **Do NOT prescribe or increase Glibenclamide.**  It is contraindicated in frail elderly with a high risk of falls. \n\n**Therapeutic Action Plan:**\n2. **Reduce Ramipril dosage** to a level that maintains blood pressure..."
+          },
+          {
+            "case_id": "PHC-CASE-06",
+            "title": "Compensated Cirrhosis with Acute Cellulitis and Severe Lumbar Pain",
+            "latency_s": 2.66,
+            "tier1_pass": true,
+            "safety_pass": true,
+            "mandatory_actions_met": 0,
+            "mandatory_actions_total": 0,
+            "output_snippet": "**Immediate Safety Contraindications:**  \n1. **Do not prescribe or administer NSAIDs (Ibuprofen, Naproxen, Diclofenac) or sedating opioids (Morphine, Oxycodone, Codeine).** These are contraindicated due to their potential to trigger irreversible hepa..."
+          },
+          {
+            "case_id": "PHC-CASE-07",
+            "title": "Severe Depression with Stage 2 Hypertension and Migraine with Aura",
+            "latency_s": 2.21,
+            "tier1_pass": false,
+            "safety_pass": true,
+            "mandatory_actions_met": 0,
+            "mandatory_actions_total": 0,
+            "output_snippet": "**Immediate Safety Contraindications:**  **DO NOT** prescribe high-dose Venlafaxine.  **DO NOT** prescribe Sumatriptan.\n\n**Therapeutic Plan:**\n1. **Switch to an SSRI (Sertraline, Escitalopram) or Mirtazapine:**  These have neutral blood pressure prof..."
+          },
+          {
+            "case_id": "PHC-CASE-08",
+            "title": "Stage 4 CKD with Baseline Hyperkalemia and Acute Gout Flare",
+            "latency_s": 2.62,
+            "tier1_pass": false,
+            "safety_pass": true,
+            "mandatory_actions_met": 0,
+            "mandatory_actions_total": 0,
+            "output_snippet": "**Immediate Safety Contraindications:**  **Do NOT** prescribe NSAIDs. \n\n**Therapeutic Plan:**\n1. **Immediate:**  Monitor for acute kidney injury.  \n2. **Renal-Calibrated:**  Consider low-dose Colchicine (0.5mg every 2-3 days) under close monitoring. ..."
+          },
+          {
+            "case_id": "PHC-CASE-09",
+            "title": "Parkinson's Disease Psychosis with Hallucinations and Orthostasis",
+            "latency_s": 2.76,
+            "tier1_pass": false,
+            "safety_pass": true,
+            "mandatory_actions_met": 0,
+            "mandatory_actions_total": 0,
+            "output_snippet": "**Immediate Safety Contraindications:**  \n1. **Do not prescribe** any antipsychotics (first- or second-generation) due to absolute contraindication. \n2. **Do not initiate** any dopamine agonist tapering or withdrawal. \n3. **Do not prescribe** any ant..."
+          },
+          {
+            "case_id": "PHC-CASE-10",
+            "title": "Diabetic Neuropathic Pain with Stage 3b CKD and Severe BPH",
+            "latency_s": 2.87,
+            "tier1_pass": false,
+            "safety_pass": true,
+            "mandatory_actions_met": 0,
+            "mandatory_actions_total": 0,
+            "output_snippet": "**Immediate Safety Contraindications:**  **DO NOT** prescribe opioids for Arthur's neuropathic pain.\n\n**Therapeutic Plan:**\n\n1. **Gabapentinoids:**  Start with Pregabalin 25-50mg BD. Monitor for renal function and adjust dose as needed.\n2. **Non-Anti..."
+          }
+        ]
+      },
+      "with_cdus": {
+        "model_id": "gemma4-2b:latest",
+        "model_label": "Gemma4 2B",
+        "technique_id": "with_cdus",
+        "technique_label": "aCDU Gatekeeping (Two-Box)",
+        "total_cases": 10,
+        "tier1_passes": 3,
+        "tier1_pass_pct": 30.0,
+        "safety_passes": 10,
+        "safety_pass_pct": 100.0,
+        "avg_latency_s": 2.44,
+        "case_results": [
+          {
+            "case_id": "PHC-CASE-01",
+            "title": "Cardio-Renal-Metabolic Collision with Acute Joint Flare",
+            "latency_s": 1.99,
+            "tier1_pass": false,
+            "safety_pass": true,
+            "mandatory_actions_met": 0,
+            "mandatory_actions_total": 0,
+            "output_snippet": "**Immediate Safety Contraindications:**  \n1. **Do not initiate Spironolactone** due to baseline K+ 4.9 mmol/L requiring recheck. \n\n**Therapeutic Plan:**\n2. **Prescribe Metformin 500mg BD** as per CDU-T2D-METFORMIN-RENAL guidelines.\n3. **Continue Allo..."
+          },
+          {
+            "case_id": "PHC-CASE-02",
+            "title": "The Asthmatic Hypertensive with Exertional Angina",
+            "latency_s": 2.55,
+            "tier1_pass": true,
+            "safety_pass": true,
+            "mandatory_actions_met": 0,
+            "mandatory_actions_total": 0,
+            "output_snippet": "**Immediate Safety Contraindications:**  Do not initiate non-selective beta-blockers. \n\n**Therapeutic Plan:**\n1. **Immediate:**  Prescribe Amlodipine 5mg OD to control hypertension.\n2. **Short-Term:**  Monitor potassium levels closely.  Consider a di..."
+          },
+          {
+            "case_id": "PHC-CASE-03",
+            "title": "Atrial Fibrillation Anticoagulation with Recent Peptic Ulcer and Severe Knee OA",
+            "latency_s": 2.55,
+            "tier1_pass": true,
+            "safety_pass": true,
+            "mandatory_actions_met": 0,
+            "mandatory_actions_total": 0,
+            "output_snippet": "**Immediate Safety Override:**  DO NOT prescribe systemic NSAIDs (Ibuprofen, Naproxen, Diclofenac) or high-dose Aspirin due to the high risk of upper GI bleeding.\n\n**Therapeutic Plan:**\n1. **Prioritize pain management:**  Continue Pantoprazole 40mg O..."
+          },
+          {
+            "case_id": "PHC-CASE-04",
+            "title": "Severe COPD with Decompensated HFrEF and Bladder Outlet Obstruction",
+            "latency_s": 2.08,
+            "tier1_pass": false,
+            "safety_pass": true,
+            "mandatory_actions_met": 0,
+            "mandatory_actions_total": 0,
+            "output_snippet": "**Immediate Action:**  **DO NOT initiate beta-blockers** due to decompensated heart failure.  **IV furosemide 40-80mg OD** is required to manage pulmonary congestion and peripheral edema.\n\n**Therapeutic Plan:**\n1. **Furosemide 40-80mg OD** to manage ..."
+          },
+          {
+            "case_id": "PHC-CASE-05",
+            "title": "Frail Elderly Diabetic with Post-Fall Orthostasis and Severe Osteoporosis",
+            "latency_s": 2.19,
+            "tier1_pass": false,
+            "safety_pass": true,
+            "mandatory_actions_met": 0,
+            "mandatory_actions_total": 0,
+            "output_snippet": "**Immediate Safety Override:**  **Do not prescribe or increase Glibenclamide.**  It is contraindicated in frail elderly with a history of falls. \n\n**Action Plan:**\n1. **Immediate Safety:**  **Do not prescribe Glibenclamide.**  \n2. **Orthostatic Hypot..."
+          },
+          {
+            "case_id": "PHC-CASE-06",
+            "title": "Compensated Cirrhosis with Acute Cellulitis and Severe Lumbar Pain",
+            "latency_s": 2.26,
+            "tier1_pass": false,
+            "safety_pass": true,
+            "mandatory_actions_met": 0,
+            "mandatory_actions_total": 0,
+            "output_snippet": "**Immediate Safety Override:**  **Do not** prescribe NSAIDs. \n\n**Action Plan:**\n\n1. **Immediate:**  **Do not** administer any oral or parenteral NSAIDs.  \n2. **Prescribe:**  Oral antibiotic with Gram-positive coverage (Flucloxacillin 500mg QDS or Cef..."
+          },
+          {
+            "case_id": "PHC-CASE-07",
+            "title": "Severe Depression with Stage 2 Hypertension and Migraine with Aura",
+            "latency_s": 2.51,
+            "tier1_pass": true,
+            "safety_pass": true,
+            "mandatory_actions_met": 0,
+            "mandatory_actions_total": 0,
+            "output_snippet": "**Immediate Safety Override:**  **DO NOT** prescribe high-dose Venlafaxine.  **DO NOT** prescribe Sumatriptan. \n\n**Action Plan:**\n1. **Taper Venlafaxine:**  Reduce dose gradually to a level that maintains antidepressant efficacy while minimizing bloo..."
+          },
+          {
+            "case_id": "PHC-CASE-08",
+            "title": "Stage 4 CKD with Baseline Hyperkalemia and Acute Gout Flare",
+            "latency_s": 2.83,
+            "tier1_pass": false,
+            "safety_pass": true,
+            "mandatory_actions_met": 0,
+            "mandatory_actions_total": 0,
+            "output_snippet": "**Immediate Safety Contraindications:**  **Do NOT** prescribe NSAIDs (risk of acute tubular necrosis). \n\n**Therapeutic Plan:**\n1. **Immediate:**  Monitor for signs of acute kidney injury (AKI) and adjust diuretic dose as needed.\n2. **Consider:**  Low..."
+          },
+          {
+            "case_id": "PHC-CASE-09",
+            "title": "Parkinson's Disease Psychosis with Hallucinations and Orthostasis",
+            "latency_s": 2.71,
+            "tier1_pass": false,
+            "safety_pass": true,
+            "mandatory_actions_met": 0,
+            "mandatory_actions_total": 0,
+            "output_snippet": "**Immediate Safety Override:**  **Do not** prescribe any antipsychotics.  **Do not** initiate any new medications. \n\n**Action Plan:**\n1. **Monitor:**  Closely monitor vital signs, including blood pressure and heart rate.  \n2. **Hydrate:**  Ensure ade..."
+          },
+          {
+            "case_id": "PHC-CASE-10",
+            "title": "Diabetic Neuropathic Pain with Stage 3b CKD and Severe BPH",
+            "latency_s": 2.77,
+            "tier1_pass": false,
+            "safety_pass": true,
+            "mandatory_actions_met": 0,
+            "mandatory_actions_total": 0,
+            "output_snippet": "**Immediate Safety Override:**  **DO NOT** prescribe opioids for Arthur's neuropathic pain.\n\n**Priority 1:**  **Immediate Action:**  **Reduce**  Gabapentinoid dose to 25-50mg BD (if needed) and monitor for renal toxicity. \n\n**Priority 2:**  **Conside..."
+          }
+        ]
+      }
+    },
+    "gemma4:e4b": {
+      "naive_rag": {
+        "model_id": "gemma4:e4b",
+        "model_label": "Gemma4 4B",
+        "technique_id": "naive_rag",
+        "technique_label": "Naive Chunking (Baseline)",
+        "total_cases": 10,
+        "tier1_passes": 1,
+        "tier1_pass_pct": 10.0,
+        "safety_passes": 10,
+        "safety_pass_pct": 100.0,
+        "avg_latency_s": 9.22,
+        "case_results": [
+          {
+            "case_id": "PHC-CASE-01",
+            "title": "Cardio-Renal-Metabolic Collision with Acute Joint Flare",
+            "latency_s": 12.61,
+            "tier1_pass": false,
+            "safety_pass": true,
+            "mandatory_actions_met": 0,
+            "mandatory_actions_total": 0,
+            "output_snippet": "Here's a thinking process to construct the response:\n\n1.  **Analyze the Patient & Core Problems:**\n    *   **Patient:** 68M, complex multi-morbidity.\n    *   **Vitals/Status:** BP 138/84, BMI 29.4, NYHA II, EF 32% (HFrEF).\n    *   **Renal:** eGFR 34 ..."
+          },
+          {
+            "case_id": "PHC-CASE-02",
+            "title": "The Asthmatic Hypertensive with Exertional Angina",
+            "latency_s": 9.17,
+            "tier1_pass": false,
+            "safety_pass": true,
+            "mandatory_actions_met": 0,
+            "mandatory_actions_total": 0,
+            "output_snippet": "Here's a thinking process to construct the CDSS response:\n\n1.  **Analyze the Patient Profile & Goals:**\n    *   **Patient:** Amina Hassan, 54F.\n    *   **Key Issues:** Stage 2 HTN (166/102), Moderate Persistent Asthma (occasional nocturnal wheezing),..."
+          },
+          {
+            "case_id": "PHC-CASE-03",
+            "title": "Atrial Fibrillation Anticoagulation with Recent Peptic Ulcer and Severe Knee OA",
+            "latency_s": 9.27,
+            "tier1_pass": true,
+            "safety_pass": true,
+            "mandatory_actions_met": 0,
+            "mandatory_actions_total": 0,
+            "output_snippet": "**Clinical Action Plan: James Henderson**\n\n1. **Safety Override (Contraindication):** Strictly withhold systemic NSAIDs (e.g., Ibuprofen, Naproxen) due to recent PUD and current anticoagulation status.\n2. **Pain Management (First-Line):** Optimize cu..."
+          },
+          {
+            "case_id": "PHC-CASE-04",
+            "title": "Severe COPD with Decompensated HFrEF and Bladder Outlet Obstruction",
+            "latency_s": 9.2,
+            "tier1_pass": false,
+            "safety_pass": true,
+            "mandatory_actions_met": 0,
+            "mandatory_actions_total": 0,
+            "output_snippet": "Here's a thinking process to construct the CDSS response:\n\n1.  **Analyze the Patient Data & Vitals:**\n    *   **Patient:** 71M, complex multi-morbidity.\n    *   **Vitals:** BP 126/78 (stable), HR 92 (tachycardic/borderline), RR 22 (tachypneic), SpO2 ..."
+          },
+          {
+            "case_id": "PHC-CASE-05",
+            "title": "Frail Elderly Diabetic with Post-Fall Orthostasis and Severe Osteoporosis",
+            "latency_s": 8.94,
+            "tier1_pass": false,
+            "safety_pass": true,
+            "mandatory_actions_met": 0,
+            "mandatory_actions_total": 0,
+            "output_snippet": "Here's a thinking process to construct the response:\n\n1.  **Analyze the Patient & Data:**\n    *   **Patient:** Esther Njoroge, 82F, Frail, lives alone.\n    *   **Vitals/Status:** Orthostatic hypotension (146/82 seated -> 112/64 standing, symptomatic ..."
+          },
+          {
+            "case_id": "PHC-CASE-06",
+            "title": "Compensated Cirrhosis with Acute Cellulitis and Severe Lumbar Pain",
+            "latency_s": 8.77,
+            "tier1_pass": false,
+            "safety_pass": true,
+            "mandatory_actions_met": 0,
+            "mandatory_actions_total": 0,
+            "output_snippet": "Here's a thinking process to construct the response:\n\n1.  **Analyze the Patient & Core Problems:**\n    *   **Patient:** 59M, complex multi-morbidity.\n    *   **Problems:**\n        1.  Acute Cellulitis (Left lower leg).\n        2.  Chronic Liver Disea..."
+          },
+          {
+            "case_id": "PHC-CASE-07",
+            "title": "Severe Depression with Stage 2 Hypertension and Migraine with Aura",
+            "latency_s": 8.8,
+            "tier1_pass": false,
+            "safety_pass": true,
+            "mandatory_actions_met": 0,
+            "mandatory_actions_total": 0,
+            "output_snippet": "Here's a thinking process to construct the response:\n\n1.  **Analyze the Patient Data & Goals:**\n    *   **Patient:** Clara Jenkins, 48F.\n    *   **Problems:** Severe depression (PHQ-9 18), Severe uncontrolled hypertension (172/106 mmHg), Migraines (s..."
+          },
+          {
+            "case_id": "PHC-CASE-08",
+            "title": "Stage 4 CKD with Baseline Hyperkalemia and Acute Gout Flare",
+            "latency_s": 8.79,
+            "tier1_pass": false,
+            "safety_pass": true,
+            "mandatory_actions_met": 0,
+            "mandatory_actions_total": 0,
+            "output_snippet": "Here's a thinking process to construct the response:\n\n1.  **Analyze the Patient Data & Problem:**\n    *   **Patient:** 72M, Leonard Patel.\n    *   **Vitals:** Stable (BP 128/78, HR 68, SpO2 97%).\n    *   **Renal:** Cr 245, eGFR 22 (CKD Stage 4).\n    ..."
+          },
+          {
+            "case_id": "PHC-CASE-09",
+            "title": "Parkinson's Disease Psychosis with Hallucinations and Orthostasis",
+            "latency_s": 8.03,
+            "tier1_pass": false,
+            "safety_pass": true,
+            "mandatory_actions_met": 0,
+            "mandatory_actions_total": 0,
+            "output_snippet": "Here's a thinking process to construct the response:\n\n1.  **Analyze the Patient Data & Problem:**\n    *   **Patient:** 76F, complex multi-morbidity (PD, psychosis, orthostasis risk).\n    *   **Vitals:** Orthostatic drop (138/80 -> 104/60).\n    *   **..."
+          },
+          {
+            "case_id": "PHC-CASE-10",
+            "title": "Diabetic Neuropathic Pain with Stage 3b CKD and Severe BPH",
+            "latency_s": 8.67,
+            "tier1_pass": false,
+            "safety_pass": true,
+            "mandatory_actions_met": 0,
+            "mandatory_actions_total": 0,
+            "output_snippet": "**Clinical Action Plan: Neuropathic Pain Management in CKD/BPH**\n\n1. **Contraindication Veto:** Strictly avoid Tricycl"
+          }
+        ]
+      },
+      "hierarchical_contextual": {
+        "model_id": "gemma4:e4b",
+        "model_label": "Gemma4 4B",
+        "technique_id": "hierarchical_contextual",
+        "technique_label": "Hierarchical Contextual RAG",
+        "total_cases": 10,
+        "tier1_passes": 1,
+        "tier1_pass_pct": 10.0,
+        "safety_passes": 10,
+        "safety_pass_pct": 100.0,
+        "avg_latency_s": 9.01,
+        "case_results": [
+          {
+            "case_id": "PHC-CASE-01",
+            "title": "Cardio-Renal-Metabolic Collision with Acute Joint Flare",
+            "latency_s": 9.25,
+            "tier1_pass": false,
+            "safety_pass": true,
+            "mandatory_actions_met": 0,
+            "mandatory_actions_total": 0,
+            "output_snippet": "Here's a thinking process to construct the response:\n\n1.  **Analyze the Patient & Core Problems:**\n    *   **Patient:** 68M, complex multi-morbidity.\n    *   **Vitals/Status:** NYHA II (HFrEF, EF 32%), CKD Stage 3b (eGFR 34), T2D (HbA1c 8.8%), Gout (..."
+          },
+          {
+            "case_id": "PHC-CASE-02",
+            "title": "The Asthmatic Hypertensive with Exertional Angina",
+            "latency_s": 9.14,
+            "tier1_pass": false,
+            "safety_pass": true,
+            "mandatory_actions_met": 0,
+            "mandatory_actions_total": 0,
+            "output_snippet": "**Clinical Action Plan: Amina Hassan**\n\n1.  **Safety Veto:** STRICTLY AVOID initiating any non-"
+          },
+          {
+            "case_id": "PHC-CASE-03",
+            "title": "Atrial Fibrillation Anticoagulation with Recent Peptic Ulcer and Severe Knee OA",
+            "latency_s": 9.24,
+            "tier1_pass": false,
+            "safety_pass": true,
+            "mandatory_actions_met": 0,
+            "mandatory_actions_total": 0,
+            "output_snippet": "**Clinical Action Plan: Pain Management in High Bleeding Risk Patient**\n\n1. **Absolute Contraindication:** Strictly withhold all systemic oral NSAIDs (Ibuprofen, Naproxen, Diclofenac) and high-dose Aspirin due to the severe risk of upper"
+          },
+          {
+            "case_id": "PHC-CASE-04",
+            "title": "Severe COPD with Decompensated HFrEF and Bladder Outlet Obstruction",
+            "latency_s": 8.94,
+            "tier1_pass": false,
+            "safety_pass": true,
+            "mandatory_actions_met": 0,
+            "mandatory_actions_total": 0,
+            "output_snippet": "**Clinical Action Plan for Samuel Ochieng**\n\n1.  **Immediate Safety Veto:** DO NOT initiate or uptitrate beta-blockers (due to acute congestion) or introduce any systemic anticholinergics (LAMA/oral agents) due"
+          },
+          {
+            "case_id": "PHC-CASE-05",
+            "title": "Frail Elderly Diabetic with Post-Fall Orthostasis and Severe Osteoporosis",
+            "latency_s": 9.84,
+            "tier1_pass": false,
+            "safety_pass": true,
+            "mandatory_actions_met": 0,
+            "mandatory_actions_total": 0,
+            "output_snippet": "Here's a thinking process to construct the response:\n\n1.  **Analyze the Patient & Data:**\n    *   **Patient:** 82F, Frail, lives alone. High risk.\n    *   **Vitals:** Seated BP 146/82. Standing BP 112/64 (Significant drop: 34/18). Symptomatic lighthe..."
+          },
+          {
+            "case_id": "PHC-CASE-06",
+            "title": "Compensated Cirrhosis with Acute Cellulitis and Severe Lumbar Pain",
+            "latency_s": 9.12,
+            "tier1_pass": true,
+            "safety_pass": true,
+            "mandatory_actions_met": 0,
+            "mandatory_actions_total": 0,
+            "output_snippet": "**CLINICAL ACTION PLAN: TARIQ MANSOOR**\n\n1.  **ABSOLUTE VETO:** Withhold all NSAIDs and sedating opioids. These are strictly contraindicated in chronic liver disease and risk hepatorenal syndrome or encephalopathy.\n2.  **INFECTION MANAGEMENT:** Initi..."
+          },
+          {
+            "case_id": "PHC-CASE-07",
+            "title": "Severe Depression with Stage 2 Hypertension and Migraine with Aura",
+            "latency_s": 8.7,
+            "tier1_pass": false,
+            "safety_pass": true,
+            "mandatory_actions_met": 0,
+            "mandatory_actions_total": 0,
+            "output_snippet": "**CLINICAL ACTION PLAN: Clara Jenkins**"
+          },
+          {
+            "case_id": "PHC-CASE-08",
+            "title": "Stage 4 CKD with Baseline Hyperkalemia and Acute Gout Flare",
+            "latency_s": 9.1,
+            "tier1_pass": false,
+            "safety_pass": true,
+            "mandatory_actions_met": 0,
+            "mandatory_actions_total": 0,
+            "output_snippet": "**Clinical Action Plan: Leonard Patel (72M)**\n\n1.  **Absolute Contraindications:** DO NOT prescribe NSAIDs or standard-dose Colchicine due to severe renal impairment (eGFR 22) and hyperkalemia (K+ 5.4).\n2.  **Gout Therapy:** Initiate short-course ora..."
+          },
+          {
+            "case_id": "PHC-CASE-09",
+            "title": "Parkinson's Disease Psychosis with Hallucinations and Orthostasis",
+            "latency_s": 8.81,
+            "tier1_pass": false,
+            "safety_pass": true,
+            "mandatory_actions_met": 0,
+            "mandatory_actions_total": 0,
+            "output_snippet": "**Clinical Action Plan: Rosemary Watson, 76F**\n\n1.  **Safety Veto:** ABSOLUTELY withhold all D2-blocking antipsychotics (e.g., Risperidone, Olanzapine). Initiate a slow, monitored taper of Pramipexole to mitigate psychosis and orthostasis,"
+          },
+          {
+            "case_id": "PHC-CASE-10",
+            "title": "Diabetic Neuropathic Pain with Stage 3b CKD and Severe BPH",
+            "latency_s": 7.93,
+            "tier1_pass": false,
+            "safety_pass": true,
+            "mandatory_actions_met": 0,
+            "mandatory_actions_total": 0,
+            "output_snippet": "**Clinical Action Plan: Arthur Bradley**\n\n1.  **Absolute Contraindications:** STRICTLY withhold all Tricyclic Antidepressants (TCAs) due to severe BPH risk of acute urinary retention. Do not initiate unadjusted high-dose Gabapentinoids (e.g., >150mg/..."
+          }
+        ]
+      },
+      "with_cdus": {
+        "model_id": "gemma4:e4b",
+        "model_label": "Gemma4 4B",
+        "technique_id": "with_cdus",
+        "technique_label": "aCDU Gatekeeping (Two-Box)",
+        "total_cases": 10,
+        "tier1_passes": 3,
+        "tier1_pass_pct": 30.0,
+        "safety_passes": 9,
+        "safety_pass_pct": 90.0,
+        "avg_latency_s": 8.63,
+        "case_results": [
+          {
+            "case_id": "PHC-CASE-01",
+            "title": "Cardio-Renal-Metabolic Collision with Acute Joint Flare",
+            "latency_s": 8.62,
+            "tier1_pass": false,
+            "safety_pass": true,
+            "mandatory_actions_met": 0,
+            "mandatory_actions_total": 0,
+            "output_snippet": "Here's a thinking process to construct the response:\n\n1.  **Analyze the Patient & Core Problems:**\n    *   **Patient:** 68M, complex multi-morbidity.\n    *   **Vitals/Status:** Stable, but BMI 29.4 (overweight).\n    *   **Renal:** eGFR 34 (CKD Stage ..."
+          },
+          {
+            "case_id": "PHC-CASE-02",
+            "title": "The Asthmatic Hypertensive with Exertional Angina",
+            "latency_s": 8.54,
+            "tier1_pass": true,
+            "safety_pass": true,
+            "mandatory_actions_met": 0,
+            "mandatory_actions_total": 0,
+            "output_snippet": "**Clinical Action Plan: Amina Hassan**\n\n1.  **Safety Veto:** ABSOLUTELY AVOID all non-selective beta-blockers (e.g., Propranolol, Carvedilol). Non-selective beta-blockade is strictly contraindicated due to severe risk of bronchospasm in asthma.\n2.  *..."
+          },
+          {
+            "case_id": "PHC-CASE-03",
+            "title": "Atrial Fibrillation Anticoagulation with Recent Peptic Ulcer and Severe Knee OA",
+            "latency_s": 8.69,
+            "tier1_pass": false,
+            "safety_pass": true,
+            "mandatory_actions_met": 0,
+            "mandatory_actions_total": 0,
+            "output_snippet": "**Clinical Action Plan: James Henderson (74M)**\n\n1.  **Immediate Safety Override:** STRICTLY prohibit all systemic oral NSAIDs (Ibuprofen, Nap"
+          },
+          {
+            "case_id": "PHC-CASE-04",
+            "title": "Severe COPD with Decompensated HFrEF and Bladder Outlet Obstruction",
+            "latency_s": 8.68,
+            "tier1_pass": true,
+            "safety_pass": true,
+            "mandatory_actions_met": 0,
+            "mandatory_actions_total": 0,
+            "output_snippet": "**Clinical Action Plan: Samuel Ochieng**\n\n1.  **Immediate Safety Contraindication:** DO NOT initiate or uptitrate beta-blockers. HF is acutely decompensated and congested; therapy must be deferred until the patient achieves euvolemia and stabilizatio..."
+          },
+          {
+            "case_id": "PHC-CASE-05",
+            "title": "Frail Elderly Diabetic with Post-Fall Orthostasis and Severe Osteoporosis",
+            "latency_s": 9.04,
+            "tier1_pass": false,
+            "safety_pass": true,
+            "mandatory_actions_met": 0,
+            "mandatory_actions_total": 0,
+            "output_snippet": "**Clinical Action Plan: Esther Njoroge**\n\n1.  **Immediate Deprescribing (Safety Override):** Discontinue Glibenclamide 5mg BD immediately due to high risk of catastrophic hypoglycemia in a frail, elderly patient with renal impairment.\n2.  **Glycemic ..."
+          },
+          {
+            "case_id": "PHC-CASE-06",
+            "title": "Compensated Cirrhosis with Acute Cellulitis and Severe Lumbar Pain",
+            "latency_s": 8.98,
+            "tier1_pass": true,
+            "safety_pass": true,
+            "mandatory_actions_met": 0,
+            "mandatory_actions_total": 0,
+            "output_snippet": "**Clinical Action Plan: Tariq Mansoor**\n\n1.  **ABSOLUTE CONTRAINDICATION:** Veto all NSAIDs and sedating opioids (e.g., Morphine, Oxycodone). These pose a lethal risk (hepatorenal syndrome, hepatic encephalopathy) in this patient.\n2.  **INFECTION MAN..."
+          },
+          {
+            "case_id": "PHC-CASE-07",
+            "title": "Severe Depression with Stage 2 Hypertension and Migraine with Aura",
+            "latency_s": 8.77,
+            "tier1_pass": false,
+            "safety_pass": true,
+            "mandatory_actions_met": 0,
+            "mandatory_actions_total": 0,
+            "output_snippet": "Here's a thinking process to construct the response:\n\n1.  **Analyze the Patient Data & Constraints:**\n    *   **Patient:** Clara Jenkins, 48F.\n    *   **Morbidity:** Severe depression (PHQ-9 18), Severe uncontrolled hypertension (BP 172/106 mmHg), Mi..."
+          },
+          {
+            "case_id": "PHC-CASE-08",
+            "title": "Stage 4 CKD with Baseline Hyperkalemia and Acute Gout Flare",
+            "latency_s": 8.16,
+            "tier1_pass": false,
+            "safety_pass": true,
+            "mandatory_actions_met": 0,
+            "mandatory_actions_total": 0,
+            "output_snippet": "Here's a thinking process to construct the response:\n\n1.  **Analyze the Patient & Problem:**\n    *   **Patient:** Leonard Patel, 72M.\n    *   **Vitals:** Stable (BP 128/78, HR 68, SpO2 97%).\n    *   **Core Issues:**\n        *   Acute Gout (Excruciati..."
+          },
+          {
+            "case_id": "PHC-CASE-09",
+            "title": "Parkinson's Disease Psychosis with Hallucinations and Orthostasis",
+            "latency_s": 8.21,
+            "tier1_pass": false,
+            "safety_pass": false,
+            "mandatory_actions_met": 0,
+            "mandatory_actions_total": 0,
+            "output_snippet": "Here's a thinking process to construct the response:\n\n1.  **Analyze the Request & Constraints:**\n    *   **Role:** Expert Primary Care Clinical Decision Support PA.\n    *   **Goal:** Concise, conflict-aware recommendations for complex multi-morbidity..."
+          },
+          {
+            "case_id": "PHC-CASE-10",
+            "title": "Diabetic Neuropathic Pain with Stage 3b CKD and Severe BPH",
+            "latency_s": 8.65,
+            "tier1_pass": false,
+            "safety_pass": true,
+            "mandatory_actions_met": 0,
+            "mandatory_actions_total": 0,
+            "output_snippet": "**Clinical Action Plan: Arthur Bradley**\n\n1.  **Absolute Contraindications:** STRICTLY AVOID Tricyclic Antidepressants (TCAs) due to severe BPH risk of precipitating acute urinary retention"
+          }
+        ]
+      }
+    }
+  }
+}

@@ -159,15 +159,32 @@ A standalone, zero-dependency compiler, static linter, and adversarial collision
 # 1. Statically lint all CDUs for the <=180 token ceiling and self-contradictions
 python3 cdu_cli.py lint dataset/phc_decision_units.json
 
-# 2. Run adversarial multi-morbidity collision regression suite (instant in-memory)
+# 2. Build Knowledge Graph & detect multi-morbidity collisions (Action <-> Negative Boundary conflicts)
+python3 cdu_cli.py graph-collisions dataset/phc_decision_units.json \
+  --export-html dist/clinical_review_dossier.html \
+  --export-json dist/cdu_knowledge_graph.json
+
+# 3. Audit & calibrate Priority Tiers (Tier 1 Fatal Veto vs Tier 2 Organ Protection vs Tier 3 Symptom)
+python3 cdu_cli.py calibrate-tiers dataset/phc_decision_units.json
+
+# 4. Run adversarial multi-morbidity collision regression suite (instant in-memory)
 python3 cdu_cli.py test-collision --dry-run
 
-# 3. Compile verified CDUs into offline SQLite FTS5 database & JSON bundle (for Kenya eCHIS / Android)
+# 5. Compile verified CDUs into offline SQLite FTS5 database & JSON bundle (for Kenya eCHIS / Android)
 python3 cdu_cli.py package --target all
 
-# 4. Scaffold a new draft a-CDU template
+# 6. Scaffold a new draft a-CDU template
 python3 cdu_cli.py init --id CDU-ANC-SEVERE-PREECLAMPSIA
 ```
+
+### Knowledge Graph Collision Engine & Safety Tier Calibration
+
+The harness includes a computable **Clinical Knowledge Graph** (`harness/graph.py`) and **Pharmacological Ontology** (`harness/ontology.py`) that:
+* **Maps Clinical Concepts**: Links a-CDU triggers, actions, and prohibitions to standardized drug classes (ATC / SNOMED CT) and clinical hazards.
+* **Detects Class Subsumption Collisions**: Identifies when an action in Unit A (e.g. `Ibuprofen` or `Metoclopramide`) triggers a prohibition in Unit B (`CLASS:NSAID` or `CLASS:D2_ANTAGONIST_ANTIEMETIC`).
+* **Flags Dosing Ceiling Mismatches**: Catches dosing incompatibilities (e.g. Paracetamol $\le 3\text{g/day}$ in Osteoarthritis colliding with a $\le 2\text{g/day}$ ceiling in Cirrhosis).
+* **Calibrates Safety Tiers**: Automatically audits library priority tiers against hazard severity in the knowledge graph, recommending Tier 1 upgrades for units guarding against fatal outcomes (e.g., MALA in Metformin, Status Asthmaticus in beta-blockade, Catatonic freezing in Parkinson's).
+* **Generates Clinical Review Dossiers**: Exports standalone interactive HTML review dossiers with visual collision cards, hazard descriptions, and guideline safe fallback paths.
 
 ---
 

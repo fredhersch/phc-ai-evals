@@ -18,6 +18,13 @@ jobs:
       - name: Lint Clinical Decision Units (180-Token & Safety Rules)
         run: |
           python3 cdu_cli.py lint dataset/phc_decision_units.json
+      - name: Execute Knowledge Graph Collision Detection & Tier Audit
+        run: |
+          python3 cdu_cli.py graph-collisions dataset/phc_decision_units.json --export-json dist/cdu_knowledge_graph.json --export-html dist/clinical_review_dossier.html
+          python3 cdu_cli.py calibrate-tiers dataset/phc_decision_units.json
+      - name: Run Knowledge Graph & Harness Unit Tests
+        run: |
+          python3 -m unittest discover tests
       - name: Execute Adversarial Collision Regression Suite
         run: |
           python3 cdu_cli.py test-collision --dry-run --cases dataset/phc_multimorbidity_cases.json --cdus dataset/phc_decision_units.json

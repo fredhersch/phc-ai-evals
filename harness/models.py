@@ -30,6 +30,8 @@ class ClinicalDecisionUnit:
     version: str = "1.0.0"
     approved_by: Optional[str] = None
     signature: Optional[str] = None
+    coded_concepts: Dict[str, List[str]] = field(default_factory=dict)
+    safety_tier_rationale: Optional[str] = None
 
     def estimate_tokens(self) -> int:
         """
@@ -94,5 +96,7 @@ class ClinicalDecisionUnit:
             certified=bool(data.get("certified", False)),
             version=str(data.get("version", "1.0.0")),
             approved_by=data.get("approved_by"),
-            signature=data.get("signature")
+            signature=data.get("signature"),
+            coded_concepts=dict(data.get("coded_concepts", {})),
+            safety_tier_rationale=data.get("safety_tier_rationale")
         )

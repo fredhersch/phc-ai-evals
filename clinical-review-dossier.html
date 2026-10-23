@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>a-CDU Clinical Review Studio: Knowledge Graph & Collision Dossier</title>
+    <script src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
+    <style>
+        :root {
+            --primary: #1e40af;
+            --primary-light: #eff6ff;
+            --danger: #dc2626;
+            --danger-light: #fef2f2;
+            --warning: #d97706;
+            --warning-light: #fffbeb;
+            --success: #16a34a;
+            --success-light: #f0fdf4;
+            --bg: #0f172a;
+            --surface: #ffffff;
+            --text-dark: #0f172a;
+            --text-muted: #64748b;
+            --border: #e2e8f0;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+        body { background-color: #f8fafc; color: var(--text-dark); line-height: 1.6; padding: 32px 20px; }
+        .container { max-width: 1200px; margin: 0 auto; }
+        header { margin-bottom: 24px; background: white; padding: 28px; border-radius: 12px; border: 1px solid var(--border); box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
+        h1 { font-size: 26px; color: #1e293b; margin-bottom: 8px; display: flex; align-items: center; gap: 10px; }
+        p.subtitle { color: var(--text-muted); font-size: 15px; margin-bottom: 20px; }
+        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; }
+        .stat-card { background: #f8fafc; border: 1px solid var(--border); border-radius: 8px; padding: 16px; text-align: center; }
+        .stat-value { font-size: 28px; font-weight: 700; color: #0f172a; }
+        .stat-label { font-size: 13px; color: var(--text-muted); text-transform: uppercase; font-weight: 600; }
+
+        /* Graph Canvas Styles */
+        .graph-wrapper { background: white; border: 1px solid var(--border); border-radius: 12px; margin-bottom: 28px; overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,0.04); }
+        .graph-header { padding: 16px 20px; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; background: #ffffff; flex-wrap: wrap; gap: 10px; }
+        .graph-title { font-weight: 700; font-size: 16px; color: #1e293b; display: flex; align-items: center; gap: 8px; }
+        .graph-controls { display: flex; gap: 8px; align-items: center; }
+        .graph-btn { background: #f1f5f9; border: 1px solid var(--border); padding: 6px 12px; border-radius: 6px; font-size: 12px; font-weight: 600; cursor: pointer; transition: all 0.15s; }
+        .graph-btn:hover { background: #e2e8f0; }
+        #network-canvas { width: 100%; height: 500px; background: #fafbfc; }
+        .graph-legend { padding: 10px 20px; background: #f8fafc; border-top: 1px solid var(--border); font-size: 12px; color: var(--text-muted); display: flex; gap: 16px; flex-wrap: wrap; }
+        .legend-item { display: inline-flex; align-items: center; gap: 6px; }
+        .dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
+        .dot-cdu { background: #0284c7; }
+        .dot-drug { background: #16a34a; }
+        .dot-hazard { background: #dc2626; border-radius: 2px; }
+
+        /* Filter Controls */
+        .controls-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 18px; flex-wrap: wrap; gap: 12px; }
+        .filter-group { display: flex; gap: 8px; flex-wrap: wrap; }
+        .filter-btn { background: white; border: 1px solid var(--border); padding: 8px 14px; border-radius: 20px; font-size: 13px; font-weight: 600; cursor: pointer; color: #475467; transition: all 0.15s; }
+        .filter-btn.active { background: var(--primary); color: white; border-color: var(--primary); }
+        .search-box { padding: 8px 14px; border: 1px solid var(--border); border-radius: 8px; font-size: 13px; width: 260px; background: white; }
+        .search-box:focus { outline: none; border-color: var(--primary); }
+
+        .section-title { font-size: 20px; margin: 32px 0 16px 0; color: #1e293b; display: flex; align-items: center; justify-content: space-between; }
+        .collision-card { background: white; border: 1px solid var(--border); border-radius: 12px; padding: 24px; margin-bottom: 20px; box-shadow: 0 1px 3px rgba(0,0,0,0.04); transition: transform 0.15s ease, border-color 0.15s ease; cursor: pointer; }
+        .collision-card:hover { border-color: var(--primary); transform: translateY(-1px); box-shadow: 0 4px 8px rgba(0,0,0,0.06); }
+        .collision-card.active-card { border-color: var(--primary); box-shadow: 0 0 0 2px var(--primary-light); }
+        .collision-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; border-bottom: 1px solid #f1f5f9; padding-bottom: 12px; }
+        .case-num { font-weight: 700; color: #1e293b; margin-right: 8px; }
+        .danger-badge { background: var(--danger-light); color: var(--danger); font-size: 12px; font-weight: 700; padding: 4px 10px; border-radius: 20px; }
+        .warn-badge { background: var(--warning-light); color: var(--warning); font-size: 12px; font-weight: 700; padding: 4px 10px; border-radius: 20px; }
+        .type-pill { background: #f1f5f9; color: #475467; font-size: 11px; font-weight: 600; padding: 4px 8px; border-radius: 6px; margin-left: 6px; }
+        .concept-tag { font-family: monospace; font-size: 13px; font-weight: 700; color: var(--primary); background: var(--primary-light); padding: 4px 12px; border-radius: 6px; }
+
+        .units-grid { display: grid; grid-template-columns: 1fr auto 1fr; gap: 16px; align-items: center; margin-bottom: 20px; }
+        .unit-box { background: #f8fafc; border: 1px solid var(--border); border-radius: 8px; padding: 14px; }
+        .unit-a { border-left: 4px solid var(--warning); }
+        .unit-b { border-left: 4px solid var(--danger); }
+        .versus-icon { font-weight: 800; font-size: 12px; color: #94a3b8; text-align: center; }
+        .unit-title { font-size: 11px; text-transform: uppercase; font-weight: 700; color: var(--text-muted); margin-bottom: 4px; }
+        .unit-id { font-size: 15px; font-weight: 700; color: #0f172a; margin-bottom: 4px; display: flex; align-items: center; gap: 8px; }
+        .tier-tag { font-size: 11px; font-weight: 700; background: #e2e8f0; color: #334155; padding: 2px 6px; border-radius: 4px; }
+        .unit-desc { font-size: 13px; color: #475467; }
+
+        .detail-section { margin-bottom: 12px; font-size: 14px; }
+        .detail-section strong { color: #334155; display: block; margin-bottom: 2px; font-size: 13px; text-transform: uppercase; letter-spacing: 0.5px; }
+        .hazard-text { color: var(--danger); font-weight: 600; }
+        .safe-box { background: var(--success-light); border: 1px solid #bbf7d0; border-radius: 8px; padding: 12px; }
+        .safe-box strong { color: var(--success); }
+        .safe-box p { color: #166534; font-size: 13.5px; margin-bottom: 4px; }
+        .cal-alert { margin-top: 14px; background: var(--danger-light); border: 1px solid #fecaca; border-radius: 6px; padding: 10px; color: #991b1b; font-size: 13.5px; }
+
+        table.audit-table { width: 100%; border-collapse: collapse; background: white; border-radius: 8px; overflow: hidden; border: 1px solid var(--border); }
+        table.audit-table th { background: #f8fafc; padding: 12px 16px; text-align: left; font-size: 12px; text-transform: uppercase; color: var(--text-muted); border-bottom: 1px solid var(--border); }
+        table.audit-table td { padding: 14px 16px; border-bottom: 1px solid #f1f5f9; font-size: 14px; vertical-align: middle; }
+        .tier-pill { background: #e2e8f0; padding: 2px 8px; border-radius: 4px; font-weight: 700; font-size: 12px; }
+        .warranted-tier { color: var(--primary); font-size: 15px; }
+        .badge-aligned { background: var(--success-light); color: var(--success); padding: 4px 10px; border-radius: 12px; font-weight: 700; font-size: 11px; }
+        .badge-upgrade { background: var(--danger-light); color: var(--danger); padding: 4px 10px; border-radius: 12px; font-weight: 700; font-size: 11px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🛡️ a-CDU Knowledge Graph & Clinical Safety Studio</h1>
+            <p class="subtitle">
+                Interactive Multi-Morbidity Collision Visualizer, Ontological Subsumption Graph, and Priority Tier Calibration Studio.
+            </p>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-value">15</div>
+                    <div class="stat-label">Active a-CDUs</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">101</div>
+                    <div class="stat-label">Graph Edges</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" style="color: var(--danger);">8</div>
+                    <div class="stat-label">Detected Collisions</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" style="color: var(--warning);">0</div>
+                    <div class="stat-label">Tier-1 High-Stakes Clashes</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" style="color: #6366f1;">9</div>
+                    <div class="stat-label">Recommended Tier Upgrades</div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Interactive Visual Graph -->
+        <div class="graph-wrapper">
+            <div class="graph-header">
+                <div class="graph-title">
+                    <span>🕸️ Interactive Multi-Morbidity Collision Graph</span>
+                    <span style="font-size: 12px; color: var(--text-muted); font-weight: 400;">(Click any node to focus; drag to inspect force physics)</span>
+                </div>
+                <div class="graph-controls">
+                    <button class="graph-btn" onclick="fitNetwork()">🔍 Reset Zoom</button>
+                    <button class="graph-btn" id="physics-btn" onclick="togglePhysics()">⏸️ Toggle Physics</button>
+                </div>
+            </div>
+            <div id="network-canvas"></div>
+            <div class="graph-legend">
+                <span class="legend-item"><span class="dot dot-cdu"></span> <strong>a-CDU Unit</strong> (Box)</span>
+                <span class="legend-item"><span class="dot dot-drug"></span> <strong>Pharmacological Drug Class</strong> (Ellipse)</span>
+                <span class="legend-item"><span class="dot dot-hazard"></span> <strong>Clinical Hazard / Hazard Tier</strong> (Hexagon)</span>
+                <span class="legend-item" style="color: #ef4444;">⚡ Red Dashed Arrow = Inter-CDU Collision</span>
+            </div>
+        </div>
+
+        <div class="section-title">
+            <span>⚡ Detected Multi-Morbidity Collisions (8)</span>
+            <span style="font-size: 13px; color: var(--text-muted);">Pairs where Prescribing Intent directly conflicts with Contraindications</span>
+        </div>
+
+        <!-- Filter & Search Controls -->
+        <div class="controls-row">
+            <div class="filter-group">
+                <button class="filter-btn active" onclick="filterCards('ALL', this)">All Collisions (8)</button>
+                <button class="filter-btn" onclick="filterCards('TIER1', this)">🛑 Tier 1 Fatal Clashes</button>
+                <button class="filter-btn" onclick="filterCards('CEILING', this)">⚖️ Dosing Ceilings</button>
+                <button class="filter-btn" onclick="filterCards('NSAID', this)">💊 NSAID Clashes</button>
+            </div>
+            <input type="text" class="search-box" id="searchInput" placeholder="Search CDUs, drugs, or hazards..." onkeyup="searchCards()">
+        </div>
+
+        <div id="collisions-list">
+            
+            <div class="collision-card">
+                <div class="collision-header">
+                    <div>
+                        <span class="case-num">Collision #01</span>
+                        <span class="warn-badge">Tier 2 Hazard</span>
+                        <span class="type-pill">CLASS_SUBSUMPTION</span>
+                    </div>
+                    <div class="concept-tag">Non-Steroidal Anti-Inflammatory Drugs (NSAIDs)</div>
+                </div>
+                <div class="units-grid">
+                    <div class="unit-box unit-a">
+                        <div class="unit-title">CDU A (Prescribing Intent)</div>
+                        <div class="unit-id">CDU-OA-ANALGESIA <span class="tier-tag">Tier 2</span></div>
+                        <div class="unit-desc">Safe Osteoarthritis Analgesia in High Bleeding Risk</div>
+                    </div>
+                    <div class="versus-icon">⚡ CLASHES WITH ⚡</div>
+                    <div class="unit-box unit-b">
+                        <div class="unit-title">CDU B (Safety Override / Veto)</div>
+                        <div class="unit-id">CDU-GOUT-ACUTE-FLARE <span class="tier-tag">Tier 2</span></div>
+                        <div class="unit-desc">Acute Gout Management in High-Risk Multi-Morbidity</div>
+                    </div>
+                </div>
+                <div class="detail-section">
+                    <strong>Clinical Tension:</strong>
+                    <p>CDU-OA-ANALGESIA recommends or permits 'diclofenac' (Non-Steroidal Anti-Inflammatory Drugs (NSAIDs)), whereas CDU-GOUT-ACUTE-FLARE strictly forbids it due to risk of Acute-on-Chronic Kidney Injury.</p>
+                </div>
+                <div class="detail-section">
+                    <strong>Multi-Morbidity Archetype:</strong>
+                    <p>Co-morbid patient presenting with criteria for both 'Safe Osteoarthritis Analgesia in High Bleeding Risk' and 'Acute Gout Management in High-Risk Multi-Morbidity'</p>
+                </div>
+                <div class="detail-section">
+                    <strong>Hazard / Pathophysiological Threat:</strong>
+                    <p class="hazard-text">🛑 Acute-on-Chronic Kidney Injury</p>
+                </div>
+                <div class="detail-section safe-box">
+                    <strong>Recommended Precedence & Safe Alternative:</strong>
+                    <p><strong>Precedence:</strong> CDU-GOUT-ACUTE-FLARE (Tier 2) OVERRIDES CDU-OA-ANALGESIA (Tier 2)</p>
+                    <p><strong>Guideline Safe Pathway:</strong> Substitute oral NSAIDs with low-dose short-course oral Prednisolone, Paracetamol, or localized Intra-articular injections.</p>
+                </div>
+                
+            </div>
+            
+            <div class="collision-card">
+                <div class="collision-header">
+                    <div>
+                        <span class="case-num">Collision #02</span>
+                        <span class="warn-badge">Tier 2 Hazard</span>
+                        <span class="type-pill">CLASS_SUBSUMPTION</span>
+                    </div>
+                    <div class="concept-tag">Non-Steroidal Anti-Inflammatory Drugs (NSAIDs)</div>
+                </div>
+                <div class="units-grid">
+                    <div class="unit-box unit-a">
+                        <div class="unit-title">CDU A (Prescribing Intent)</div>
+                        <div class="unit-id">CDU-OA-ANALGESIA <span class="tier-tag">Tier 2</span></div>
+                        <div class="unit-desc">Safe Osteoarthritis Analgesia in High Bleeding Risk</div>
+                    </div>
+                    <div class="versus-icon">⚡ CLASHES WITH ⚡</div>
+                    <div class="unit-box unit-b">
+                        <div class="unit-title">CDU B (Safety Override / Veto)</div>
+                        <div class="unit-id">CDU-PUD-BLEEDING-SAFETY <span class="tier-tag">Tier 2</span></div>
+                        <div class="unit-desc">Secondary Upper GI Bleed Prevention in Anticoagulation</div>
+                    </div>
+                </div>
+                <div class="detail-section">
+                    <strong>Clinical Tension:</strong>
+                    <p>CDU-OA-ANALGESIA recommends or permits 'diclofenac' (Non-Steroidal Anti-Inflammatory Drugs (NSAIDs)), whereas CDU-PUD-BLEEDING-SAFETY strictly forbids it due to risk of Acute-on-Chronic Kidney Injury.</p>
+                </div>
+                <div class="detail-section">
+                    <strong>Multi-Morbidity Archetype:</strong>
+                    <p>Co-morbid patient presenting with criteria for both 'Safe Osteoarthritis Analgesia in High Bleeding Risk' and 'Secondary Upper GI Bleed Prevention in Anticoagulation'</p>
+                </div>
+                <div class="detail-section">
+                    <strong>Hazard / Pathophysiological Threat:</strong>
+                    <p class="hazard-text">🛑 Acute-on-Chronic Kidney Injury</p>
+                </div>
+                <div class="detail-section safe-box">
+                    <strong>Recommended Precedence & Safe Alternative:</strong>
+                    <p><strong>Precedence:</strong> CDU-PUD-BLEEDING-SAFETY (Tier 2) OVERRIDES CDU-OA-ANALGESIA (Tier 2)</p>
+                    <p><strong>Guideline Safe Pathway:</strong> Substitute oral NSAIDs with low-dose short-course oral Prednisolone, Paracetamol, or localized Intra-articular injections.</p>
+                </div>
+                
+            </div>
+            
+            <div class="collision-card">
+                <div class="collision-header">
+                    <div>
+                        <span class="case-num">Collision #03</span>
+                        <span class="warn-badge">Tier 2 Hazard</span>
+                        <span class="type-pill">CLASS_SUBSUMPTION</span>
+                    </div>
+                    <div class="concept-tag">Non-Steroidal Anti-Inflammatory Drugs (NSAIDs)</div>
+                </div>
+                <div class="units-grid">
+                    <div class="unit-box unit-a">
+                        <div class="unit-title">CDU A (Prescribing Intent)</div>
+                        <div class="unit-id">CDU-OA-ANALGESIA <span class="tier-tag">Tier 2</span></div>
+                        <div class="unit-desc">Safe Osteoarthritis Analgesia in High Bleeding Risk</div>
+                    </div>
+                    <div class="versus-icon">⚡ CLASHES WITH ⚡</div>
+                    <div class="unit-box unit-b">
+                        <div class="unit-title">CDU B (Safety Override / Veto)</div>
+                        <div class="unit-id">CDU-CIRRHOSIS-MED-SAFETY <span class="tier-tag">Tier 2</span></div>
+                        <div class="unit-desc">Pharmacotherapy Safety & NSAID Prohibitions in Cirrhosis</div>
+                    </div>
+                </div>
+                <div class="detail-section">
+                    <strong>Clinical Tension:</strong>
+                    <p>CDU-OA-ANALGESIA recommends or permits 'diclofenac' (Non-Steroidal Anti-Inflammatory Drugs (NSAIDs)), whereas CDU-CIRRHOSIS-MED-SAFETY strictly forbids it due to risk of Acute-on-Chronic Kidney Injury.</p>
+                </div>
+                <div class="detail-section">
+                    <strong>Multi-Morbidity Archetype:</strong>
+                    <p>Co-morbid patient presenting with criteria for both 'Safe Osteoarthritis Analgesia in High Bleeding Risk' and 'Pharmacotherapy Safety & NSAID Prohibitions in Cirrhosis'</p>
+                </div>
+                <div class="detail-section">
+                    <strong>Hazard / Pathophysiological Threat:</strong>
+                    <p class="hazard-text">🛑 Acute-on-Chronic Kidney Injury</p>
+                </div>
+                <div class="detail-section safe-box">
+                    <strong>Recommended Precedence & Safe Alternative:</strong>
+                    <p><strong>Precedence:</strong> CDU-CIRRHOSIS-MED-SAFETY (Tier 2) OVERRIDES CDU-OA-ANALGESIA (Tier 2)</p>
+                    <p><strong>Guideline Safe Pathway:</strong> Substitute oral NSAIDs with low-dose short-course oral Prednisolone, Paracetamol, or localized Intra-articular injections.</p>
+                </div>
+                
+            </div>
+            
+            <div class="collision-card">
+                <div class="collision-header">
+                    <div>
+                        <span class="case-num">Collision #04</span>
+                        <span class="warn-badge">Tier 2 Hazard</span>
+                        <span class="type-pill">CLASS_SUBSUMPTION</span>
+                    </div>
+                    <div class="concept-tag">Non-Steroidal Anti-Inflammatory Drugs (NSAIDs)</div>
+                </div>
+                <div class="units-grid">
+                    <div class="unit-box unit-a">
+                        <div class="unit-title">CDU A (Prescribing Intent)</div>
+                        <div class="unit-id">CDU-OA-ANALGESIA <span class="tier-tag">Tier 2</span></div>
+                        <div class="unit-desc">Safe Osteoarthritis Analgesia in High Bleeding Risk</div>
+                    </div>
+                    <div class="versus-icon">⚡ CLASHES WITH ⚡</div>
+                    <div class="unit-box unit-b">
+                        <div class="unit-title">CDU B (Safety Override / Veto)</div>
+                        <div class="unit-id">CDU-CIRRHOSIS-ANALGESIA <span class="tier-tag">Tier 2</span></div>
+                        <div class="unit-desc">Paracetamol Dosing Ceiling in Cirrhosis</div>
+                    </div>
+                </div>
+                <div class="detail-section">
+                    <strong>Clinical Tension:</strong>
+                    <p>CDU-OA-ANALGESIA recommends or permits 'diclofenac' (Non-Steroidal Anti-Inflammatory Drugs (NSAIDs)), whereas CDU-CIRRHOSIS-ANALGESIA strictly forbids it due to risk of Acute-on-Chronic Kidney Injury.</p>
+                </div>
+                <div class="detail-section">
+                    <strong>Multi-Morbidity Archetype:</strong>
+                    <p>Co-morbid patient presenting with criteria for both 'Safe Osteoarthritis Analgesia in High Bleeding Risk' and 'Paracetamol Dosing Ceiling in Cirrhosis'</p>
+                </div>
+                <div class="detail-section">
+                    <strong>Hazard / Pathophysiological Threat:</strong>
+                    <p class="hazard-text">🛑 Acute-on-Chronic Kidney Injury</p>
+                </div>
+                <div class="detail-section safe-box">
+                    <strong>Recommended Precedence & Safe Alternative:</strong>
+                    <p><strong>Precedence:</strong> CDU-CIRRHOSIS-ANALGESIA (Tier 2) OVERRIDES CDU-OA-ANALGESIA (Tier 2)</p>
+                    <p><strong>Guideline Safe Pathway:</strong> Substitute oral NSAIDs with low-dose short-course oral Prednisolone, Paracetamol, or localized Intra-articular injections.</p>
+                </div>
+                
+            </div>
+            
+            <div class="collision-card">
+                <div class="collision-header">
+                    <div>
+                        <span class="case-num">Collision #05</span>
+                        <span class="warn-badge">Tier 2 Hazard</span>
+                        <span class="type-pill">CLASS_SUBSUMPTION</span>
+                    </div>
+                    <div class="concept-tag">Paracetamol / Acetaminophen (Analgesic)</div>
+                </div>
+                <div class="units-grid">
+                    <div class="unit-box unit-a">
+                        <div class="unit-title">CDU A (Prescribing Intent)</div>
+                        <div class="unit-id">CDU-OA-ANALGESIA <span class="tier-tag">Tier 2</span></div>
+                        <div class="unit-desc">Safe Osteoarthritis Analgesia in High Bleeding Risk</div>
+                    </div>
+                    <div class="versus-icon">⚡ CLASHES WITH ⚡</div>
+                    <div class="unit-box unit-b">
+                        <div class="unit-title">CDU B (Safety Override / Veto)</div>
+                        <div class="unit-id">CDU-CIRRHOSIS-ANALGESIA <span class="tier-tag">Tier 2</span></div>
+                        <div class="unit-desc">Paracetamol Dosing Ceiling in Cirrhosis</div>
+                    </div>
+                </div>
+                <div class="detail-section">
+                    <strong>Clinical Tension:</strong>
+                    <p>CDU-OA-ANALGESIA recommends or permits 'paracetamol' (Paracetamol / Acetaminophen (Analgesic)), whereas CDU-CIRRHOSIS-ANALGESIA strictly forbids it due to risk of Dose-Dependent Hepatotoxicity in Impaired Glutathione Reserves.</p>
+                </div>
+                <div class="detail-section">
+                    <strong>Multi-Morbidity Archetype:</strong>
+                    <p>Co-morbid patient presenting with criteria for both 'Safe Osteoarthritis Analgesia in High Bleeding Risk' and 'Paracetamol Dosing Ceiling in Cirrhosis'</p>
+                </div>
+                <div class="detail-section">
+                    <strong>Hazard / Pathophysiological Threat:</strong>
+                    <p class="hazard-text">🛑 Dose-Dependent Hepatotoxicity in Impaired Glutathione Reserves</p>
+                </div>
+                <div class="detail-section safe-box">
+                    <strong>Recommended Precedence & Safe Alternative:</strong>
+                    <p><strong>Precedence:</strong> CDU-CIRRHOSIS-ANALGESIA (Tier 2) OVERRIDES CDU-OA-ANALGESIA (Tier 2)</p>
+                    <p><strong>Guideline Safe Pathway:</strong> Consult verified guideline for non-conflicting second-line pharmacological alternative.</p>
+                </div>
+                
+            </div>
+            
+            <div class="collision-card">
+                <div class="collision-header">
+                    <div>
+                        <span class="case-num">Collision #06</span>
+                        <span class="warn-badge">Tier 2 Hazard</span>
+                        <span class="type-pill">DOSE_CEILING</span>
+                    </div>
+                    <div class="concept-tag">Paracetamol Dosing Ceiling</div>
+                </div>
+                <div class="units-grid">
+                    <div class="unit-box unit-a">
+                        <div class="unit-title">CDU A (Prescribing Intent)</div>
+                        <div class="unit-id">CDU-OA-ANALGESIA <span class="tier-tag">Tier 2</span></div>
+                        <div class="unit-desc">Safe Osteoarthritis Analgesia in High Bleeding Risk</div>
+                    </div>
+                    <div class="versus-icon">⚡ CLASHES WITH ⚡</div>
+                    <div class="unit-box unit-b">
+                        <div class="unit-title">CDU B (Safety Override / Veto)</div>
+                        <div class="unit-id">CDU-CIRRHOSIS-ANALGESIA <span class="tier-tag">Tier 2</span></div>
+                        <div class="unit-desc">Paracetamol Dosing Ceiling in Cirrhosis</div>
+                    </div>
+                </div>
+                <div class="detail-section">
+                    <strong>Clinical Tension:</strong>
+                    <p>CDU-OA-ANALGESIA permits Paracetamol up to 3.0g/day, but CDU-CIRRHOSIS-ANALGESIA enforces a strict ceiling of 2.0g/day.</p>
+                </div>
+                <div class="detail-section">
+                    <strong>Multi-Morbidity Archetype:</strong>
+                    <p>Patient with Osteoarthritis / Musculoskeletal Pain + Concomitant Liver Cirrhosis</p>
+                </div>
+                <div class="detail-section">
+                    <strong>Hazard / Pathophysiological Threat:</strong>
+                    <p class="hazard-text">🛑 Dose-Dependent Hepatotoxicity / Exhausted Glutathione</p>
+                </div>
+                <div class="detail-section safe-box">
+                    <strong>Recommended Precedence & Safe Alternative:</strong>
+                    <p><strong>Precedence:</strong> Enforce lower dose ceiling (2.0g/day maximum) to protect hepatic function.</p>
+                    <p><strong>Guideline Safe Pathway:</strong> Limit Paracetamol to <= 2.0g/day; augment with topical therapies or physical therapy.</p>
+                </div>
+                
+            </div>
+            
+            <div class="collision-card">
+                <div class="collision-header">
+                    <div>
+                        <span class="case-num">Collision #07</span>
+                        <span class="warn-badge">Tier 2 Hazard</span>
+                        <span class="type-pill">CLASS_SUBSUMPTION</span>
+                    </div>
+                    <div class="concept-tag">Paracetamol / Acetaminophen (Analgesic)</div>
+                </div>
+                <div class="units-grid">
+                    <div class="unit-box unit-a">
+                        <div class="unit-title">CDU A (Prescribing Intent)</div>
+                        <div class="unit-id">CDU-TRIPTAN-VASCULAR-SAFETY <span class="tier-tag">Tier 2</span></div>
+                        <div class="unit-desc">Triptan Vascular Contraindications in Severe Hypertension</div>
+                    </div>
+                    <div class="versus-icon">⚡ CLASHES WITH ⚡</div>
+                    <div class="unit-box unit-b">
+                        <div class="unit-title">CDU B (Safety Override / Veto)</div>
+                        <div class="unit-id">CDU-CIRRHOSIS-ANALGESIA <span class="tier-tag">Tier 2</span></div>
+                        <div class="unit-desc">Paracetamol Dosing Ceiling in Cirrhosis</div>
+                    </div>
+                </div>
+                <div class="detail-section">
+                    <strong>Clinical Tension:</strong>
+                    <p>CDU-TRIPTAN-VASCULAR-SAFETY recommends or permits 'paracetamol' (Paracetamol / Acetaminophen (Analgesic)), whereas CDU-CIRRHOSIS-ANALGESIA strictly forbids it due to risk of Dose-Dependent Hepatotoxicity in Impaired Glutathione Reserves.</p>
+                </div>
+                <div class="detail-section">
+                    <strong>Multi-Morbidity Archetype:</strong>
+                    <p>Co-morbid patient presenting with criteria for both 'Triptan Vascular Contraindications in Severe Hypertension' and 'Paracetamol Dosing Ceiling in Cirrhosis'</p>
+                </div>
+                <div class="detail-section">
+                    <strong>Hazard / Pathophysiological Threat:</strong>
+                    <p class="hazard-text">🛑 Dose-Dependent Hepatotoxicity in Impaired Glutathione Reserves</p>
+                </div>
+                <div class="detail-section safe-box">
+                    <strong>Recommended Precedence & Safe Alternative:</strong>
+                    <p><strong>Precedence:</strong> CDU-CIRRHOSIS-ANALGESIA (Tier 2) OVERRIDES CDU-TRIPTAN-VASCULAR-SAFETY (Tier 2)</p>
+                    <p><strong>Guideline Safe Pathway:</strong> Consult verified guideline for non-conflicting second-line pharmacological alternative.</p>
+                </div>
+                
+            </div>
+            
+            <div class="collision-card">
+                <div class="collision-header">
+                    <div>
+                        <span class="case-num">Collision #08</span>
+                        <span class="danger-badge">Tier 1 Hazard</span>
+                        <span class="type-pill">CLASS_SUBSUMPTION</span>
+                    </div>
+                    <div class="concept-tag">Dopamine D2 Receptor Antagonist Antiemetics</div>
+                </div>
+                <div class="units-grid">
+                    <div class="unit-box unit-a">
+                        <div class="unit-title">CDU A (Prescribing Intent)</div>
+                        <div class="unit-id">CDU-TRIPTAN-VASCULAR-SAFETY <span class="tier-tag">Tier 2</span></div>
+                        <div class="unit-desc">Triptan Vascular Contraindications in Severe Hypertension</div>
+                    </div>
+                    <div class="versus-icon">⚡ CLASHES WITH ⚡</div>
+                    <div class="unit-box unit-b">
+                        <div class="unit-title">CDU B (Safety Override / Veto)</div>
+                        <div class="unit-id">CDU-PD-ANTIPSYCHOTIC-CONTRAINDICATIONS <span class="tier-tag">Tier 2</span></div>
+                        <div class="unit-desc">Fatal D2 Antagonist Prohibitions in Parkinson's Disease</div>
+                    </div>
+                </div>
+                <div class="detail-section">
+                    <strong>Clinical Tension:</strong>
+                    <p>CDU-TRIPTAN-VASCULAR-SAFETY recommends or permits 'metoclopramide' (Dopamine D2 Receptor Antagonist Antiemetics), whereas CDU-PD-ANTIPSYCHOTIC-CONTRAINDICATIONS strictly forbids it due to risk of Irreversible Parkinsonian Motor Collapse / Bulbar Freezing.</p>
+                </div>
+                <div class="detail-section">
+                    <strong>Multi-Morbidity Archetype:</strong>
+                    <p>Co-morbid patient presenting with criteria for both 'Triptan Vascular Contraindications in Severe Hypertension' and 'Fatal D2 Antagonist Prohibitions in Parkinson's Disease'</p>
+                </div>
+                <div class="detail-section">
+                    <strong>Hazard / Pathophysiological Threat:</strong>
+                    <p class="hazard-text">🛑 Irreversible Parkinsonian Motor Collapse / Bulbar Freezing</p>
+                </div>
+                <div class="detail-section safe-box">
+                    <strong>Recommended Precedence & Safe Alternative:</strong>
+                    <p><strong>Precedence:</strong> CDU-PD-ANTIPSYCHOTIC-CONTRAINDICATIONS (Tier 2) OVERRIDES CDU-TRIPTAN-VASCULAR-SAFETY (Tier 2)</p>
+                    <p><strong>Guideline Safe Pathway:</strong> Strictly avoid Metoclopramide/Prochlorperazine in Parkinson's; use Ondansetron (5-HT3 antagonist) or Domperidone (peripheral only) for nausea.</p>
+                </div>
+                
+                <div class="cal-alert">
+                    <strong>⚠️ Calibration Action:</strong> Upgrade CDU-PD-ANTIPSYCHOTIC-CONTRAINDICATIONS to Priority Tier 1 (Fatal Veto) to clamp against CDU-TRIPTAN-VASCULAR-SAFETY.
+                </div>
+                
+            </div>
+            
+        </div>
+
+        <div class="section-title">
+            <span>📋 Clinical Priority Tier Calibration Audit (15 units)</span>
+            <span style="font-size: 13px; color: var(--text-muted);">Verification of Tier 1 (Fatal Veto) vs Tier 2 (Organ Protection) vs Tier 3 (Symptom)</span>
+        </div>
+        <table class="audit-table">
+            <thead>
+                <tr>
+                    <th>CDU ID</th>
+                    <th>Clinical Topic</th>
+                    <th style="text-align: center;">Current Tier</th>
+                    <th style="text-align: center;">Warranted Tier</th>
+                    <th style="text-align: center;">Audit Status</th>
+                    <th>Safety Rationale & Recommendation</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+            <tr>
+                <td><code>CDU-T2D-METFORMIN-RENAL</code></td>
+                <td>Metformin Titration & Safety in Renal Impairment</td>
+                <td style="text-align: center;"><span class="tier-pill">T2</span></td>
+                <td style="text-align: center;"><strong class="warranted-tier">T1</strong></td>
+                <td style="text-align: center;"><span class="badge-upgrade">UPGRADE TO T1</span></td>
+                <td style="font-size: 13px; color: #475467;">CRITICAL SAFETY GAP: CDU prevents fatal/irreversible outcomes (Metformin-Associated Lactic Acidosis (MALA)) but is currently Tier 2. It must be upgraded to Tier 1 (Hard Veto Floor) to prevent model-level instruction decay and dangerous overrides.</td>
+            </tr>
+            
+            <tr>
+                <td><code>CDU-HF-SGLT2I-MRA</code></td>
+                <td>HFrEF Guideline Directed Medical Therapy (GDMT) Initiation</td>
+                <td style="text-align: center;"><span class="tier-pill">T2</span></td>
+                <td style="text-align: center;"><strong class="warranted-tier">T1</strong></td>
+                <td style="text-align: center;"><span class="badge-upgrade">UPGRADE TO T1</span></td>
+                <td style="font-size: 13px; color: #475467;">CRITICAL SAFETY GAP: CDU prevents fatal/irreversible outcomes (Fatal Hyperkalemic Arrhythmia / Asystole) but is currently Tier 2. It must be upgraded to Tier 1 (Hard Veto Floor) to prevent model-level instruction decay and dangerous overrides.</td>
+            </tr>
+            
+            <tr>
+                <td><code>CDU-CKD-POTASSIUM-SAFETY</code></td>
+                <td>Hyperkalemia Surveillance & Renoprotection in CKD</td>
+                <td style="text-align: center;"><span class="tier-pill">T2</span></td>
+                <td style="text-align: center;"><strong class="warranted-tier">T2</strong></td>
+                <td style="text-align: center;"><span class="badge-aligned">ALIGNED</span></td>
+                <td style="font-size: 13px; color: #475467;">Priority tier is medically aligned with graph hazard severity.</td>
+            </tr>
+            
+            <tr>
+                <td><code>CDU-GOUT-ACUTE-FLARE</code></td>
+                <td>Acute Gout Management in High-Risk Multi-Morbidity</td>
+                <td style="text-align: center;"><span class="tier-pill">T2</span></td>
+                <td style="text-align: center;"><strong class="warranted-tier">T2</strong></td>
+                <td style="text-align: center;"><span class="badge-aligned">ALIGNED</span></td>
+                <td style="font-size: 13px; color: #475467;">Priority tier is medically aligned with graph hazard severity.</td>
+            </tr>
+            
+            <tr>
+                <td><code>CDU-ASTHMA-DRUG-SAFETY</code></td>
+                <td>Bronchospasm Risk & Beta-Blocker Prohibitions in Asthma</td>
+                <td style="text-align: center;"><span class="tier-pill">T2</span></td>
+                <td style="text-align: center;"><strong class="warranted-tier">T1</strong></td>
+                <td style="text-align: center;"><span class="badge-upgrade">UPGRADE TO T1</span></td>
+                <td style="font-size: 13px; color: #475467;">CRITICAL SAFETY GAP: CDU prevents fatal/irreversible outcomes (Fatal Status Asthmaticus / Life-Threatening Bronchospasm) but is currently Tier 2. It must be upgraded to Tier 1 (Hard Veto Floor) to prevent model-level instruction decay and dangerous overrides.</td>
+            </tr>
+            
+            <tr>
+                <td><code>CDU-ANGINA-FIRSTLINE</code></td>
+                <td>Stable Ischemic Heart Disease / Angina in Asthma</td>
+                <td style="text-align: center;"><span class="tier-pill">T2</span></td>
+                <td style="text-align: center;"><strong class="warranted-tier">T1</strong></td>
+                <td style="text-align: center;"><span class="badge-upgrade">UPGRADE TO T1</span></td>
+                <td style="font-size: 13px; color: #475467;">CRITICAL SAFETY GAP: CDU prevents fatal/irreversible outcomes (Fatal Status Asthmaticus / Life-Threatening Bronchospasm) but is currently Tier 2. It must be upgraded to Tier 1 (Hard Veto Floor) to prevent model-level instruction decay and dangerous overrides.</td>
+            </tr>
+            
+            <tr>
+                <td><code>CDU-PUD-BLEEDING-SAFETY</code></td>
+                <td>Secondary Upper GI Bleed Prevention in Anticoagulation</td>
+                <td style="text-align: center;"><span class="tier-pill">T2</span></td>
+                <td style="text-align: center;"><strong class="warranted-tier">T1</strong></td>
+                <td style="text-align: center;"><span class="badge-upgrade">UPGRADE TO T1</span></td>
+                <td style="font-size: 13px; color: #475467;">CRITICAL SAFETY GAP: CDU prevents fatal/irreversible outcomes (Life-threatening toxicity) but is currently Tier 2. It must be upgraded to Tier 1 (Hard Veto Floor) to prevent model-level instruction decay and dangerous overrides.</td>
+            </tr>
+            
+            <tr>
+                <td><code>CDU-OA-ANALGESIA</code></td>
+                <td>Safe Osteoarthritis Analgesia in High Bleeding Risk</td>
+                <td style="text-align: center;"><span class="tier-pill">T2</span></td>
+                <td style="text-align: center;"><strong class="warranted-tier">T2</strong></td>
+                <td style="text-align: center;"><span class="badge-aligned">ALIGNED</span></td>
+                <td style="font-size: 13px; color: #475467;">Priority tier is medically aligned with graph hazard severity.</td>
+            </tr>
+            
+            <tr>
+                <td><code>CDU-FRAIL-T2D-TARGETS</code></td>
+                <td>Deprescribing Sulfonylureas & Relaxing Glycemic Targets in Frail Elderly</td>
+                <td style="text-align: center;"><span class="tier-pill">T2</span></td>
+                <td style="text-align: center;"><strong class="warranted-tier">T1</strong></td>
+                <td style="text-align: center;"><span class="badge-upgrade">UPGRADE TO T1</span></td>
+                <td style="font-size: 13px; color: #475467;">CRITICAL SAFETY GAP: CDU prevents fatal/irreversible outcomes (Catastrophic Hypoglycemic Coma and Fall-Induced Trauma) but is currently Tier 2. It must be upgraded to Tier 1 (Hard Veto Floor) to prevent model-level instruction decay and dangerous overrides.</td>
+            </tr>
+            
+            <tr>
+                <td><code>CDU-CIRRHOSIS-MED-SAFETY</code></td>
+                <td>Pharmacotherapy Safety & NSAID Prohibitions in Cirrhosis</td>
+                <td style="text-align: center;"><span class="tier-pill">T2</span></td>
+                <td style="text-align: center;"><strong class="warranted-tier">T1</strong></td>
+                <td style="text-align: center;"><span class="badge-upgrade">UPGRADE TO T1</span></td>
+                <td style="font-size: 13px; color: #475467;">CRITICAL SAFETY GAP: CDU prevents fatal/irreversible outcomes (Life-threatening toxicity) but is currently Tier 2. It must be upgraded to Tier 1 (Hard Veto Floor) to prevent model-level instruction decay and dangerous overrides.</td>
+            </tr>
+            
+            <tr>
+                <td><code>CDU-CIRRHOSIS-ANALGESIA</code></td>
+                <td>Paracetamol Dosing Ceiling in Cirrhosis</td>
+                <td style="text-align: center;"><span class="tier-pill">T2</span></td>
+                <td style="text-align: center;"><strong class="warranted-tier">T2</strong></td>
+                <td style="text-align: center;"><span class="badge-aligned">ALIGNED</span></td>
+                <td style="font-size: 13px; color: #475467;">Priority tier is medically aligned with graph hazard severity.</td>
+            </tr>
+            
+            <tr>
+                <td><code>CDU-TRIPTAN-VASCULAR-SAFETY</code></td>
+                <td>Triptan Vascular Contraindications in Severe Hypertension</td>
+                <td style="text-align: center;"><span class="tier-pill">T2</span></td>
+                <td style="text-align: center;"><strong class="warranted-tier">T1</strong></td>
+                <td style="text-align: center;"><span class="badge-upgrade">UPGRADE TO T1</span></td>
+                <td style="font-size: 13px; color: #475467;">CRITICAL SAFETY GAP: CDU prevents fatal/irreversible outcomes (Ischemic Stroke or Myocardial Infarction from Vasospasm) but is currently Tier 2. It must be upgraded to Tier 1 (Hard Veto Floor) to prevent model-level instruction decay and dangerous overrides.</td>
+            </tr>
+            
+            <tr>
+                <td><code>CDU-PD-ANTIPSYCHOTIC-CONTRAINDICATIONS</code></td>
+                <td>Fatal D2 Antagonist Prohibitions in Parkinson's Disease</td>
+                <td style="text-align: center;"><span class="tier-pill">T2</span></td>
+                <td style="text-align: center;"><strong class="warranted-tier">T1</strong></td>
+                <td style="text-align: center;"><span class="badge-upgrade">UPGRADE TO T1</span></td>
+                <td style="font-size: 13px; color: #475467;">CRITICAL SAFETY GAP: CDU prevents fatal/irreversible outcomes (Irreversible Parkinsonian Motor Collapse / Bulbar Freezing) but is currently Tier 2. It must be upgraded to Tier 1 (Hard Veto Floor) to prevent model-level instruction decay and dangerous overrides.</td>
+            </tr>
+            
+            <tr>
+                <td><code>CDU-TCA-ANTICHOLINERGIC-PROHIBITION</code></td>
+                <td>Tricyclic Antidepressant Prohibitions in Severe BPH</td>
+                <td style="text-align: center;"><span class="tier-pill">T2</span></td>
+                <td style="text-align: center;"><strong class="warranted-tier">T2</strong></td>
+                <td style="text-align: center;"><span class="badge-aligned">ALIGNED</span></td>
+                <td style="font-size: 13px; color: #475467;">Priority tier is medically aligned with graph hazard severity.</td>
+            </tr>
+            
+            <tr>
+                <td><code>CDU-GABAPENTINOID-RENAL-DOSING</code></td>
+                <td>Gabapentinoid Renally-Adjusted Dosing in CKD</td>
+                <td style="text-align: center;"><span class="tier-pill">T2</span></td>
+                <td style="text-align: center;"><strong class="warranted-tier">T2</strong></td>
+                <td style="text-align: center;"><span class="badge-aligned">ALIGNED</span></td>
+                <td style="font-size: 13px; color: #475467;">Priority tier is medically aligned with graph hazard severity.</td>
+            </tr>
+            
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Graph Rendering Script -->
+    <script>
+        const graphData = {"nodes": [{"id": "CDU-T2D-METFORMIN-RENAL", "label": "CDU-T2D-METFORMIN-RENAL\n(T2)", "title": "<b>CDU-T2D-METFORMIN-RENAL</b><br>Metformin Titration & Safety in Renal Impairment<br><i>Priority Tier: 2</i>", "group": "cdu", "color": {"background": "#e0f2fe", "border": "#0284c7"}, "shape": "box", "font": {"color": "#0369a1", "size": 13, "face": "monospace", "bold": true}}, {"id": "CDU-HF-SGLT2I-MRA", "label": "CDU-HF-SGLT2I-MRA\n(T2)", "title": "<b>CDU-HF-SGLT2I-MRA</b><br>HFrEF Guideline Directed Medical Therapy (GDMT) Initiation<br><i>Priority Tier: 2</i>", "group": "cdu", "color": {"background": "#e0f2fe", "border": "#0284c7"}, "shape": "box", "font": {"color": "#0369a1", "size": 13, "face": "monospace", "bold": true}}, {"id": "CDU-CKD-POTASSIUM-SAFETY", "label": "CDU-CKD-POTASSIUM-SAFETY\n(T2)", "title": "<b>CDU-CKD-POTASSIUM-SAFETY</b><br>Hyperkalemia Surveillance & Renoprotection in CKD<br><i>Priority Tier: 2</i>", "group": "cdu", "color": {"background": "#e0f2fe", "border": "#0284c7"}, "shape": "box", "font": {"color": "#0369a1", "size": 13, "face": "monospace", "bold": true}}, {"id": "CDU-GOUT-ACUTE-FLARE", "label": "CDU-GOUT-ACUTE-FLARE\n(T2)", "title": "<b>CDU-GOUT-ACUTE-FLARE</b><br>Acute Gout Management in High-Risk Multi-Morbidity<br><i>Priority Tier: 2</i>", "group": "cdu", "color": {"background": "#e0f2fe", "border": "#0284c7"}, "shape": "box", "font": {"color": "#0369a1", "size": 13, "face": "monospace", "bold": true}}, {"id": "CDU-ASTHMA-DRUG-SAFETY", "label": "CDU-ASTHMA-DRUG-SAFETY\n(T2)", "title": "<b>CDU-ASTHMA-DRUG-SAFETY</b><br>Bronchospasm Risk & Beta-Blocker Prohibitions in Asthma<br><i>Priority Tier: 2</i>", "group": "cdu", "color": {"background": "#e0f2fe", "border": "#0284c7"}, "shape": "box", "font": {"color": "#0369a1", "size": 13, "face": "monospace", "bold": true}}, {"id": "CDU-ANGINA-FIRSTLINE", "label": "CDU-ANGINA-FIRSTLINE\n(T2)", "title": "<b>CDU-ANGINA-FIRSTLINE</b><br>Stable Ischemic Heart Disease / Angina in Asthma<br><i>Priority Tier: 2</i>", "group": "cdu", "color": {"background": "#e0f2fe", "border": "#0284c7"}, "shape": "box", "font": {"color": "#0369a1", "size": 13, "face": "monospace", "bold": true}}, {"id": "CDU-PUD-BLEEDING-SAFETY", "label": "CDU-PUD-BLEEDING-SAFETY\n(T2)", "title": "<b>CDU-PUD-BLEEDING-SAFETY</b><br>Secondary Upper GI Bleed Prevention in Anticoagulation<br><i>Priority Tier: 2</i>", "group": "cdu", "color": {"background": "#e0f2fe", "border": "#0284c7"}, "shape": "box", "font": {"color": "#0369a1", "size": 13, "face": "monospace", "bold": true}}, {"id": "CDU-OA-ANALGESIA", "label": "CDU-OA-ANALGESIA\n(T2)", "title": "<b>CDU-OA-ANALGESIA</b><br>Safe Osteoarthritis Analgesia in High Bleeding Risk<br><i>Priority Tier: 2</i>", "group": "cdu", "color": {"background": "#e0f2fe", "border": "#0284c7"}, "shape": "box", "font": {"color": "#0369a1", "size": 13, "face": "monospace", "bold": true}}, {"id": "CDU-FRAIL-T2D-TARGETS", "label": "CDU-FRAIL-T2D-TARGETS\n(T2)", "title": "<b>CDU-FRAIL-T2D-TARGETS</b><br>Deprescribing Sulfonylureas & Relaxing Glycemic Targets in Frail Elderly<br><i>Priority Tier: 2</i>", "group": "cdu", "color": {"background": "#e0f2fe", "border": "#0284c7"}, "shape": "box", "font": {"color": "#0369a1", "size": 13, "face": "monospace", "bold": true}}, {"id": "CDU-CIRRHOSIS-MED-SAFETY", "label": "CDU-CIRRHOSIS-MED-SAFETY\n(T2)", "title": "<b>CDU-CIRRHOSIS-MED-SAFETY</b><br>Pharmacotherapy Safety & NSAID Prohibitions in Cirrhosis<br><i>Priority Tier: 2</i>", "group": "cdu", "color": {"background": "#e0f2fe", "border": "#0284c7"}, "shape": "box", "font": {"color": "#0369a1", "size": 13, "face": "monospace", "bold": true}}, {"id": "CDU-CIRRHOSIS-ANALGESIA", "label": "CDU-CIRRHOSIS-ANALGESIA\n(T2)", "title": "<b>CDU-CIRRHOSIS-ANALGESIA</b><br>Paracetamol Dosing Ceiling in Cirrhosis<br><i>Priority Tier: 2</i>", "group": "cdu", "color": {"background": "#e0f2fe", "border": "#0284c7"}, "shape": "box", "font": {"color": "#0369a1", "size": 13, "face": "monospace", "bold": true}}, {"id": "CDU-TRIPTAN-VASCULAR-SAFETY", "label": "CDU-TRIPTAN-VASCULAR-SAFETY\n(T2)", "title": "<b>CDU-TRIPTAN-VASCULAR-SAFETY</b><br>Triptan Vascular Contraindications in Severe Hypertension<br><i>Priority Tier: 2</i>", "group": "cdu", "color": {"background": "#e0f2fe", "border": "#0284c7"}, "shape": "box", "font": {"color": "#0369a1", "size": 13, "face": "monospace", "bold": true}}, {"id": "CDU-PD-ANTIPSYCHOTIC-CONTRAINDICATIONS", "label": "CDU-PD-ANTIPSYCHOTIC-CONTRAINDICATIONS\n(T2)", "title": "<b>CDU-PD-ANTIPSYCHOTIC-CONTRAINDICATIONS</b><br>Fatal D2 Antagonist Prohibitions in Parkinson's Disease<br><i>Priority Tier: 2</i>", "group": "cdu", "color": {"background": "#e0f2fe", "border": "#0284c7"}, "shape": "box", "font": {"color": "#0369a1", "size": 13, "face": "monospace", "bold": true}}, {"id": "CDU-TCA-ANTICHOLINERGIC-PROHIBITION", "label": "CDU-TCA-ANTICHOLINERGIC-PROHIBITION\n(T2)", "title": "<b>CDU-TCA-ANTICHOLINERGIC-PROHIBITION</b><br>Tricyclic Antidepressant Prohibitions in Severe BPH<br><i>Priority Tier: 2</i>", "group": "cdu", "color": {"background": "#e0f2fe", "border": "#0284c7"}, "shape": "box", "font": {"color": "#0369a1", "size": 13, "face": "monospace", "bold": true}}, {"id": "CDU-GABAPENTINOID-RENAL-DOSING", "label": "CDU-GABAPENTINOID-RENAL-DOSING\n(T2)", "title": "<b>CDU-GABAPENTINOID-RENAL-DOSING</b><br>Gabapentinoid Renally-Adjusted Dosing in CKD<br><i>Priority Tier: 2</i>", "group": "cdu", "color": {"background": "#e0f2fe", "border": "#0284c7"}, "shape": "box", "font": {"color": "#0369a1", "size": 13, "face": "monospace", "bold": true}}, {"id": "CLASS:NSAID", "label": "Non-Steroidal Anti-Inflammatory Drugs (NSAIDs)", "title": "<b>Drug Class:</b> Non-Steroidal Anti-Inflammatory Drugs (NSAIDs)<br>ID: CLASS:NSAID", "group": "drug", "color": {"background": "#dcfce7", "border": "#16a34a"}, "shape": "ellipse", "font": {"color": "#15803d", "size": 12}}, {"id": "HAZARD:ACUTE_RENAL_FAILURE", "label": "\u26a0\ufe0f Acute-on-Chronic Kidney Injury", "title": "<b>Hazard:</b> Acute-on-Chronic Kidney Injury<br>Severity: Tier 2", "group": "hazard", "color": {"background": "#fee2e2", "border": "#dc2626"}, "shape": "hexagon", "font": {"color": "#b91c1c", "size": 12, "bold": true}}, {"id": "CLASS:PARACETAMOL", "label": "Paracetamol / Acetaminophen (Analgesic)", "title": "<b>Drug Class:</b> Paracetamol / Acetaminophen (Analgesic)<br>ID: CLASS:PARACETAMOL", "group": "drug", "color": {"background": "#dcfce7", "border": "#16a34a"}, "shape": "ellipse", "font": {"color": "#15803d", "size": 12}}, {"id": "HAZARD:HEPATOTOXICITY_OVERDOSE", "label": "\u26a0\ufe0f Dose-Dependent Hepatotoxicity in Impaired Glutathione Reserves", "title": "<b>Hazard:</b> Dose-Dependent Hepatotoxicity in Impaired Glutathione Reserves<br>Severity: Tier 2", "group": "hazard", "color": {"background": "#fee2e2", "border": "#dc2626"}, "shape": "hexagon", "font": {"color": "#b91c1c", "size": 12, "bold": true}}, {"id": "CLASS:D2_ANTAGONIST_ANTIEMETIC", "label": "Dopamine D2 Receptor Antagonist Antiemetics", "title": "<b>Drug Class:</b> Dopamine D2 Receptor Antagonist Antiemetics<br>ID: CLASS:D2_ANTAGONIST_ANTIEMETIC", "group": "drug", "color": {"background": "#dcfce7", "border": "#16a34a"}, "shape": "ellipse", "font": {"color": "#15803d", "size": 12}}, {"id": "HAZARD:CATATONIC_PARKINSONISM_FREEZE", "label": "\u26a0\ufe0f Irreversible Parkinsonian Motor Collapse / Bulbar Freezing", "title": "<b>Hazard:</b> Irreversible Parkinsonian Motor Collapse / Bulbar Freezing<br>Severity: Tier 1", "group": "hazard", "color": {"background": "#fee2e2", "border": "#dc2626"}, "shape": "hexagon", "font": {"color": "#b91c1c", "size": 12, "bold": true}}], "edges": [{"from": "CDU-OA-ANALGESIA", "to": "CDU-GOUT-ACUTE-FLARE", "label": "\u26a1 CLASH: Non-Steroidal Anti-Inflammatory Drugs (NSAIDs)", "color": {"color": "#ef4444", "highlight": "#b91c1c"}, "dashes": true, "arrows": "to", "width": 2, "font": {"color": "#b91c1c", "size": 11, "strokeWidth": 2, "strokeColor": "#ffffff"}}, {"from": "CDU-OA-ANALGESIA", "to": "CLASS:NSAID", "label": "MANDATES", "color": {"color": "#0284c7"}, "arrows": "to", "width": 1}, {"from": "CDU-GOUT-ACUTE-FLARE", "to": "CLASS:NSAID", "label": "PROHIBITS", "color": {"color": "#dc2626"}, "dashes": true, "arrows": "to", "width": 2}, {"from": "CLASS:NSAID", "to": "HAZARD:ACUTE_RENAL_FAILURE", "label": "PRECIPITATES", "color": {"color": "#b91c1c"}, "arrows": "to", "width": 1}, {"from": "CDU-OA-ANALGESIA", "to": "CDU-PUD-BLEEDING-SAFETY", "label": "\u26a1 CLASH: Non-Steroidal Anti-Inflammatory Drugs (NSAIDs)", "color": {"color": "#ef4444", "highlight": "#b91c1c"}, "dashes": true, "arrows": "to", "width": 2, "font": {"color": "#b91c1c", "size": 11, "strokeWidth": 2, "strokeColor": "#ffffff"}}, {"from": "CDU-OA-ANALGESIA", "to": "CLASS:NSAID", "label": "MANDATES", "color": {"color": "#0284c7"}, "arrows": "to", "width": 1}, {"from": "CDU-PUD-BLEEDING-SAFETY", "to": "CLASS:NSAID", "label": "PROHIBITS", "color": {"color": "#dc2626"}, "dashes": true, "arrows": "to", "width": 2}, {"from": "CLASS:NSAID", "to": "HAZARD:ACUTE_RENAL_FAILURE", "label": "PRECIPITATES", "color": {"color": "#b91c1c"}, "arrows": "to", "width": 1}, {"from": "CDU-OA-ANALGESIA", "to": "CDU-CIRRHOSIS-MED-SAFETY", "label": "\u26a1 CLASH: Non-Steroidal Anti-Inflammatory Drugs (NSAIDs)", "color": {"color": "#ef4444", "highlight": "#b91c1c"}, "dashes": true, "arrows": "to", "width": 2, "font": {"color": "#b91c1c", "size": 11, "strokeWidth": 2, "strokeColor": "#ffffff"}}, {"from": "CDU-OA-ANALGESIA", "to": "CLASS:NSAID", "label": "MANDATES", "color": {"color": "#0284c7"}, "arrows": "to", "width": 1}, {"from": "CDU-CIRRHOSIS-MED-SAFETY", "to": "CLASS:NSAID", "label": "PROHIBITS", "color": {"color": "#dc2626"}, "dashes": true, "arrows": "to", "width": 2}, {"from": "CLASS:NSAID", "to": "HAZARD:ACUTE_RENAL_FAILURE", "label": "PRECIPITATES", "color": {"color": "#b91c1c"}, "arrows": "to", "width": 1}, {"from": "CDU-OA-ANALGESIA", "to": "CDU-CIRRHOSIS-ANALGESIA", "label": "\u26a1 CLASH: Non-Steroidal Anti-Inflammatory Drugs (NSAIDs)", "color": {"color": "#ef4444", "highlight": "#b91c1c"}, "dashes": true, "arrows": "to", "width": 2, "font": {"color": "#b91c1c", "size": 11, "strokeWidth": 2, "strokeColor": "#ffffff"}}, {"from": "CDU-OA-ANALGESIA", "to": "CLASS:NSAID", "label": "MANDATES", "color": {"color": "#0284c7"}, "arrows": "to", "width": 1}, {"from": "CDU-CIRRHOSIS-ANALGESIA", "to": "CLASS:NSAID", "label": "PROHIBITS", "color": {"color": "#dc2626"}, "dashes": true, "arrows": "to", "width": 2}, {"from": "CLASS:NSAID", "to": "HAZARD:ACUTE_RENAL_FAILURE", "label": "PRECIPITATES", "color": {"color": "#b91c1c"}, "arrows": "to", "width": 1}, {"from": "CDU-OA-ANALGESIA", "to": "CDU-CIRRHOSIS-ANALGESIA", "label": "\u26a1 CLASH: Paracetamol / Acetaminophen (Analgesic)", "color": {"color": "#ef4444", "highlight": "#b91c1c"}, "dashes": true, "arrows": "to", "width": 2, "font": {"color": "#b91c1c", "size": 11, "strokeWidth": 2, "strokeColor": "#ffffff"}}, {"from": "CDU-OA-ANALGESIA", "to": "CLASS:PARACETAMOL", "label": "MANDATES", "color": {"color": "#0284c7"}, "arrows": "to", "width": 1}, {"from": "CDU-CIRRHOSIS-ANALGESIA", "to": "CLASS:PARACETAMOL", "label": "PROHIBITS", "color": {"color": "#dc2626"}, "dashes": true, "arrows": "to", "width": 2}, {"from": "CLASS:PARACETAMOL", "to": "HAZARD:HEPATOTOXICITY_OVERDOSE", "label": "PRECIPITATES", "color": {"color": "#b91c1c"}, "arrows": "to", "width": 1}, {"from": "CDU-OA-ANALGESIA", "to": "CDU-CIRRHOSIS-ANALGESIA", "label": "\u26a1 CLASH: Paracetamol Dosing Ceiling", "color": {"color": "#ef4444", "highlight": "#b91c1c"}, "dashes": true, "arrows": "to", "width": 2, "font": {"color": "#b91c1c", "size": 11, "strokeWidth": 2, "strokeColor": "#ffffff"}}, {"from": "CDU-OA-ANALGESIA", "to": "CLASS:PARACETAMOL", "label": "MANDATES", "color": {"color": "#0284c7"}, "arrows": "to", "width": 1}, {"from": "CDU-CIRRHOSIS-ANALGESIA", "to": "CLASS:PARACETAMOL", "label": "PROHIBITS", "color": {"color": "#dc2626"}, "dashes": true, "arrows": "to", "width": 2}, {"from": "CLASS:PARACETAMOL", "to": "HAZARD:HEPATOTOXICITY_OVERDOSE", "label": "PRECIPITATES", "color": {"color": "#b91c1c"}, "arrows": "to", "width": 1}, {"from": "CDU-TRIPTAN-VASCULAR-SAFETY", "to": "CDU-CIRRHOSIS-ANALGESIA", "label": "\u26a1 CLASH: Paracetamol / Acetaminophen (Analgesic)", "color": {"color": "#ef4444", "highlight": "#b91c1c"}, "dashes": true, "arrows": "to", "width": 2, "font": {"color": "#b91c1c", "size": 11, "strokeWidth": 2, "strokeColor": "#ffffff"}}, {"from": "CDU-TRIPTAN-VASCULAR-SAFETY", "to": "CLASS:PARACETAMOL", "label": "MANDATES", "color": {"color": "#0284c7"}, "arrows": "to", "width": 1}, {"from": "CDU-CIRRHOSIS-ANALGESIA", "to": "CLASS:PARACETAMOL", "label": "PROHIBITS", "color": {"color": "#dc2626"}, "dashes": true, "arrows": "to", "width": 2}, {"from": "CLASS:PARACETAMOL", "to": "HAZARD:HEPATOTOXICITY_OVERDOSE", "label": "PRECIPITATES", "color": {"color": "#b91c1c"}, "arrows": "to", "width": 1}, {"from": "CDU-TRIPTAN-VASCULAR-SAFETY", "to": "CDU-PD-ANTIPSYCHOTIC-CONTRAINDICATIONS", "label": "\u26a1 CLASH: Dopamine D2 Receptor Antagonist Antiemetics", "color": {"color": "#ef4444", "highlight": "#b91c1c"}, "dashes": true, "arrows": "to", "width": 2, "font": {"color": "#b91c1c", "size": 11, "strokeWidth": 2, "strokeColor": "#ffffff"}}, {"from": "CDU-TRIPTAN-VASCULAR-SAFETY", "to": "CLASS:D2_ANTAGONIST_ANTIEMETIC", "label": "MANDATES", "color": {"color": "#0284c7"}, "arrows": "to", "width": 1}, {"from": "CDU-PD-ANTIPSYCHOTIC-CONTRAINDICATIONS", "to": "CLASS:D2_ANTAGONIST_ANTIEMETIC", "label": "PROHIBITS", "color": {"color": "#dc2626"}, "dashes": true, "arrows": "to", "width": 2}, {"from": "CLASS:D2_ANTAGONIST_ANTIEMETIC", "to": "HAZARD:CATATONIC_PARKINSONISM_FREEZE", "label": "PRECIPITATES", "color": {"color": "#b91c1c"}, "arrows": "to", "width": 1}]};
+        let networkInstance = null;
+        let physicsEnabled = true;
+
+        function initGraph() {
+            const container = document.getElementById('network-canvas');
+            if (!container || !window.vis) return;
+
+            const data = {
+                nodes: new vis.DataSet(graphData.nodes),
+                edges: new vis.DataSet(graphData.edges)
+            };
+
+            const options = {
+                nodes: {
+                    borderWidth: 2,
+                    shadow: true
+                },
+                edges: {
+                    smooth: { type: 'cubicBezier', roundness: 0.2 }
+                },
+                physics: {
+                    barnesHut: {
+                        gravitationalConstant: -3500,
+                        springLength: 120,
+                        springConstant: 0.04
+                    },
+                    stabilization: { iterations: 120 }
+                },
+                interaction: {
+                    hover: true,
+                    tooltipDelay: 150,
+                    zoomView: true
+                }
+            };
+
+            networkInstance = new vis.Network(container, data, options);
+
+            networkInstance.on("click", function(params) {
+                if (params.nodes.length > 0) {
+                    const nodeId = params.nodes[0];
+                    highlightCollisionsByNode(nodeId);
+                }
+            });
+        }
+
+        function fitNetwork() {
+            if (networkInstance) networkInstance.fit({ animation: true });
+        }
+
+        function togglePhysics() {
+            physicsEnabled = !physicsEnabled;
+            if (networkInstance) {
+                networkInstance.setOptions({ physics: { enabled: physicsEnabled } });
+            }
+            document.getElementById('physics-btn').innerText = physicsEnabled ? "⏸️ Toggle Physics" : "▶️ Resume Physics";
+        }
+
+        function highlightCollisionsByNode(nodeId) {
+            const cards = document.querySelectorAll('.collision-card');
+            cards.forEach(c => {
+                const text = c.innerText;
+                if (text.includes(nodeId)) {
+                    c.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                    c.classList.add('active-card');
+                    setTimeout(() => c.classList.remove('active-card'), 2000);
+                }
+            });
+        }
+
+        function focusCollisionOnGraph(cduA, cduB) {
+            if (!networkInstance) return;
+            networkInstance.selectNodes([cduA, cduB]);
+            networkInstance.focus(cduA, { scale: 1.2, animation: true });
+        }
+
+        // Card filtering
+        function filterCards(type, btn) {
+            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            const cards = document.querySelectorAll('.collision-card');
+            cards.forEach(c => {
+                let show = true;
+                const txt = c.innerText.toUpperCase();
+                if (type === 'TIER1') {
+                    show = txt.includes('TIER 1 HAZARD');
+                } else if (type === 'CEILING') {
+                    show = txt.includes('DOSE_CEILING');
+                } else if (type === 'NSAID') {
+                    show = txt.includes('NSAID');
+                }
+                c.style.display = show ? 'block' : 'none';
+            });
+        }
+
+        function searchCards() {
+            const q = document.getElementById('searchInput').value.toLowerCase();
+            const cards = document.querySelectorAll('.collision-card');
+            cards.forEach(c => {
+                const match = c.innerText.toLowerCase().includes(q);
+                c.style.display = match ? 'block' : 'none';
+            });
+        }
+
+        // Attach click handlers to collision cards
+        document.addEventListener('DOMContentLoaded', () => {
+            initGraph();
+            const cards = document.querySelectorAll('.collision-card');
+            cards.forEach(c => {
+                const idElA = c.querySelector('.unit-a .unit-id');
+                const idElB = c.querySelector('.unit-b .unit-id');
+                if (idElA && idElB) {
+                    const idA = idElA.innerText.split(' ')[0].trim();
+                    const idB = idElB.innerText.split(' ')[0].trim();
+                    c.addEventListener('click', () => focusCollisionOnGraph(idA, idB));
+                }
+            });
+        });
+    </script>
+</body>
+</html>
